@@ -45,6 +45,10 @@ console.log('CPF Gerado:', cnpjGerador);
 console.log('CNPJ Gerado:', cpfGerador);
 ```
 
+Keep in mind that the code to import or require depends on the JavaScript environment you're running the package in (for example, Node.js with or without ES module support). Therefore, choose the import or require option that suits your environment.
+
+####################################
+
 Português
 
 Este pacote npm fornece funções em JavaScript para gerar números válidos de CPF (Cadastro de Pessoas Físicas) e CNPJ (Cadastro Nacional da Pessoa Jurídica) para o Brasil.

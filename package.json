@@ -1,6 +1,6 @@
 {
   "name": "cpf_and_cnpj-generator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "This repository contains a JavaScript code that generates a valid Brazilian CPF (Cadastro de Pessoas Físicas). CPF is a unique identification number assigned to individuals in Brazil. The code ensures that the generated CPF numbers follow the required validation rules and algorithms.",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,11 @@
   "keywords": [
     "CPF",
     "CNPJ",
-    "GENERATOR"
+    "GENERATOR",
+    "GERADOR",
+    "VALIDADOR",
+    "DOCUMENTO",
+    "JAVASCRIPT"
   ],
   "author": "Gabriel Logan",
   "license": "MIT",
