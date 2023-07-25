@@ -1,6 +1,6 @@
 # CPF and CNPJ Generator / Gerador de CPF e CNPJ
 
-[![npm version](https://badge.fury.io/js/cpf_and_cnpj-generator.svg)](https://badge.fury.io/js/cpf_and_cnpj-generator)
+[![npm version](https://badge.fury.io/js/cpf_and_cnpj-generator.svg?refresh=1)](https://badge.fury.io/js/cpf_and_cnpj-generator)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## English
