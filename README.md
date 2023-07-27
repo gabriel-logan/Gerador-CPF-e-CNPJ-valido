@@ -1,8 +1,16 @@
 # CPF and CNPJ Generator / Gerador de CPF e CNPJ
 
-[![npm version](https://badge.fury.io/js/cpf_and_cnpj-generator.svg?refresh=2)](https://badge.fury.io/js/cpf_and_cnpj-generator)
+[![npm version](https://badge.fury.io/js/cpf_and_cnpj-generator.svg?refresh=5)](https://badge.fury.io/js/cpf_and_cnpj-generator)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![npm downloads](https://img.shields.io/npm/dm/cpf_and_cnpj-generator.svg?style=flat-square)](https://npm-stat.com/charts.html?package=cpf_and_cnpj-generator)
+
+If you want to help me, you can buy me a coffee (:
+
+<p align="center">
+	<a href="https://www.buymeacoffee.com/gabriellogan" target="_blank">
+		<img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 35px !important;width: 180px !important;" >
+	</a>
+</p>
 
 ## English
 
@@ -89,5 +97,13 @@ const { cpfGerador, cnpjGerador } = require('cpf_and_cnpj-generator');
 console.log('CPF Gerado:', cnpjGerador);
 console.log('CNPJ Gerado:', cpfGerador);
 ```
+
+If you want to help me, you can buy me a coffee (:
+
+<p align="center">
+	<a href="https://www.buymeacoffee.com/gabriellogan" target="_blank">
+		<img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 35px !important;width: 180px !important;" >
+	</a>
+</p>
 
 Lembre-se de que o código de importação ou require depende do ambiente JavaScript em que você está executando o pacote (por exemplo, Node.js com suporte a módulos ES ou sem suporte). Portanto, escolha a opção de importação ou require adequada ao seu ambiente.
