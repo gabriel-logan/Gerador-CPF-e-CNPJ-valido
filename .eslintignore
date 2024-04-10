@@ -1,0 +1,9 @@
+.eslintrc.js
+docs/
+dist/
+types/
+coverage/
+tests/
+*.js
+node_modules/
+tests/
