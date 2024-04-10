@@ -80,10 +80,10 @@ https://gabriel-logan.github.io/Gerador-CPF-e-CNPJ-valido
 
 unpkg:
 ```bash
-https://unpkg.com/Gerador-CPF-e-CNPJ-valido@1.0.8/dist/bundle.js
+https://unpkg.com/cpf_and_cnpj-generator@1.0.9/dist/bundle.js
 ```
 ```html
-<scritp src="https://unpkg.com/Gerador-CPF-e-CNPJ-valido@1.0.8/dist/bundle.js"></script>
+<scritp src="https://unpkg.com/cpf_and_cnpj-generator@1.0.9/dist/bundle.js"></script>
 ```
 
 ## Instalação
