@@ -1,9 +1,9 @@
 {
   "name": "cpf_and_cnpj-generator",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "This repository contains a JavaScript code that generates a valid Brazilian CPF (Cadastro de Pessoas Físicas). CPF is a unique identification number assigned to individuals in Brazil. The code ensures that the generated CPF numbers follow the required validation rules and algorithms.",
   "main": "dist/index.js",
-	"types": "types/index.d.ts",
+  "types": "types/index.d.ts",
   "scripts": {
     "test": "jest --coverage",
     "build:dist": "tsc",
@@ -24,14 +24,24 @@
     "DOCUMENTO",
     "JAVASCRIPT",
     "Dados pessoais",
-    "npm"
+    "npm",
+    "cpf",
+    "cnpj",
+    "gerador de cpf",
+    "gerador de cnpj",
+    "validador de cpf",
+    "validador de cnpj",
+    "gerador de cpf e cnpj",
+    "validador de cpf e cnpj",
+    "front-end",
+    "back-end"
   ],
   "author": "Gabriel Logan",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/issues"
   },
-  "homepage": "https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido#readme",
+  "homepage": "https://gabriel-logan.github.io/Gerador-CPF-e-CNPJ-valido",
   "devDependencies": {
     "@types/jest": "^29.5.12",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
@@ -43,6 +53,9 @@
     "multiform-validator": "^1.0.40",
     "prettier": "^3.2.5",
     "ts-jest": "^29.1.2",
-    "typescript": "^5.4.2"
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.4.2",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4"
   }
 }

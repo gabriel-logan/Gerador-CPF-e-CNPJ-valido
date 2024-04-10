@@ -15,3 +15,5 @@ coverage/
 tests/
 jest.config.js
 index.ts
+.github
+webpack.config.js

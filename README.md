@@ -16,6 +16,16 @@ If you want to help me, you can buy me a coffee (:
 
 This npm package provides JavaScript functions to generate valid Brazilian CPF (Cadastro de Pessoas Físicas) and CNPJ (Cadastro Nacional da Pessoa Jurídica) numbers.
 
+## CDN
+
+unpkg:
+```bash
+https://unpkg.com/Gerador-CPF-e-CNPJ-valido@1.0.8/dist/bundle.js
+```
+```html
+<scritp src="https://unpkg.com/Gerador-CPF-e-CNPJ-valido@1.0.8/dist/bundle.js"></script>
+```
+
 ### Installation
 
 You can install this package using npm:
@@ -56,20 +66,34 @@ console.log('CNPJ Gerado:', cpfGerador);
 
 Keep in mind that the code to import or require depends on the JavaScript environment you're running the package in (for example, Node.js with or without ES module support). Therefore, choose the import or require option that suits your environment.
 
-####################################
+##########################################################################################
 
 Português
 
 Este pacote npm fornece funções em JavaScript para gerar números válidos de CPF (Cadastro de Pessoas Físicas) e CNPJ (Cadastro Nacional da Pessoa Jurídica) para o Brasil.
 
-Instalação
+## DOC
+
+https://gabriel-logan.github.io/Gerador-CPF-e-CNPJ-valido
+
+## CDN
+
+unpkg:
+```bash
+https://unpkg.com/Gerador-CPF-e-CNPJ-valido@1.0.8/dist/bundle.js
+```
+```html
+<scritp src="https://unpkg.com/Gerador-CPF-e-CNPJ-valido@1.0.8/dist/bundle.js"></script>
+```
+
+## Instalação
 Você pode instalar este pacote usando npm:
 
 ```bash
 npm install cpf_and_cnpj-generator
 ```
 
-Como Usar
+## Como Usar
 Após instalar o pacote, você pode utilizá-lo em seu projeto JavaScript:
 
 ```javascript

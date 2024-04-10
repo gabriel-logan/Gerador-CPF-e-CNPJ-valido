@@ -7,3 +7,4 @@ tests/
 *.js
 node_modules/
 tests/
+.github
