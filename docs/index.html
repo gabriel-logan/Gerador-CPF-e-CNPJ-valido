@@ -8,24 +8,52 @@
 		content="This npm package provides JavaScript functions to generate valid Brazilian CPF (Cadastro de Pessoas Físicas) and CNPJ (Cadastro Nacional da Pessoa Jurídica) numbers.">
 	<title>CPF and CNPJ Generator / Gerador de CPF e CNPJ</title>
 	<link rel="stylesheet" href="./srcPage/css/home/style.css">
+	<style>
+		#div_geradores {
+			@media (min-width: 500px) {
+				position: absolute;
+				left: 5%;
+				top: 20%;
+			}
+		}
+	</style>
+	<script src="https://unpkg.com/cpf_and_cnpj-generator@1.1.2/dist/bundle.js"></script>
 </head>
 
 <body>
 	<h1>Documentation</h1>
+	<script>
+		const responseCpf = document.getElementById('response-cpf');
+		const responseCnpj = document.getElementById('response-cnpj');
+		document.querySelector('#gera-cpf').addEventListener('click', () => {
+			responseCpf.textContent = generateCpf();
+		});
+		document.querySelector('#gera-cnpj').addEventListener('click', () => {
+			responseCnpj.textContent = generateCnpj();
+		});
+	</script>
 	<p>Este pacote npm fornece funções em JavaScript/Typescript para gerar números válidos de CPF (Cadastro de Pessoas
 		Físicas) e CNPJ (Cadastro Nacional da Pessoa Jurídica) para o Brasil.</p>
 	<code style="padding: 10px;">npm install cpf_and_cnpj-generator</code>
 	<p>ou</p>
 	<code style="padding: 10px;">yarn add cpf_and_cnpj-generator</code>
-	<a style="margin-top: 15px;" href="https://www.npmjs.com/package/cpf_and_cnpj-generator" target="_blank" rel="noopener noreferrer">Go to npm
+	<a style="margin-top: 15px;" href="https://www.npmjs.com/package/cpf_and_cnpj-generator" target="_blank"
+		rel="noopener noreferrer">Go to npm
 		page</a>
-	<a style="margin-top: 15px;" href="https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido" target="_blank" rel="noopener noreferrer">Go to github
+	<a style="margin-top: 15px;" href="https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido" target="_blank"
+		rel="noopener noreferrer">Go to github
 		page</a>
 
 	<h2>Como Usar</h2>
+	<div id="div_geradores">
+		<button id="gera-cpf">Gerar CPF</button>
+		<p>CPF: <span id="response-cpf"></span></p>
+		<button id="gera-cnpj">Gerar CNPJ</button>
+		<p>CNPJ: <span id="response-cnpj"></span></p>
+	</div>
 	<p>Após instalar o pacote, você pode utilizá-lo em seu projeto JavaScript:</p>
 
-<pre><code>// Usando import
+	<pre><code>// Usando import
 import gerador from 'cpf_and_cnpj-generator';
 
 console.log(gerador.generateCnpj());
@@ -50,6 +78,19 @@ console.log('CPF Gerado:', generateCnpj());
 console.log('CNPJ Gerado:', generateCpf());
 </code></pre>
 
+	<pre>
+<code>
+// Pode testar o cdn usando
+
+&lt;script src="https://unpkg.com/cpf_and_cnpj-generator@1.1.1/dist/bundle.js"&gt;&lt;/script&gt;
+
+ou clicando nos botões na propria pagina
+</code>
+</pre>
+
+	<p>Você também pode testar o cdn nesta pagina, digitando generateCnpj() ou generateCpf() no console log do navegador
+	</p>
+
 	<p>If you want to help me, you can buy me a coffee (:</p>
 
 	<p align="center">
@@ -59,7 +100,8 @@ console.log('CNPJ Gerado:', generateCpf());
 		</a>
 	</p>
 
-	<p style="margin: 10px;">Lembre-se de que o código de importação ou require depende do ambiente JavaScript em que você está executando o
+	<p style="margin: 10px;">Lembre-se de que o código de importação ou require depende do ambiente JavaScript em que você
+		está executando o
 		pacote (por exemplo, Node.js com suporte a módulos ES ou sem suporte). Portanto, escolha a opção de importação ou
 		require adequada ao seu ambiente.</p>
 	<script src="./srcPage/js/home/index.js"></script>
