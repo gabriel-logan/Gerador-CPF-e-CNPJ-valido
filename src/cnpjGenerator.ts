@@ -37,11 +37,6 @@ function calculateSecondVerifier(cnpjBase: number[], firstVerifier: number) {
 	return remainder < 2 ? 0 : 11 - remainder;
 }
 
-/**
- * Made by: Logan
- * Function to generate a valid CNPJ
- * @returns {string} - Returns a valid CNPJ
- */
 function generateValidCNPJ(): string {
 	const cnpjBase: number[] = generateCNPJBase();
 	const firstVerifier: number = calculateFirstVerifier(cnpjBase);

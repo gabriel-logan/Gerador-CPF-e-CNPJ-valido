@@ -20,10 +20,10 @@ This npm package provides JavaScript functions to generate valid Brazilian CPF (
 
 unpkg:
 ```bash
-https://unpkg.com/Gerador-CPF-e-CNPJ-valido@1.1.0/dist/bundle.js
+https://unpkg.com/cpf_and_cnpj-generator@1.1.1/dist/bundle.js
 ```
 ```html
-<scritp src="https://unpkg.com/Gerador-CPF-e-CNPJ-valido@1.1.0/dist/bundle.js"></script>
+<scritp src="https://unpkg.com/cpf_and_cnpj-generator@1.1.1/dist/bundle.js"></script>
 ```
 
 ### Installation
@@ -42,25 +42,25 @@ After installing the package, you can use it in your JavaScript project:
 // Using import
 import generator from 'cpf_and_cnpj-generator';
 
-console.log(generator.gnerateCnpj());
+console.log(generator.generateCnpj());
 console.log(generator.generateCpf());
 
 // Or
-import { gnerateCnpj, generateCpf } from 'cpf_and_cnpj-generator';
+import { generateCnpj, generateCpf } from 'cpf_and_cnpj-generator';
 
-console.log(gnerateCnpj());
+console.log(generateCnpj());
 console.log(generateCpf());
 
 // Using require
 const generator = require('cpf_and_cnpj-generator');
 
-console.log('CPF generated:', generator.gnerateCnpj());
+console.log('CPF generated:', generator.generateCnpj());
 console.log('CNPJ generated:', generator.generateCpf());
 
 // Or
-const { generateCpf, gnerateCnpj } = require('cpf_and_cnpj-generator');
+const { generateCpf, generateCnpj } = require('cpf_and_cnpj-generator');
 
-console.log('CPF generated:', gnerateCnpj());
+console.log('CPF generated:', generateCnpj());
 console.log('CNPJ generated:', generateCpf());
 ```
 
@@ -80,10 +80,10 @@ https://gabriel-logan.github.io/Gerador-CPF-e-CNPJ-valido
 
 unpkg:
 ```bash
-https://unpkg.com/cpf_and_cnpj-generator@1.1.0/dist/bundle.js
+https://unpkg.com/cpf_and_cnpj-generator@1.1.1/dist/bundle.js
 ```
 ```html
-<scritp src="https://unpkg.com/cpf_and_cnpj-generator@1.1.0/dist/bundle.js"></script>
+<scritp src="https://unpkg.com/cpf_and_cnpj-generator@1.1.1/dist/bundle.js"></script>
 ```
 
 ## Instalação
@@ -100,25 +100,25 @@ Após instalar o pacote, você pode utilizá-lo em seu projeto JavaScript:
 // Usando import
 import gerador from 'cpf_and_cnpj-generator';
 
-console.log(gerador.gnerateCnpj());
+console.log(gerador.generateCnpj());
 console.log(gerador.generateCpf());
 
 // Ou
-import { gnerateCnpj, generateCpf } from 'cpf_and_cnpj-generator';
+import { generateCnpj, generateCpf } from 'cpf_and_cnpj-generator';
 
-console.log(gnerateCnpj());
+console.log(generateCnpj());
 console.log(generateCpf());
 
 // Usando require
 const gerador = require('cpf_and_cnpj-generator');
 
-console.log('CPF Gerado:', gerador.gnerateCnpj());
+console.log('CPF Gerado:', gerador.generateCnpj());
 console.log('CNPJ Gerado:', gerador.generateCpf());
 
 // Ou
-const { generateCpf, gnerateCnpj } = require('cpf_and_cnpj-generator');
+const { generateCpf, generateCnpj } = require('cpf_and_cnpj-generator');
 
-console.log('CPF Gerado:', gnerateCnpj());
+console.log('CPF Gerado:', generateCnpj());
 console.log('CNPJ Gerado:', generateCpf());
 ```
 

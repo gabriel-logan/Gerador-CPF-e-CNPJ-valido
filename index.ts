@@ -10,7 +10,7 @@ export = {
 	 * @returns {string} - Returns a valid CNPJ
 	 * @description - Made by: Logan
 	 */
-	gnerateCnpj: cnpjGenerator,
+	generateCnpj: cnpjGenerator,
 
 	/**
 	 * Generates a valid CPF (Brazilian identification number).

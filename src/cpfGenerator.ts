@@ -1,8 +1,3 @@
-/**
- * Generates a valid CPF (Brazilian identification number).
- *
- * @returns {string} - Returns a valid CPF
- */
 function geraEValida(): string {
 	// Função que executa todo código.
 	const cpfStored: string[] = [];

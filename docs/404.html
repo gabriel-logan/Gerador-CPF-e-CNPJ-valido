@@ -28,25 +28,25 @@
 <pre><code>// Usando import
 import gerador from 'cpf_and_cnpj-generator';
 
-console.log(gerador.gnerateCnpj());
+console.log(gerador.generateCnpj());
 console.log(gerador.generateCpf());
 
 // Ou
-import { gnerateCnpj, generateCpf } from 'cpf_and_cnpj-generator';
+import { generateCnpj, generateCpf } from 'cpf_and_cnpj-generator';
 
-console.log(gnerateCnpj());
+console.log(generateCnpj());
 console.log(generateCpf());
 
 // Usando require
 const gerador = require('cpf_and_cnpj-generator');
 
-console.log('CPF Gerado:', gerador.gnerateCnpj());
+console.log('CPF Gerado:', gerador.generateCnpj());
 console.log('CNPJ Gerado:', gerador.generateCpf());
 
 // Ou
-const { generateCpf, gnerateCnpj } = require('cpf_and_cnpj-generator');
+const { generateCpf, generateCnpj } = require('cpf_and_cnpj-generator');
 
-console.log('CPF Gerado:', gnerateCnpj());
+console.log('CPF Gerado:', generateCnpj());
 console.log('CNPJ Gerado:', generateCpf());
 </code></pre>
 
