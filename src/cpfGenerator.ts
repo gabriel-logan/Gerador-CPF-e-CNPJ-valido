@@ -1,9 +1,9 @@
 /**
- * Made by: Logan
- * Function to generate a valid CPF
- * @returns Returns a valid CPF
+ * Generates a valid CPF (Brazilian identification number).
+ *
+ * @returns {string} - Returns a valid CPF
  */
-function geraEValida() {
+function geraEValida(): string {
 	// Função que executa todo código.
 	const cpfStored: string[] = [];
 	for (let generator: number = 0; generator < 11; generator++) {
@@ -63,4 +63,4 @@ function geraEValida() {
 	return geraEValida();
 }
 
-export default geraEValida();
+export default geraEValida;

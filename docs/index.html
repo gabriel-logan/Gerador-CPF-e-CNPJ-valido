@@ -28,26 +28,26 @@
 <pre><code>// Usando import
 import gerador from 'cpf_and_cnpj-generator';
 
-console.log(gerador.cnpjGerador);
-console.log(gerador.cpfGerador);
+console.log(gerador.gnerateCnpj());
+console.log(gerador.generateCpf());
 
 // Ou
-import { cnpjGerador, cpfGerador } from 'cpf_and_cnpj-generator';
+import { gnerateCnpj, generateCpf } from 'cpf_and_cnpj-generator';
 
-console.log(cnpjGerador);
-console.log(cpfGerador);
+console.log(gnerateCnpj());
+console.log(generateCpf());
 
 // Usando require
 const gerador = require('cpf_and_cnpj-generator');
 
-console.log('CPF Gerado:', gerador.cnpjGerador);
-console.log('CNPJ Gerado:', gerador.cpfGerador);
+console.log('CPF Gerado:', gerador.gnerateCnpj());
+console.log('CNPJ Gerado:', gerador.generateCpf());
 
 // Ou
-const { cpfGerador, cnpjGerador } = require('cpf_and_cnpj-generator');
+const { generateCpf, gnerateCnpj } = require('cpf_and_cnpj-generator');
 
-console.log('CPF Gerado:', cnpjGerador);
-console.log('CNPJ Gerado:', cpfGerador);
+console.log('CPF Gerado:', gnerateCnpj());
+console.log('CNPJ Gerado:', generateCpf());
 </code></pre>
 
 	<p>If you want to help me, you can buy me a coffee (:</p>

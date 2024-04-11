@@ -42,7 +42,7 @@ function calculateSecondVerifier(cnpjBase: number[], firstVerifier: number) {
  * Function to generate a valid CNPJ
  * @returns {string} - Returns a valid CNPJ
  */
-function generateValidCNPJ() {
+function generateValidCNPJ(): string {
 	const cnpjBase: number[] = generateCNPJBase();
 	const firstVerifier: number = calculateFirstVerifier(cnpjBase);
 	const secondVerifier: number = calculateSecondVerifier(
@@ -52,4 +52,4 @@ function generateValidCNPJ() {
 	return `${cnpjBase.join("")}${String(firstVerifier)}${String(secondVerifier)}`;
 }
 
-export default generateValidCNPJ();
+export default generateValidCNPJ;
