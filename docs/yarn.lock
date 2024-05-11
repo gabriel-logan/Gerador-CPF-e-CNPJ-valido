@@ -2420,6 +2420,13 @@ react-dom@^18:
     loose-envify "^1.1.0"
     scheduler "^0.23.2"
 
+react-input-mask-br@^1.1.5, react-input-mask-br@^1.1.8:
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/react-input-mask-br/-/react-input-mask-br-1.1.8.tgz#33cfd9ca40d3f655afd3844483d9eebb1f2f9b14"
+  integrity sha512-yzcykHmslOsYU6z3Wb4jr5HqeTQ++pE9oo9xlL3dCvV3nqVUQEFBwmuScNaiS+tGWdud99tfR7Q19k8/K4qfOA==
+  dependencies:
+    react-input-mask-br "^1.1.5"
+
 react-is@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
