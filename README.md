@@ -1,133 +1,30 @@
-# CPF and CNPJ Generator / Gerador de CPF e CNPJ
+> [!NOTE]
+> I accept help to make the version of the other programming languages.
 
-[![npm version](https://badge.fury.io/js/cpf_and_cnpj-generator.svg?refresh=5)](https://badge.fury.io/js/cpf_and_cnpj-generator)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![npm downloads](https://img.shields.io/npm/dm/cpf_and_cnpj-generator.svg?style=flat-square)](https://npm-stat.com/charts.html?package=cpf_and_cnpj-generator)
-
-If you want to help me, you can buy me a coffee (:
-
-<p align="center">
-	<a href="https://www.buymeacoffee.com/gabriellogan" target="_blank">
-		<img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 35px !important;width: 180px !important;" >
-	</a>
-</p>
-
-## English
+# cpf_and_cnpj-generator
 
 This npm package provides JavaScript functions to generate valid Brazilian CPF (Cadastro de Pessoas Físicas) and CNPJ (Cadastro Nacional da Pessoa Jurídica) numbers.
 
-## CDN
+## Supported Languages
 
-unpkg:
-```bash
-https://unpkg.com/cpf_and_cnpj-generator@1.1.2/dist/bundle.js
-```
-```html
-<script src="https://unpkg.com/cpf_and_cnpj-generator@1.1.2/dist/bundle.js"></script>
-```
+This library can validate data in the following programming languages:
 
-### Installation
+- [TypeScript (TS/JS/NPM)](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/typescript/README.md) (stable)
+- [Python](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/python/README.md) (stable)
 
-You can install this package using npm:
+## Usage
 
-```bash
-npm install cpf_and_cnpj-generator
-```
+To use this library, please refer to the specific README file in the directory of the programming language you are using. 
+For example, if you are using TypeScript, you can find the usage instructions in the [TypeScript README](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/typescript/README.md).
 
-How to Use
-After installing the package, you can use it in your JavaScript project:
+## Installation
 
+Please refer to the specific installation instructions in the README file of the respective programming language directory.
 
-```javascript
-// Using import
-import generator from 'cpf_and_cnpj-generator';
+## Contributing
 
-console.log(generator.generateCnpj());
-console.log(generator.generateCpf());
+Contributions are welcome! Please read the contributing guidelines before getting started.
 
-// Or
-import { generateCnpj, generateCpf } from 'cpf_and_cnpj-generator';
+## License
 
-console.log(generateCnpj());
-console.log(generateCpf());
-
-// Using require
-const generator = require('cpf_and_cnpj-generator');
-
-console.log('CPF generated:', generator.generateCnpj());
-console.log('CNPJ generated:', generator.generateCpf());
-
-// Or
-const { generateCpf, generateCnpj } = require('cpf_and_cnpj-generator');
-
-console.log('CPF generated:', generateCnpj());
-console.log('CNPJ generated:', generateCpf());
-```
-
-Keep in mind that the code to import or require depends on the JavaScript environment you're running the package in (for example, Node.js with or without ES module support). Therefore, choose the import or require option that suits your environment.
-
-##########################################################################################
-
-Português
-
-Este pacote npm fornece funções em JavaScript para gerar números válidos de CPF (Cadastro de Pessoas Físicas) e CNPJ (Cadastro Nacional da Pessoa Jurídica) para o Brasil.
-
-## DOC
-
-https://gabriel-logan.github.io/Gerador-CPF-e-CNPJ-valido
-
-## CDN
-
-unpkg:
-```bash
-https://unpkg.com/cpf_and_cnpj-generator@1.1.2/dist/bundle.js
-```
-```html
-<script src="https://unpkg.com/cpf_and_cnpj-generator@1.1.2/dist/bundle.js"></script>
-```
-
-## Instalação
-Você pode instalar este pacote usando npm:
-
-```bash
-npm install cpf_and_cnpj-generator
-```
-
-## Como Usar
-Após instalar o pacote, você pode utilizá-lo em seu projeto JavaScript:
-
-```javascript
-// Usando import
-import gerador from 'cpf_and_cnpj-generator';
-
-console.log(gerador.generateCnpj());
-console.log(gerador.generateCpf());
-
-// Ou
-import { generateCnpj, generateCpf } from 'cpf_and_cnpj-generator';
-
-console.log(generateCnpj());
-console.log(generateCpf());
-
-// Usando require
-const gerador = require('cpf_and_cnpj-generator');
-
-console.log('CPF Gerado:', gerador.generateCnpj());
-console.log('CNPJ Gerado:', gerador.generateCpf());
-
-// Ou
-const { generateCpf, generateCnpj } = require('cpf_and_cnpj-generator');
-
-console.log('CPF Gerado:', generateCnpj());
-console.log('CNPJ Gerado:', generateCpf());
-```
-
-If you want to help me, you can buy me a coffee (:
-
-<p align="center">
-	<a href="https://www.buymeacoffee.com/gabriellogan" target="_blank">
-		<img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 35px !important;width: 180px !important;" >
-	</a>
-</p>
-
-Lembre-se de que o código de importação ou require depende do ambiente JavaScript em que você está executando o pacote (por exemplo, Node.js com suporte a módulos ES ou sem suporte). Portanto, escolha a opção de importação ou require adequada ao seu ambiente.
+This project is licensed under the MIT License.
