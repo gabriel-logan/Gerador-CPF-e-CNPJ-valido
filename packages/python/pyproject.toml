@@ -1,0 +1,24 @@
+[build-system]
+requires = [
+    "setuptools>=61"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cpf-and-cnpj-generator"
+version = "0.0.1"
+authors = [
+  { name="Gabriel Logan" },
+]
+description = "This pypi package provides Python functions to generate valid Brazilian CPF (Cadastro de Pessoas Físicas) and CNPJ (Cadastro Nacional da Pessoa Jurídica) numbers."
+readme = "README.md"
+requires-python = ">=3.1"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://gabriel-logan.github.io/Gerador-CPF-e-CNPJ-valido"
+"Bug Tracker" = "https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/python"
