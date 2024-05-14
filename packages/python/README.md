@@ -6,6 +6,10 @@
 
 Feel free to find bugs and report them to me. Your feedback is highly appreciated. Hugs from Gabriel Logan!
 
+## Documentation
+
+https://gabriel-logan.github.io/Gerador-CPF-e-CNPJ-valido/py
+
 ### Installation
 
 ```bash

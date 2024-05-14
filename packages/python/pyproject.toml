@@ -6,12 +6,14 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cpf-and-cnpj-generator"
-version = "0.0.1"
+version = "0.0.2"
 authors = [
   { name="Gabriel Logan" },
 ]
 description = "This pypi package provides Python functions to generate valid Brazilian CPF (Cadastro de Pessoas Físicas) and CNPJ (Cadastro Nacional da Pessoa Jurídica) numbers."
-readme = "README.md"
+readme = {file = "README.md", content-type = "text/markdown"}
+license = {file = "LICENSE"}
+keywords = ["CPF","CNPJ","GENERATOR","GERADOR","VALIDADOR","DOCUMENTO","Python","Dados pessoais","npm","cpf","cnpj","gerador de cpf","gerador de cnpj","validador de cpf","validador de cnpj","gerador de cpf e cnpj","validador de cpf e cnpj","front-end","back-end"]
 requires-python = ">=3.1"
 classifiers = [
     "Programming Language :: Python :: 3",
