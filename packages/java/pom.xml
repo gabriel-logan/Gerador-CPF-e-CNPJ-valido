@@ -27,7 +27,7 @@
         <repository>
             <id>github</id>
             <name>GitHub gabriel-logan Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido</url>
+            <url>https://maven.pkg.github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/java</url>
         </repository>
     </distributionManagement>
 

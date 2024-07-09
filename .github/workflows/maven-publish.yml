@@ -49,7 +49,7 @@ jobs:
               </repository>
               <repository>
                 <id>github</id>
-                <url>https://maven.pkg.github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido</url>
+                <url>https://maven.pkg.github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/java</url>
                 <snapshots>
                   <enabled>true</enabled>
                 </snapshots>
