@@ -1,0 +1,33 @@
+# Object files
+*.o
+
+# Executable files
+*.exe
+*.out
+
+# Compiler generated files
+*.dSYM/
+*.gcda
+*.gcno
+
+# Dependency files
+*.d
+
+# IDE configuration files
+/.vscode/
+/.idea/
+
+# Build files
+/build/
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+
+# Backup files
+*~
+
+# Output directory
+/output/

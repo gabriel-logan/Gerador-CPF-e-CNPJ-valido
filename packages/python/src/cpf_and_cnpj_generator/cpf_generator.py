@@ -1,47 +1,28 @@
 import random
 
+def random_num():
+    # generates a random number between 0 and 9
+    return random.randint(0, 9)
+
+def calculate_digit(cpf_list, factor):
+    # The sum is calculated by multiplying each digit by a factor and summing the results
+    total_sum = sum([val * (factor - idx) for idx, val in enumerate(cpf_list)])
+    # If the sum is less than 2, the verifier digit is 0, otherwise it is 11 minus the remainder of the sum divided by 11
+    return 0 if total_sum % 11 < 2 else 11 - (total_sum % 11)
+
 def generate_cpf():
-    cpf_stored = []
-    for _ in range(11):
-        random_number = str(random.randint(0, 9))
-        cpf_stored.append(random_number)
-    
-    cpf_stored_string = "".join(cpf_stored)
-    numero_base = 10
-    numero_base2 = 11
-    soma_total = 0
-    soma_total2 = 0
-    primeiro_verificador = 0
-    segundo_verificador = 0
-    
-    for repetidor in range(11):
-        for contador in cpf_stored_string[repetidor]:
-            multiplicador = int(contador) * numero_base
-            numero_base -= 1
-            soma_total += multiplicador
-        
-        for contador2 in cpf_stored_string[repetidor]:
-            multiplicador2 = int(contador2) * numero_base2
-            numero_base2 -= 1
-            soma_total2 += multiplicador2
-        
-        valor_de_verificacao = soma_total - int(cpf_stored_string[9])
-        valor_de_verificacao2 = soma_total2 - int(cpf_stored_string[10])
+    # Generates a list of 9 random numbers
+    cpf_list = [random_num() for _ in range(9)]
 
-        primeiro_verificador = 11 - (valor_de_verificacao % 11)
-        segundo_verificador = 11 - (valor_de_verificacao2 % 11)
+    # Calculates the first verifier digit
+    first_verifier = calculate_digit(cpf_list, 10)
+    cpf_list.append(first_verifier)
 
-    if primeiro_verificador > 9:
-        primeiro_verificador = 0
+    # Calculates the second verifier digit
+    second_verifier = calculate_digit(cpf_list, 11)
+    cpf_list.append(second_verifier)
 
-    if segundo_verificador > 9:
-        segundo_verificador = 0
+    # Returns the generated CPF as a string
+    return ''.join(map(str, cpf_list))
 
-    if (
-        primeiro_verificador == int(cpf_stored_string[9])
-        and segundo_verificador == int(cpf_stored_string[10])
-        and not all(digit == cpf_stored_string[0] for digit in cpf_stored_string)
-    ):
-        return cpf_stored_string
-    
-    return generate_cpf()
+print(generate_cpf())
