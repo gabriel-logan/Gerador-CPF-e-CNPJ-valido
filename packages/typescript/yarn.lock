@@ -2589,10 +2589,10 @@ ms@2.1.2:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
 
-multiform-validator@^1.0.40:
-  version "1.0.40"
-  resolved "https://registry.yarnpkg.com/multiform-validator/-/multiform-validator-1.0.40.tgz#1ec7b5b73a5fe13cea850a613dc3d583ebcc2cba"
-  integrity sha512-hUUu/c9lvoZXUBzO/euzk7zD2wTPbnCGhvSekY5SuuyPAGsv4ExlUALAdQl5dyAWpBDmsTg7UTG3zpijUbd2mw==
+multiform-validator@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/multiform-validator/-/multiform-validator-2.1.0.tgz#28eadf0e3ae442eed5a3c8f93eb59e1710eefe15"
+  integrity sha512-4V1PbaJaEcmcovfPGHoaMmVAulRir+SlmGB0l39ZeDt9HRWmO0S4UO6TGZ1qiqPJ1ERZdT/+wo2GAkWoOT+2sg==
 
 natural-compare@^1.4.0:
   version "1.4.0"
