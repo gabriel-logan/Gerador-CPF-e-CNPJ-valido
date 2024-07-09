@@ -27,7 +27,11 @@ jobs:
         server-id: github
         settings-path: ${{ github.workspace }}
 
-    - name: Create settings.xml
+    - name: Build with Maven
+      working-directory: ./packages/java
+      run: mvn -B package --file pom.xml
+
+    - name: Publish to GitHub Packages Apache Maven
       working-directory: ./packages/java
       run: |
         echo '<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
@@ -65,14 +69,8 @@ jobs:
             <password>${{secrets.MVN_TOKEN_GITHUB_PACKAGES}}</password>
           </server>
         </servers>
-        </settings>' > settings.xml
+        </settings>' > settings.xml &&
 
-    - name: Build with Maven
-      working-directory: ./packages/java
-      run: mvn -B package --file pom.xml
-
-    - name: Publish to GitHub Packages Apache Maven
-      working-directory: ./packages/java
-      run: mvn deploy -s settings.xml
+        mvn deploy -s settings.xml
       env:
         GITHUB_TOKEN: ${{ github.token }}
