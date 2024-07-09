@@ -27,17 +27,18 @@ jobs:
         server-id: github
         settings-path: ${{ github.workspace }}
 
-    - name: Create settings.xml
+    - name: Create settings.xml in packages/java
       run: |
+        mkdir -p packages/java
         echo '<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
                             http://maven.apache.org/xsd/settings-1.0.0.xsd">
-
+    
         <activeProfiles>
           <activeProfile>github</activeProfile>
         </activeProfiles>
-
+    
         <profiles>
           <profile>
             <id>github</id>
@@ -56,7 +57,7 @@ jobs:
             </repositories>
           </profile>
         </profiles>
-
+    
         <servers>
           <server>
             <id>github</id>
@@ -64,13 +65,14 @@ jobs:
             <password>${{secrets.MVN_TOKEN_GITHUB_PACKAGES}}</password>
           </server>
         </servers>
-        </settings>' > settings.xml
+        </settings>' > packages/java/settings.xml
 
     - name: Build with Maven
       working-directory: ./packages/java
       run: mvn -B package --file pom.xml
 
     - name: Publish to GitHub Packages Apache Maven
+      working-directory: ./packages/java
       run: mvn deploy -s settings.xml
       env:
         GITHUB_TOKEN: ${{ github.token }}
