@@ -71,10 +71,6 @@ jobs:
       working-directory: ./packages/java
       run: mvn -B package --file pom.xml
 
-    - name: List directory contents
-      working-directory: ./packages/java
-      run: ls -la
-
     - name: Publish to GitHub Packages Apache Maven
       working-directory: ./packages/java
       run: mvn deploy -s settings.xml
