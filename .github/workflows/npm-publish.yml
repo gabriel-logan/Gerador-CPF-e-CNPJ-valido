@@ -22,9 +22,9 @@ jobs:
       - name: Cd to directory to publish npm
         working-directory: ./packages/typescript
         run: |
-          npm install
-          npm test
-          npm run build
+          yarn install
+          yarn test
+          yarn build
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NODE_AUTH_TOKEN}}
