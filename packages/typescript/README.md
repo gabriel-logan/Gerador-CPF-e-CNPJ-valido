@@ -20,10 +20,10 @@ This npm package provides JavaScript functions to generate valid Brazilian CPF (
 
 unpkg:
 ```bash
-https://unpkg.com/cpf_and_cnpj-generator@1.1.4/dist/bundle.js
+https://unpkg.com/cpf_and_cnpj-generator@1.1.6/dist/bundle.js
 ```
 ```html
-<script src="https://unpkg.com/cpf_and_cnpj-generator@1.1.4/dist/bundle.js"></script>
+<script src="https://unpkg.com/cpf_and_cnpj-generator@1.1.6/dist/bundle.js"></script>
 ```
 
 ### Installation
@@ -80,10 +80,10 @@ https://gabriel-logan.github.io/Gerador-CPF-e-CNPJ-valido
 
 unpkg:
 ```bash
-https://unpkg.com/cpf_and_cnpj-generator@1.1.4/dist/bundle.js
+https://unpkg.com/cpf_and_cnpj-generator@1.1.6/dist/bundle.js
 ```
 ```html
-<script src="https://unpkg.com/cpf_and_cnpj-generator@1.1.4/dist/bundle.js"></script>
+<script src="https://unpkg.com/cpf_and_cnpj-generator@1.1.6/dist/bundle.js"></script>
 ```
 
 ## Instalação
