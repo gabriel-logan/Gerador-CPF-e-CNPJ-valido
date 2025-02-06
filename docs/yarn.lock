@@ -1079,10 +1079,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cpf_and_cnpj-generator@npm:^1.1.2":
-  version: 1.1.2
-  resolution: "cpf_and_cnpj-generator@npm:1.1.2"
-  checksum: 10c0/f5cebeb20d15169890d4c0a51a6894c66648f0d3a888e2fcdd2ed25df84ee1e08404f036a788cf1e3dbc8e866a56f5effef23f8c0a85bad66804fb4c80928e72
+"cpf_and_cnpj-generator@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "cpf_and_cnpj-generator@npm:1.2.1"
+  checksum: 10c0/581c275f5e2fe48d18d43b054ff3e125ac6ae117df37bee725be550d2de943f079481072bd5e0c5eec14b186591dcbde02c3bd11d1441645057fcddedff26037
   languageName: node
   linkType: hard
 
@@ -2031,7 +2031,7 @@ __metadata:
     "@types/react": "npm:^18"
     "@types/react-dom": "npm:^18"
     "@types/react-syntax-highlighter": "npm:^15.5.13"
-    cpf_and_cnpj-generator: "npm:^1.1.2"
+    cpf_and_cnpj-generator: "npm:^1.2.1"
     eslint: "npm:^8"
     eslint-config-next: "npm:14.2.3"
     eslint-config-universe: "npm:^12.0.1"
