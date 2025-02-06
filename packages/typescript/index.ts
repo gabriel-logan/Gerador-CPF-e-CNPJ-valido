@@ -5,17 +5,17 @@ import cnpjGenerator from "./src/cnpjGenerator";
 import cpfGenerator from "./src/cpfGenerator";
 
 export = {
-	/**
-	 * Generates a valid CNPJ (Brazilian company identification number).
-	 * @returns {string} - Returns a valid CNPJ
-	 * @description - Made by: Logan
-	 */
-	generateCnpj: cnpjGenerator,
+  /**
+   * Generates a valid CNPJ (Brazilian company identification number).
+   * @returns {string} - Returns a valid CNPJ
+   * @description - Made by: Logan
+   */
+  generateCnpj: cnpjGenerator,
 
-	/**
-	 * Generates a valid CPF (Brazilian identification number).
-	 * @returns Returns a valid CPF
-	 * @description - Made by: Logan
-	 */
-	generateCpf: cpfGenerator,
+  /**
+   * Generates a valid CPF (Brazilian identification number).
+   * @returns Returns a valid CPF
+   * @description - Made by: Logan
+   */
+  generateCpf: cpfGenerator,
 };

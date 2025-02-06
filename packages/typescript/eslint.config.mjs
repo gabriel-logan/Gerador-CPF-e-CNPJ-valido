@@ -10,7 +10,7 @@ export default tseslint.config(
     languageOptions: {
       parserOptions: {
         project: "tsconfig.eslint.json",
-        tsconfigRootDir: ".",
+        tsconfigRootDir: import.meta.dirname,
       },
     },
     ignores: ["webpack.config.js", "dist/", "types/", "internal/"],
