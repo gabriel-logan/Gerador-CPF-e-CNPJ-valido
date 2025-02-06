@@ -1,17 +1,8 @@
 package io.github;
 
-import java.util.Random;
-
 public class Cpf {
     private Cpf() {
         throw new IllegalStateException("Utility class");
-    }
-
-    private static final Random RAND = new Random();
-
-    // Function to generate a random number of 9 digits
-    public static int random9Num() {
-        return RAND.nextInt(9);
     }
 
     // Function to calculate the verifier digits
@@ -30,7 +21,7 @@ public class Cpf {
         final int[] cpfArray = new int[9];
 
         for (int i = 0; i < cpfArray.length; i++) {
-            cpfArray[i] = random9Num();
+            cpfArray[i] = Utils.generateRandomNumber();
         }
 
         // Calculates the first verifier digit

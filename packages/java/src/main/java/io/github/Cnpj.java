@@ -1,24 +1,15 @@
 package io.github;
 
-import java.util.Random;
-
 public class Cnpj {
     private Cnpj() {
         throw new IllegalStateException("Utility class");
-    }
-
-    private static final Random RAND = new Random();
-
-    // Function to generate a random number of 10 digits
-    private static int random10Digit() {
-        return RAND.nextInt(10);
     }
 
     private static int[] generateCNPJBase() {
         final int[] cnpjBase = new int[12];
 
         for (int i = 0; i < 12; i++) {
-            cnpjBase[i] = random10Digit();
+            cnpjBase[i] = Utils.generateRandomNumber();
         }
 
         return cnpjBase;
