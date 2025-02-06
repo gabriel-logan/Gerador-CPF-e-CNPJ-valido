@@ -5,57 +5,57 @@ public class Cnpj {
         throw new IllegalStateException("Utility class");
     }
 
-    private static int[] generateCNPJBase() {
-        final int[] cnpjBase = new int[12];
+    private static byte[] generateCNPJBase() {
+        final byte[] cnpjBase = new byte[12];
 
-        for (int i = 0; i < 12; i++) {
+        for (byte i = 0; i < 12; i++) {
             cnpjBase[i] = Utils.generateRandomNumber();
         }
 
         return cnpjBase;
     }
 
-    private static int calculateCnpjFirstVerifier(int[] cnpjBase) {
-        final int[] weight = {5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2};
+    private static byte calculateCnpjFirstVerifier(byte[] cnpjBase) {
+        final byte[] weight = {5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2};
 
-        int sum = 0;
+        short sum = 0;
 
-        for (int i = 0; i < 12; i++) {
-            sum += cnpjBase[i] * weight[i];
+        for (byte i = 0; i < 12; i++) {
+            sum += (short) (cnpjBase[i] * weight[i]);
         }
 
-        final int remainder = sum % 11;
+        final byte remainder = (byte) (sum % 11);
 
-        return remainder < 2 ? 0 : 11 - remainder;
+        return remainder < 2 ? 0 : (byte) (11 - remainder);
     }
 
-    private static int calculateCnpjSecondVerifier(int[] cnpjBase, int firstVerifier) {
-        final int[] weight = {6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2};
+    private static byte calculateCnpjSecondVerifier(byte[] cnpjBase, byte firstVerifier) {
+        final byte[] weight = {6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2};
 
-        int sum = 0;
+        short sum = 0;
 
-        for (int i = 0; i < 12; i++) {
-            sum += cnpjBase[i] * weight[i];
+        for (byte i = 0; i < 12; i++) {
+            sum += (short) (cnpjBase[i] * weight[i]);
         }
 
-        sum += firstVerifier * weight[12];
+        sum += (byte) (firstVerifier * weight[12]);
 
-        final int remainder = sum % 11;
+        final byte remainder = (byte) (sum % 11);
 
-        return remainder < 2 ? 0 : 11 - remainder;
+        return remainder < 2 ? 0 : (byte) (11 - remainder);
     }
 
     public static String generateCnpj() {
-        final int[] cnpjBase = new int[14];
+        final byte[] cnpjBase = new byte[14];
 
-        final int[] base = generateCNPJBase();
+        final byte[] base = generateCNPJBase();
         System.arraycopy(base, 0, cnpjBase, 0, base.length);
 
-        final int firstVerifier = calculateCnpjFirstVerifier(cnpjBase);
+        final byte firstVerifier = calculateCnpjFirstVerifier(cnpjBase);
 
         cnpjBase[12] = firstVerifier;
 
-        final int secondVerifier = calculateCnpjSecondVerifier(cnpjBase, firstVerifier);
+        final byte secondVerifier = calculateCnpjSecondVerifier(cnpjBase, firstVerifier);
 
         cnpjBase[13] = secondVerifier;
 

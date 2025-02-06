@@ -9,15 +9,17 @@ public class Utils {
 
     private static final Random RAND = new Random();
 
-    public static int generateRandomNumber() {
-        return RAND.nextInt(10);
+    public static byte generateRandomNumber() {
+        return (byte) RAND.nextInt(10);
     }
 
-    public static String numberToString(int[] number) {
+    public static String numberToString(byte[] number) {
         StringBuilder result = new StringBuilder();
-        for (int num : number) {
+
+        for (byte num : number) {
             result.append(num);
         }
+        
         return result.toString();
     }
 }
