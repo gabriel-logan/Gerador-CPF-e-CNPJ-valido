@@ -1,7 +1,5 @@
 package io.github;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class Cnpj {
@@ -16,56 +14,59 @@ public class Cnpj {
         return RAND.nextInt(10);
     }
 
-    private static List<Integer> generateCNPJBase() {
-        List<Integer> cnpjBase = new ArrayList<>();
+    private static int[] generateCNPJBase() {
+        final int[] cnpjBase = new int[12];
 
         for (int i = 0; i < 12; i++) {
-            cnpjBase.add(random10Digit());
+            cnpjBase[i] = random10Digit();
         }
 
         return cnpjBase;
     }
 
-    private static int calculateCnpjFirstVerifier(List<Integer> cnpjBase) {
-        int[] weight = {5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2};
+    private static int calculateCnpjFirstVerifier(int[] cnpjBase) {
+        final int[] weight = {5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2};
 
         int sum = 0;
 
         for (int i = 0; i < 12; i++) {
-            sum += cnpjBase.get(i) * weight[i];
+            sum += cnpjBase[i] * weight[i];
         }
 
-        int remainder = sum % 11;
+        final int remainder = sum % 11;
 
         return remainder < 2 ? 0 : 11 - remainder;
     }
 
-    private static int calculateCnpjSecondVerifier(List<Integer> cnpjBase, int firstVerifier) {
-        int[] weight = {6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2};
+    private static int calculateCnpjSecondVerifier(int[] cnpjBase, int firstVerifier) {
+        final int[] weight = {6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2};
 
         int sum = 0;
 
         for (int i = 0; i < 12; i++) {
-            sum += cnpjBase.get(i) * weight[i];
+            sum += cnpjBase[i] * weight[i];
         }
 
         sum += firstVerifier * weight[12];
 
-        int remainder = sum % 11;
+        final int remainder = sum % 11;
 
         return remainder < 2 ? 0 : 11 - remainder;
     }
 
     public static String generateCnpj() {
-        List<Integer> cnpjBase = generateCNPJBase();
+        final int[] cnpjBase = new int[14];
 
-        int firstVerifier = calculateCnpjFirstVerifier(cnpjBase);
+        final int[] base = generateCNPJBase();
+        System.arraycopy(base, 0, cnpjBase, 0, base.length);
 
-        cnpjBase.add(firstVerifier);
+        final int firstVerifier = calculateCnpjFirstVerifier(cnpjBase);
 
-        int secondVerifier = calculateCnpjSecondVerifier(cnpjBase, firstVerifier);
+        cnpjBase[12] = firstVerifier;
 
-        cnpjBase.add(secondVerifier);
+        final int secondVerifier = calculateCnpjSecondVerifier(cnpjBase, firstVerifier);
+
+        cnpjBase[13] = secondVerifier;
 
         StringBuilder cnpj = new StringBuilder();
         for (int num : cnpjBase) {
