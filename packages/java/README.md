@@ -1,2 +1,1 @@
 # cpf-and-cnpj-generator
-
