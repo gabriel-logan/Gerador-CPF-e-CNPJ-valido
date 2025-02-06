@@ -43,11 +43,6 @@ public class Cpf {
         cpfArrayWithBothVerifiers[10] = secondVerifier;
 
         // Returns the generated CPF as a string
-        StringBuilder cpf = new StringBuilder();
-        for (int num : cpfArrayWithBothVerifiers) {
-            cpf.append(num);
-        }
-
-        return cpf.toString();
+        return Utils.numberToString(cpfArrayWithBothVerifiers);
     }
 }

@@ -68,11 +68,6 @@ public class Cnpj {
 
         cnpjBase[13] = secondVerifier;
 
-        StringBuilder cnpj = new StringBuilder();
-        for (int num : cnpjBase) {
-            cnpj.append(num);
-        }
-
-        return cnpj.toString();
+        return Utils.numberToString(cnpjBase);
     }
 }
