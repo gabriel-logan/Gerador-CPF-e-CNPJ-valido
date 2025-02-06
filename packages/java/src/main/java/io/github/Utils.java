@@ -1,20 +1,18 @@
 package io.github;
 
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Utils {
     private Utils() {
         throw new IllegalStateException("Utility class");
     }
 
-    private static final Random RAND = new Random();
-
     public static byte generateRandomNumber() {
-        return (byte) RAND.nextInt(10);
+        return (byte) ThreadLocalRandom.current().nextInt(10);
     }
 
     public static String numberToString(byte[] number) {
-        StringBuilder result = new StringBuilder();
+        StringBuilder result = new StringBuilder(number.length);
 
         for (byte num : number) {
             result.append(num);
