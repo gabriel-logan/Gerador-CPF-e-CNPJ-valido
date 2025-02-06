@@ -10,7 +10,7 @@ public class Utils {
     private static final Random RAND = new Random();
 
     public static int generateRandomNumber() {
-        return RAND.nextInt(9);
+        return RAND.nextInt(10);
     }
 
     public static String numberToString(int[] number) {
