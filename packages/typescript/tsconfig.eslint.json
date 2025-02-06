@@ -5,6 +5,7 @@
     "webpack.config.js",
     "jest.config.js",
     "tests/**/*.ts",
+    "src/**/*.ts",
     "index.ts"
   ]
 }
