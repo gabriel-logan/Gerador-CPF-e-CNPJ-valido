@@ -1,8 +1,8 @@
 {
-	"extends": "./tsconfig.json",
-	"compilerOptions": {
-		"declaration": true,
-		"declarationDir": "./types",
-		"removeComments": false
-	}
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./types",
+    "removeComments": false
+  }
 }

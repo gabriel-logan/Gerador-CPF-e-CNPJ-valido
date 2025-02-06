@@ -1,69 +1,70 @@
 {
-	"name": "cpf_and_cnpj-generator",
-	"version": "1.1.6",
-	"description": "This repository contains a JavaScript code that generates a valid Brazilian CPF (Cadastro de Pessoas Físicas). CPF is a unique identification number assigned to individuals in Brazil. The code ensures that the generated CPF numbers follow the required validation rules and algorithms.",
-	"main": "dist/index.js",
-	"types": "types/index.d.ts",
-	"scripts": {
-		"test": "jest --coverage",
-		"build:dist": "tsc",
-		"build:types": "tsc -p tsconfig.types.json",
-		"build:browser": "webpack",
-		"build": "yarn build:types && yarn build:dist && yarn build:browser",
-		"lint": "eslint . --ext .ts",
-		"format": "prettier --write ."
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido.git"
-	},
-	"keywords": [
-		"CPF",
-		"CNPJ",
-		"GENERATOR",
-		"GERADOR",
-		"VALIDADOR",
-		"DOCUMENTO",
-		"JAVASCRIPT",
-		"Dados pessoais",
-		"npm",
-		"cpf",
-		"cnpj",
-		"gerador de cpf",
-		"gerador de cnpj",
-		"validador de cpf",
-		"validador de cnpj",
-		"gerador de cpf e cnpj",
-		"validador de cpf e cnpj",
-		"front-end",
-		"back-end",
-		"node"
-	],
-	"author": {
-		"name": "Gabriel Logan",
-		"url": "https://github.com/gabriel-logan"
-	},
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/issues"
-	},
-	"homepage": "https://gabriel-logan.github.io/Gerador-CPF-e-CNPJ-valido",
-	"devDependencies": {
-		"@eslint/js": "^9.19.0",
-		"@types/jest": "^29.5.14",
-		"eslint": "^9.19.0",
-		"eslint-config-prettier": "^10.0.1",
-		"eslint-plugin-prettier": "^5.2.3",
-		"jest": "^29.7.0",
-		"multiform-validator": "^2.5.2",
-		"prettier": "^3.4.2",
-		"ts-jest": "^29.2.5",
-		"ts-loader": "^9.5.2",
-		"ts-node": "^10.9.2",
-		"typescript": "^5.7.3",
-		"typescript-eslint": "^8.23.0",
-		"webpack": "^5.97.1",
-		"webpack-cli": "^6.0.1"
-	},
-	"packageManager": "yarn@4.6.0"
+  "name": "cpf_and_cnpj-generator",
+  "version": "1.1.6",
+  "description": "This repository contains a JavaScript code that generates a valid Brazilian CPF (Cadastro de Pessoas Físicas). CPF is a unique identification number assigned to individuals in Brazil. The code ensures that the generated CPF numbers follow the required validation rules and algorithms.",
+  "main": "dist/index.js",
+  "types": "types/index.d.ts",
+  "scripts": {
+    "test": "jest --coverage",
+    "build:dist": "tsc",
+    "build:types": "tsc -p tsconfig.types.json",
+    "build:browser": "webpack",
+    "build": "yarn build:types && yarn build:dist && yarn build:browser",
+    "lint": "eslint src/**/*.ts tests/**/*.ts",
+    "lint:fix": "yarn lint --fix",
+    "format": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido.git"
+  },
+  "keywords": [
+    "CPF",
+    "CNPJ",
+    "GENERATOR",
+    "GERADOR",
+    "VALIDADOR",
+    "DOCUMENTO",
+    "JAVASCRIPT",
+    "Dados pessoais",
+    "npm",
+    "cpf",
+    "cnpj",
+    "gerador de cpf",
+    "gerador de cnpj",
+    "validador de cpf",
+    "validador de cnpj",
+    "gerador de cpf e cnpj",
+    "validador de cpf e cnpj",
+    "front-end",
+    "back-end",
+    "node"
+  ],
+  "author": {
+    "name": "Gabriel Logan",
+    "url": "https://github.com/gabriel-logan"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/issues"
+  },
+  "homepage": "https://gabriel-logan.github.io/Gerador-CPF-e-CNPJ-valido",
+  "devDependencies": {
+    "@eslint/js": "^9.19.0",
+    "@types/jest": "^29.5.14",
+    "eslint": "^9.19.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "jest": "^29.7.0",
+    "multiform-validator": "^2.5.2",
+    "prettier": "^3.4.2",
+    "ts-jest": "^29.2.5",
+    "ts-loader": "^9.5.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.23.0",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  },
+  "packageManager": "yarn@4.6.0"
 }
