@@ -73,8 +73,14 @@ console.log('CNPJGerado:', gerador.generateCpf());`}
 
 			<SyntaxHighlighter language="javascript" style={a11yDark}>
 				{`// Pode testar o cdn usando
-<script src="https://unpkg.com/cpf_and_cnpj-generator@1.1.2/dist/bundle.js"></script>
+<script src="https://unpkg.com/cpf_and_cnpj-generator@1.2.1/dist/bundle.js"></script>
 // ou clicando nos botões na propria pagina`}
+			</SyntaxHighlighter>
+
+			<SyntaxHighlighter language="javascript" style={a11yDark}>
+				{`<script type="module">
+import { generateCpf, generateCnpj } from "https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.2.1/+esm"
+</script>`}
 			</SyntaxHighlighter>
 		</>
 	);
