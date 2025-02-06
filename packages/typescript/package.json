@@ -13,7 +13,7 @@
     "build:dist": "tsc",
     "build:types": "tsc -p tsconfig.types.json",
     "build:browser": "webpack",
-    "build": "yarn build:types && yarn build:dist && yarn build:browser",
+    "build": "rm -rf dist/ && rm -rf types/ && yarn build:types && yarn build:dist && yarn build:browser",
     "lint": "eslint src/**/*.ts tests/**/*.ts",
     "lint:fix": "yarn lint --fix",
     "format": "prettier --write ."
