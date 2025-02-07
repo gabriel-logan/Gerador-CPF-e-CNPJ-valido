@@ -5,16 +5,6 @@ public class Cnpj {
         throw new IllegalStateException("Utility class");
     }
 
-    private static byte[] generateCNPJBase() {
-        final byte[] cnpjBase = new byte[12];
-
-        for (byte i = 0; i < 12; i++) {
-            cnpjBase[i] = Utils.generateRandomNumber();
-        }
-
-        return cnpjBase;
-    }
-
     private static byte calculateCnpjFirstVerifier(byte[] cnpjBase) {
         final byte[] weight = {5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2};
 
@@ -46,19 +36,18 @@ public class Cnpj {
     }
 
     public static String generateCnpj() {
-        final byte[] cnpjBase = new byte[14];
+        final byte[] cnpjArray = new byte[14];
 
-        final byte[] base = generateCNPJBase();
-        System.arraycopy(base, 0, cnpjBase, 0, base.length);
+        for (byte i = 0; i < 12; i++) {
+            cnpjArray[i] = Utils.generateRandomNumber();
+        }
 
-        final byte firstVerifier = calculateCnpjFirstVerifier(cnpjBase);
+        // The first verifier digit is calculated based on the first 12 digits
+        cnpjArray[12] = calculateCnpjFirstVerifier(cnpjArray);
 
-        cnpjBase[12] = firstVerifier;
+        // The second verifier digit is calculated based on the first 13 digits
+        cnpjArray[13] = calculateCnpjSecondVerifier(cnpjArray, cnpjArray[12]);
 
-        final byte secondVerifier = calculateCnpjSecondVerifier(cnpjBase, firstVerifier);
-
-        cnpjBase[13] = secondVerifier;
-
-        return Utils.numberToString(cnpjBase);
+        return Utils.numberToString(cnpjArray);
     }
 }

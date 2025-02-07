@@ -9,7 +9,7 @@ public class Cpf {
     public static byte calculateCpfDigit(byte[] cpfArray, byte factor) {
         short sum = 0;
 
-        for (byte i = 0; i < cpfArray.length; i++) {
+        for (byte i = 0; i < 10; i++) {
             sum += (short) (cpfArray[i] * (factor - i));
         }
 
@@ -18,29 +18,19 @@ public class Cpf {
 
     public static String generateCpf() {
         // Generates an array of 9 random numbers
-        final byte[] cpfArray = new byte[9];
+        final byte[] cpfArray = new byte[11];
 
-        for (byte i = 0; i < cpfArray.length; i++) {
+        for (byte i = 0; i < 9; i++) {
             cpfArray[i] = Utils.generateRandomNumber();
         }
 
         // Calculates the first verifier digit
-        final byte firstVerifier = calculateCpfDigit(cpfArray, (byte) 10);
-
-        final byte[] cpfArrayWithFirstVerifier = new byte[10];
-        System.arraycopy(cpfArray, 0, cpfArrayWithFirstVerifier, 0, cpfArray.length);
-
-        cpfArrayWithFirstVerifier[9] = firstVerifier;
+        cpfArray[9] = calculateCpfDigit(cpfArray, (byte) 10);
 
         // Calculates the second verifier digit
-        final byte secondVerifier = calculateCpfDigit(cpfArrayWithFirstVerifier, (byte) 11);
-
-        final byte[] cpfArrayWithBothVerifiers = new byte[11];
-        System.arraycopy(cpfArrayWithFirstVerifier, 0, cpfArrayWithBothVerifiers, 0, cpfArrayWithFirstVerifier.length);
-
-        cpfArrayWithBothVerifiers[10] = secondVerifier;
+        cpfArray[10] = calculateCpfDigit(cpfArray, (byte) 11);
 
         // Returns the generated CPF as a string
-        return Utils.numberToString(cpfArrayWithBothVerifiers);
+        return Utils.numberToString(cpfArray);
     }
 }
