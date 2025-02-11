@@ -1,6 +1,3 @@
-/**
- * This module exports two functions for generating valid CNPJ and CPF numbers.
- */
 import cnpjGenerator from "./src/cnpjGenerator";
 import cpfGenerator from "./src/cpfGenerator";
 
