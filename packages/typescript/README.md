@@ -21,22 +21,25 @@ This npm package provides JavaScript functions to generate valid Brazilian CPF (
 unpkg:
 
 ```bash
-https://unpkg.com/cpf_and_cnpj-generator@1.2.1/dist/bundle.js
+https://unpkg.com/cpf_and_cnpj-generator@1.2.2/dist/bundle.js
 ```
 
 ```html
-<script src="https://unpkg.com/cpf_and_cnpj-generator@1.2.1/dist/bundle.js"></script>
+<script src="https://unpkg.com/cpf_and_cnpj-generator@1.2.2/dist/bundle.js"></script>
 ```
 
 jsdelivr:
 
 ```bash
-https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.2.1/+esm
+https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.2.2/+esm
 ```
 
 ```html
 <script type="module">
-import { generateCpf, generateCnpj } from "https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.2.1/+esm"
+  import {
+    generateCpf,
+    generateCnpj,
+  } from "https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.2.2/+esm";
 </script>
 ```
 
@@ -94,22 +97,25 @@ https://gabriel-logan.github.io/Gerador-CPF-e-CNPJ-valido
 unpkg:
 
 ```bash
-https://unpkg.com/cpf_and_cnpj-generator@1.2.1/dist/bundle.js
+https://unpkg.com/cpf_and_cnpj-generator@1.2.2/dist/bundle.js
 ```
 
 ```html
-<script src="https://unpkg.com/cpf_and_cnpj-generator@1.2.1/dist/bundle.js"></script>
+<script src="https://unpkg.com/cpf_and_cnpj-generator@1.2.2/dist/bundle.js"></script>
 ```
 
 jsdelivr:
 
 ```bash
-https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.2.1/+esm
+https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.2.2/+esm
 ```
 
 ```html
 <script type="module">
-import { generateCpf, generateCnpj } from "https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.2.1/+esm"
+  import {
+    generateCpf,
+    generateCnpj,
+  } from "https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.2.2/+esm";
 </script>
 ```
 
