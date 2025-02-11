@@ -6,9 +6,13 @@ permissions:
 on:
   push:
     branches: [main]
+    paths:
+      - "packages/typescript/**"
 
   pull_request:
     branches: [main]
+    paths:
+      - "packages/typescript/**"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -25,12 +29,28 @@ jobs:
           cache: "yarn"
 
       - name: Install dependencies
+        working-directory: ./packages/typescript
         run: yarn install
       - name: Run Prettier
+        working-directory: ./packages/typescript
         run: yarn format
       - name: Run lint
+        working-directory: ./packages/typescript
         run: yarn lint
       - name: Run test
+        working-directory: ./packages/typescript
         run: yarn test
       - name: Run build
+        working-directory: ./packages/typescript
         run: yarn build
+      - name: Check if dist and types are created
+        run: |
+          if [ ! -d "./packages/typescript/dist" ]; then
+            echo "dist directory is not created"
+            exit 1
+          fi
+          if [ ! -d "./packages/typescript/types" ]; then
+            echo "types directory is not created"
+            exit 1
+          fi
+          echo "dist and types directory are created"
