@@ -12,8 +12,10 @@ function calculateDigit(
     sum += cpfArray[i] * (factor - i);
   }
 
+  const remainder: number = sum % 11;
+
   // If the sum is less than 2, the verifier digit is 0, otherwise it is 11 minus the remainder of the sum divided by 11
-  return sum % 11 < 2 ? 0 : 11 - (sum % 11);
+  return remainder < 2 ? 0 : 11 - remainder;
 }
 
 function geraEValida(): string {
