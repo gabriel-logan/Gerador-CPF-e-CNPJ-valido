@@ -51,6 +51,14 @@ You can install this package using npm:
 npm install cpf_and_cnpj-generator
 ```
 
+```bash
+yarn add cpf_and_cnpj-generator
+```
+
+```bash
+pnpm add cpf_and_cnpj-generator
+```
+
 How to Use
 After installing the package, you can use it in your JavaScript project:
 
@@ -125,6 +133,14 @@ Você pode instalar este pacote usando npm:
 
 ```bash
 npm install cpf_and_cnpj-generator
+```
+
+```bash
+yarn add cpf_and_cnpj-generator
+```
+
+```bash
+pnpm add cpf_and_cnpj-generator
 ```
 
 ## Como Usar
