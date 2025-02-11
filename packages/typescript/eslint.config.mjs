@@ -3,6 +3,17 @@ import tseslint from "typescript-eslint";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 
 export default tseslint.config(
+  {
+    ignores: [
+      "webpack.config.js",
+      "dist/",
+      "types/",
+      "internal/",
+      "node_modules/",
+      "coverage/",
+      "jest.config.js",
+    ],
+  },
   eslint.configs.recommended,
   tseslint.configs.strictTypeChecked,
   eslintPluginPrettierRecommended,
@@ -13,7 +24,6 @@ export default tseslint.config(
         tsconfigRootDir: import.meta.dirname,
       },
     },
-    ignores: ["webpack.config.js", "dist/", "types/", "internal/"],
     rules: {
       "no-else-return": ["error", { allowElseIf: false }],
       "consistent-return": "error",

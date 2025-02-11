@@ -7,7 +7,7 @@ import cpfGenerator from "./src/cpfGenerator";
 export {
   /**
    * Generates a valid CNPJ (Brazilian company identification number).
-   * @returns {string} - Returns a valid CNPJ
+   * @returns Returns a valid CNPJ
    * @description - Made by: Logan
    */
   cnpjGenerator as generateCnpj,

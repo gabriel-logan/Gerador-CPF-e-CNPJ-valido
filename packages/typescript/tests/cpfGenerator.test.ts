@@ -3,10 +3,20 @@ import { cpfIsValid } from "multiform-validator";
 
 describe("geraEValida", () => {
   it("should generate a valid CPF", () => {
-    expect(cpfIsValid(cpfGenerator()).isValid).toBe(true); // Assert that the generated CPF is valid
+    for (let i: number = 0; i < 100; i++) {
+      expect(cpfIsValid(cpfGenerator()).isValid).toBe(true); // Assert that the generated CPF is valid
+    }
   });
 
   it("Should generate a valid cpf and return a string", () => {
     expect(typeof cpfGenerator()).toBe("string"); // Assert that the generated CPF is a string
+  });
+
+  it("Should generate a valid cpf and return a string with 11 characters", () => {
+    expect(cpfGenerator().length).toBe(11); // Assert that the generated CPF has 11 characters
+  });
+
+  it("Should generate a valid cpf and return a string with only numbers", () => {
+    expect(cpfGenerator()).toMatch(/^\d+$/); // Assert that the generated CPF has only numbers
   });
 });

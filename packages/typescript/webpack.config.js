@@ -1,5 +1,6 @@
 const path = require("path");
 
+/** @type {import("webpack").Configuration} */
 module.exports = {
   mode: "production", // production mode
   entry: "./index.ts", // entry point of your application

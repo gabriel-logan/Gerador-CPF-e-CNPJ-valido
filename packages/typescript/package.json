@@ -9,7 +9,7 @@
     "types"
   ],
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest --coverage --verbose",
     "build:dist": "tsc",
     "build:types": "tsc -p tsconfig.types.json",
     "build:browser": "webpack",

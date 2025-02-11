@@ -1,24 +1,10 @@
 // Feito por: Logan
 
-// Função para gerar um dígito aleatório entre 0 e 9
-function randomDigit(): number {
-  return Math.floor(Math.random() * 10);
-}
-
-// Função para gerar os 12 primeiros dígitos do CNPJ
-function generateCNPJBase(): number[] {
-  const cnpjBase: number[] = [];
-
-  for (let i: number = 0; i < 12; i++) {
-    cnpjBase.push(randomDigit());
-  }
-
-  return cnpjBase;
-}
+import randomDigit from "./randomDigit";
 
 // Função para calcular o primeiro dígito verificador
 function calculateFirstVerifier(cnpjBase: number[]): number {
-  const weight: number[] = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+  const weight: number[] = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2] as const;
 
   let sum: number = 0;
 
@@ -36,7 +22,7 @@ function calculateSecondVerifier(
   cnpjBase: number[],
   firstVerifier: number,
 ): number {
-  const weight: number[] = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+  const weight: number[] = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2] as const;
 
   let sum: number = 0;
 
@@ -52,16 +38,17 @@ function calculateSecondVerifier(
 }
 
 function generateValidCNPJ(): string {
-  const cnpjBase: number[] = generateCNPJBase();
+  const cnpjBase: number[] = new Array<number>(14);
 
-  const firstVerifier: number = calculateFirstVerifier(cnpjBase);
+  for (let i: number = 0; i < 12; i++) {
+    cnpjBase[i] = randomDigit();
+  }
 
-  const secondVerifier: number = calculateSecondVerifier(
-    cnpjBase.concat(firstVerifier),
-    firstVerifier,
-  );
+  cnpjBase[12] = calculateFirstVerifier(cnpjBase);
 
-  return `${cnpjBase.join("")}${String(firstVerifier)}${String(secondVerifier)}`;
+  cnpjBase[13] = calculateSecondVerifier(cnpjBase, cnpjBase[12]);
+
+  return cnpjBase.join("");
 }
 
 export default generateValidCNPJ;
