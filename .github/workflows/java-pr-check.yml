@@ -39,6 +39,10 @@ jobs:
         working-directory: ./packages/java
         run: mvn test
 
+      - name: Run Clean
+        working-directory: ./packages/java
+        run: mvn clean
+
       - name: Build Project
         working-directory: ./packages/java
         run: mvn -B package
