@@ -15,17 +15,17 @@ https://gabriel-logan.github.io/Gerador-CPF-e-CNPJ-valido
 unpkg:
 
 ```bash
-https://unpkg.com/cpf_and_cnpj-generator@1.2.4/dist/bundle.js
+https://unpkg.com/cpf_and_cnpj-generator@1.3.1/dist/index.js
 ```
 
 ```html
-<script src="https://unpkg.com/cpf_and_cnpj-generator@1.2.4/dist/bundle.js"></script>
+<script src="https://unpkg.com/cpf_and_cnpj-generator@1.3.1/dist/index.js"></script>
 ```
 
 jsdelivr:
 
 ```bash
-https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.2.4/+esm
+https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.3.1/+esm
 ```
 
 ```html
@@ -33,7 +33,7 @@ https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.2.4/+esm
   import {
     generateCpf,
     generateCnpj,
-  } from "https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.2.4/+esm";
+  } from "https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.3.1/+esm";
 </script>
 ```
 
