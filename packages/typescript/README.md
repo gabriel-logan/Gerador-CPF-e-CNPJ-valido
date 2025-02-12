@@ -57,26 +57,32 @@ pnpm add cpf_and_cnpj-generator
 
 Após instalar o pacote, você pode utilizá-lo em seu projeto JavaScript:
 
+### ES Modules
+
 ```javascript
-// Usando import
 import gerador from "cpf_and_cnpj-generator";
 
 console.log(gerador.generateCnpj());
 console.log(gerador.generateCpf());
+```
 
-// Ou
+```javascript
 import { generateCnpj, generateCpf } from "cpf_and_cnpj-generator";
 
 console.log(generateCnpj());
 console.log(generateCpf());
+```
 
-// Usando require
+### CommonJS
+
+```javascript
 const gerador = require("cpf_and_cnpj-generator");
 
 console.log("CPF Gerado:", gerador.generateCnpj());
 console.log("CNPJ Gerado:", gerador.generateCpf());
+```
 
-// Ou
+```javascript
 const { generateCpf, generateCnpj } = require("cpf_and_cnpj-generator");
 
 console.log("CPF Gerado:", generateCnpj());
