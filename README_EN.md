@@ -3,7 +3,7 @@
 
 # cpf_and_cnpj-generator
 
-This npm package provides JavaScript, Python, C and Java functions to generate valid Brazilian CPF (Cadastro de Pessoas Físicas) and CNPJ (Cadastro Nacional da Pessoa Jurídica) numbers.
+This repository provides functions in JavaScript, Python, C and Java to generate valid CPF (Cadastro de Pessoas Físicas) and CNPJ (Cadastro Nacional da Pessoa Jurídica) numbers for Brazil.
 
 ## READMEs
 
