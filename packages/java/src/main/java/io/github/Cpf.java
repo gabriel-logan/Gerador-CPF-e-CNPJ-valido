@@ -13,7 +13,9 @@ public class Cpf {
             sum += (short) (cpfArray[i] * (factor - i));
         }
 
-        return sum % 11 < 2 ? 0 : (byte) (11 - (sum % 11));
+        final byte remainder = (byte) (sum % 11);
+
+        return remainder < 2 ? 0 : (byte) (11 - (remainder));
     }
 
     public static String generateCpf() {
