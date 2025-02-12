@@ -6,6 +6,10 @@
 
 This npm package provides JavaScript functions to generate valid Brazilian CPF (Cadastro de Pessoas Físicas) and CNPJ (Cadastro Nacional da Pessoa Jurídica) numbers.
 
+## DOC
+
+https://gabriel-logan.github.io/Gerador-CPF-e-CNPJ-valido
+
 ## CDN
 
 unpkg:
@@ -49,7 +53,8 @@ yarn add cpf_and_cnpj-generator
 pnpm add cpf_and_cnpj-generator
 ```
 
-How to Use
+## How to Use
+
 After installing the package, you can use it in your JavaScript project:
 
 ```javascript
