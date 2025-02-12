@@ -18,6 +18,11 @@ function calculateDigit(
   return remainder < 2 ? 0 : 11 - remainder;
 }
 
+/**
+ * Generates a valid CPF (Brazilian identification number).
+ * @returns Returns a valid CPF
+ * @description - Made by: Logan
+ */
 function geraEValida(): string {
   const cpfArray: number[] = new Array<number>(11);
 

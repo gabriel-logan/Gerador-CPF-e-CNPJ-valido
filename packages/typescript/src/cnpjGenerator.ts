@@ -37,6 +37,11 @@ function calculateSecondVerifier(
   return remainder < 2 ? 0 : 11 - remainder;
 }
 
+/**
+ * Generates a valid CNPJ (Brazilian company identification number).
+ * @returns Returns a valid CNPJ
+ * @description - Made by: Logan
+ */
 function generateValidCNPJ(): string {
   const cnpjBase: number[] = new Array<number>(14);
 
