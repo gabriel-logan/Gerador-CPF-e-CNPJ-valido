@@ -13,13 +13,15 @@ This repository provides functions in JavaScript, Python, C and Java to generate
 
 This library can validate data in the following programming languages:
 
-- [TypeScript (TS/JS/NPM)](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/typescript/README.md) (stable)
-- [Python](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/python/README.md) (stable)
+- [TypeScript (TS/JS/NPM)](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/typescript/README_EN.md) (stable)
+- [Python](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/python/README_EN.md) (stable)
+- [C](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/blob/main/packages/c/README_EN.md) (stable)
+- [Java](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/blob/main/packages/java/README_EN.md) (stable)
 
 ## Usage
 
 To use this library, please refer to the specific README file in the directory of the programming language you are using. 
-For example, if you are using TypeScript, you can find the usage instructions in the [TypeScript README](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/typescript/README.md).
+For example, if you are using TypeScript, you can find the usage instructions in the [TypeScript README](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/typescript/README_EN.md).
 
 ## Installation
 
