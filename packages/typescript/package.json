@@ -9,6 +9,16 @@
     "dist",
     "types"
   ],
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/gabriel-logan"
+    },
+    {
+      "type": "buy-me-a-coffee",
+      "url": "https://buymeacoffee.com/gabriellogan"
+    }
+  ],
   "scripts": {
     "test": "jest --coverage --verbose",
     "build:types": "tsc -p tsconfig.types.json",
