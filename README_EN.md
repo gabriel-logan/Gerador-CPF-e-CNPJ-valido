@@ -5,6 +5,10 @@
 
 This npm package provides JavaScript, Python, C and Java functions to generate valid Brazilian CPF (Cadastro de Pessoas Físicas) and CNPJ (Cadastro Nacional da Pessoa Jurídica) numbers.
 
+## READMEs
+
+- [Português](README.md)
+
 ## Supported Languages
 
 This library can validate data in the following programming languages:

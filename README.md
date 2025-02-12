@@ -5,7 +5,11 @@
 
 Este pacote npm fornece funções JavaScript, Python, C e Java para gerar números válidos de CPF (Cadastro de Pessoas Físicas) e CNPJ (Cadastro Nacional da Pessoa Jurídica) brasileiros.
 
-## Idiomas suportados
+## READMEs
+
+- [English](README_EN.md)
+
+## Linguagens de programação suportadas
 
 Esta biblioteca pode validar dados nas seguintes linguagens de programação:
 
