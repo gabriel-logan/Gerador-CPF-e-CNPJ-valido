@@ -55,7 +55,7 @@ pnpm add cpf_and_cnpj-generator
 
 ## How to Use
 
-After installing the package, you can use it in your JavaScript project:
+After installing the package, you can use it in your JavaScript/TypeScript project:
 
 ### ES Modules
 
