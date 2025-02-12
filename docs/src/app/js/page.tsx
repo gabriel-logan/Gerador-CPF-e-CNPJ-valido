@@ -50,7 +50,7 @@ export default function Home() {
 				data-y_margin="18"
 				defer
 			/>
-			<Script src="https://unpkg.com/cpf_and_cnpj-generator@1.2.4/dist/bundle.js" />
+			<Script src="https://unpkg.com/cpf_and_cnpj-generator@1.3.1/dist/index.js" />
 		</main>
 	);
 }
