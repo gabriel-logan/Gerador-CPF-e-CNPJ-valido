@@ -9,14 +9,18 @@ int randomNum() {
 }
 
 // Function to calculate the verifier digits
-int calculateDigit(int cpfArray[], int factor) {
+int calculateDigit(int cpfArray[], int lenght, int factor) {
     // The sum is calculated by multiplying each digit by a factor and summing the results
     int sum = 0;
-    for (int i = 0; i < factor - 1; i++) {
+
+    for (int i = 0; i < lenght; i++) {
         sum += cpfArray[i] * (factor - i);
     }
+
+    int remainder = sum % 11;
+
     // If the sum is less than 2, the verifier digit is 0, otherwise it is 11 minus the remainder of the sum divided by 11
-    return sum % 11 < 2 ? 0 : 11 - (sum % 11);
+    return remainder < 2 ? 0 : 11 - remainder;
 }
 
 // Function to generate and validate a CPF
@@ -29,15 +33,16 @@ void genAndValidate(char *cpf) {
     }
 
     // Calculates the first verifier digit
-    cpfArray[9] = calculateDigit(cpfArray, 10);
+    cpfArray[9] = calculateDigit(cpfArray, 9, 10);
 
     // Calculates the second verifier digit
-    cpfArray[10] = calculateDigit(cpfArray, 11);
+    cpfArray[10] = calculateDigit(cpfArray, 10, 11);
 
     // Converts the generated CPF numbers into a string
     for (int i = 0; i < 11; i++) {
         cpf[i] = '0' + cpfArray[i];
     }
+
     cpf[11] = '\0'; // Null-terminate the string
 }
 

@@ -7,16 +7,10 @@ int randomDigit() {
     return rand() % 10;
 }
 
-// Function to generate the first 12 digits of the CNPJ
-void generateCNPJBase(int cnpjBase[]) {
-    for (int i = 0; i < 12; i++) {
-        cnpjBase[i] = randomDigit();
-    }
-}
-
 // Function to calculate the first verifier digit
 int calculateFirstVerifier(int cnpjBase[]) {
     int weight[12] = {5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2};
+
     int sum = 0;
 
     for (int i = 0; i < 12; i++) {
@@ -31,6 +25,7 @@ int calculateFirstVerifier(int cnpjBase[]) {
 // Function to calculate the second verifier digit
 int calculateSecondVerifier(int cnpjBase[], int firstVerifier) {
     int weight[13] = {6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2};
+    
     int sum = 0;
 
     for (int i = 0; i < 12; i++) {
@@ -45,23 +40,21 @@ int calculateSecondVerifier(int cnpjBase[], int firstVerifier) {
 }
 
 void generateValidCNPJ(char* cnpj) {
-    int cnpjBase[12];
-    generateCNPJBase(cnpjBase);
+    int cnpjBase[14];
 
-    int firstVerifier = calculateFirstVerifier(cnpjBase);
-
-    int cnpjBaseWithVerifier[13];
     for (int i = 0; i < 12; i++) {
-        cnpjBaseWithVerifier[i] = cnpjBase[i];
+        cnpjBase[i] = randomDigit();
     }
-    cnpjBaseWithVerifier[12] = firstVerifier;
 
-    int secondVerifier = calculateSecondVerifier(cnpjBaseWithVerifier, firstVerifier);
+    cnpjBase[12] = calculateFirstVerifier(cnpjBase);
 
-    sprintf(cnpj, "%d%d%d%d%d%d%d%d%d%d%d%d%d%d",
-            cnpjBase[0], cnpjBase[1], cnpjBase[2], cnpjBase[3], cnpjBase[4], cnpjBase[5],
-            cnpjBase[6], cnpjBase[7], cnpjBase[8], cnpjBase[9], cnpjBase[10], cnpjBase[11],
-            firstVerifier, secondVerifier);
+    cnpjBase[13] = calculateSecondVerifier(cnpjBase, cnpjBase[12]);
+
+    for (int i = 0; i < 14; i++) {
+        cnpj[i] = cnpjBase[i] + '0';
+    }
+
+    cnpj[14] = '\0';
 }
 
 int main() {
