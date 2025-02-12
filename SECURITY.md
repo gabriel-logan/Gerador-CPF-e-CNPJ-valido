@@ -9,17 +9,13 @@ currently being supported with security updates.
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 1.2.3   | :white_check_mark: |
+| 1.2.4   | :white_check_mark: |
 
 ### Python
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 0.0.3   | :white_check_mark: |
-
-### Java 8
-
-Does not have package published yet.
+| 1.0.0   | :white_check_mark: |
 
 ## Reporting a Vulnerability
 
