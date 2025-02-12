@@ -7,11 +7,11 @@ public class Utils {
         throw new IllegalStateException("Utility class");
     }
 
-    public static byte generateRandomNumber() {
+    protected static byte generateRandomNumber() {
         return (byte) ThreadLocalRandom.current().nextInt(10);
     }
 
-    public static String numberToString(byte[] number) {
+    protected static String numberToString(byte[] number) {
         StringBuilder result = new StringBuilder(number.length);
 
         for (byte num : number) {

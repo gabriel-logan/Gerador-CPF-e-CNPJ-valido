@@ -3,7 +3,12 @@ package io.github;
 import static java.lang.System.*;
 
 public class Main {
-    public static void main(String[] args) {
+    private Main() {
+        printTimeTest();
+        throw new IllegalStateException("Utility class");
+    }
+
+    private static void printTimeTest() {
         for (int i = 0; i < 10; i++) {
             long startTimeMs = currentTimeMillis();
             long startTimeNs = nanoTime();
