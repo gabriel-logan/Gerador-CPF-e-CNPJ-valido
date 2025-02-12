@@ -1,6 +1,6 @@
 # cpf-and-cnpj-generator
 
-## Como usar
+## How to use
 
 ```bash
 gcc cpfGenerator.c -o cpfGenerator
