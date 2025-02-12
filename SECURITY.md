@@ -17,11 +17,9 @@ currently being supported with security updates.
 | ------- | ------------------ |
 | 0.0.3   | :white_check_mark: |
 
-### Java
+### Java 8
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 8 >     | :white_check_mark: |
+Does not have package published yet.
 
 ## Reporting a Vulnerability
 
