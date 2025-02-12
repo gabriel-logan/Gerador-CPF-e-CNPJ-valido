@@ -1,30 +1,30 @@
 > [!NOTE]
-> I accept help to make the version of the other programming languages.
+> Aceito ajuda para fazer a versão das demais linguagens de programação.
 
 # cpf_and_cnpj-generator
 
-This npm package provides JavaScript and Python functions to generate valid Brazilian CPF (Cadastro de Pessoas Físicas) and CNPJ (Cadastro Nacional da Pessoa Jurídica) numbers.
+Este pacote npm fornece funções JavaScript, Python, C e Java para gerar números válidos de CPF (Cadastro de Pessoas Físicas) e CNPJ (Cadastro Nacional da Pessoa Jurídica) brasileiros.
 
-## Supported Languages
+## Idiomas suportados
 
-This library can validate data in the following programming languages:
+Esta biblioteca pode validar dados nas seguintes linguagens de programação:
 
-- [TypeScript (TS/JS/NPM)](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/typescript/README.md) (stable)
-- [Python](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/python/README.md) (stable)
+- [TypeScript (TS/JS/NPM)](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/typescript/README.md) (estável)
+- [Python](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/python/README.md) (estável)
 
-## Usage
+## Uso
 
-To use this library, please refer to the specific README file in the directory of the programming language you are using. 
-For example, if you are using TypeScript, you can find the usage instructions in the [TypeScript README](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/typescript/README.md).
+Para usar esta biblioteca, consulte o arquivo README específico no diretório da linguagem de programação que você está usando.
+Por exemplo, se você estiver usando TypeScript, você pode encontrar as instruções de uso no [TypeScript README](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/typescript/README.md).
 
-## Installation
+## Instalação
 
-Please refer to the specific installation instructions in the README file of the respective programming language directory.
+Por favor, consulte as instruções de instalação específicas no arquivo README do diretório da respectiva linguagem de programação.
 
-## Contributing
+## Contribuindo
 
-Contributions are welcome! Please read the contributing guidelines before getting started.
+Contribuições são bem-vindas! Por favor, leia as diretrizes de contribuição antes de começar.
 
-## License
+## Licença
 
-This project is licensed under the MIT License.
+Este projeto é licenciado sob a Licença MIT.
