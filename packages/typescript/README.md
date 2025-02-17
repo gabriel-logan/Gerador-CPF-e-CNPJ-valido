@@ -17,21 +17,21 @@ https://gabriel-logan.github.io/Gerador-CPF-e-CNPJ-valido
 jsdelivr:
 
 ```bash
-https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.3.1/dist/index.min.js
+https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.3.2/dist/index.min.js
 ```
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.3.1/dist/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.3.2/dist/index.min.js"></script>
 ```
 
 unpkg:
 
 ```bash
-https://unpkg.com/cpf_and_cnpj-generator@1.3.1/dist/index.js
+https://unpkg.com/cpf_and_cnpj-generator@1.3.2/dist/index.js
 ```
 
 ```html
-<script src="https://unpkg.com/cpf_and_cnpj-generator@1.3.1/dist/index.js"></script>
+<script src="https://unpkg.com/cpf_and_cnpj-generator@1.3.2/dist/index.js"></script>
 ```
 
 ### ESM
@@ -39,7 +39,7 @@ https://unpkg.com/cpf_and_cnpj-generator@1.3.1/dist/index.js
 jsdelivr:
 
 ```bash
-https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.3.1/+esm
+https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.3.2/+esm
 ```
 
 ```html
@@ -47,7 +47,7 @@ https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.3.1/+esm
   import {
     generateCpf,
     generateCnpj,
-  } from "https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.3.1/+esm";
+  } from "https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.3.2/+esm";
 </script>
 ```
 
@@ -111,4 +111,4 @@ If you want to help me, you can buy me a coffee (:
 	</a>
 </p>
 
-Lembre-se de que o código de importação ou require depende do ambiente JavaScript em que você está executando o pacote (por exemplo, Node.js com suporte a módulos ES ou sem suporte). Portanto, escolha a opção de importação ou require adequada ao seu ambiente.
+Lembre-se de que a forma de importar ou requerer um pacote depende do ambiente JavaScript em que você está rodando (por exemplo, Node.js com ou sem suporte a módulos ES). Escolha o método que melhor se adapta ao seu ambiente.
