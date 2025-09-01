@@ -10,7 +10,7 @@
     },
     "dependencies": {
         "cpf_and_cnpj-generator": "^1.2.3",
-        "next": "14.2.30",
+        "next": "14.2.32",
         "react": "^18",
         "react-dom": "^18",
         "react-input-mask-br": "^1.1.8",
