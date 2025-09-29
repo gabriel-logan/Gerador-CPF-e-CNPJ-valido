@@ -1,23 +1,3 @@
-import randomDigit from "./randomDigit";
-
-// Function to calculate the verifier digits
-function calculateDigit(
-  cpfArray: number[],
-  length: number,
-  factor: number,
-): number {
-  let sum: number = 0;
-
-  for (let i: number = 0; i < length; i++) {
-    sum += cpfArray[i] * (factor - i);
-  }
-
-  const remainder: number = sum % 11;
-
-  // If the sum is less than 2, the verifier digit is 0, otherwise it is 11 minus the remainder of the sum divided by 11
-  return remainder < 2 ? 0 : 11 - remainder;
-}
-
 /**
  * Generates a valid CPF (Brazilian identification number).
  * @returns Returns a valid CPF
@@ -28,14 +8,22 @@ function geraEValida(): string {
 
   // Generates an array of 9 random numbers
   for (let i: number = 0; i < 9; i++) {
-    cpfArray[i] = randomDigit();
+    cpfArray[i] = (Math.random() * 10) | 0;
   }
 
   // Calculates the first verifier digit
-  cpfArray[9] = calculateDigit(cpfArray, 9, 10);
+  let sum: number = 0;
+  for (let i: number = 0; i < 9; i++) {
+    sum += cpfArray[i] * (10 - i);
+  }
+  cpfArray[9] = sum % 11 < 2 ? 0 : 11 - (sum % 11);
 
   // Calculates the second verifier digit
-  cpfArray[10] = calculateDigit(cpfArray, 10, 11);
+  sum = 0;
+  for (let i: number = 0; i < 10; i++) {
+    sum += cpfArray[i] * (11 - i);
+  }
+  cpfArray[10] = sum % 11 < 2 ? 0 : 11 - (sum % 11);
 
   // Returns the generated CPF as a string
   return cpfArray.join("");
