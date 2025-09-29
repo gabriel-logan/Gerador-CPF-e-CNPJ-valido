@@ -3,30 +3,41 @@
  * @returns Returns a valid CPF
  * @description - Made by: Logan
  */
-function geraEValida(): string {
-  const cpfArray: number[] = new Array<number>(11);
+export default function geraEValida(): string {
+  // Store 11 digits (9 random + 2 check digits)
+  const digits: Uint8Array<ArrayBuffer> = new Uint8Array(11);
 
-  // Generates an array of 9 random numbers
+  // Accumulators for the two checksum calculations
+  let sum1: number = 0; // for the first check digit
+  let sum2: number = 0; // for the second check digit
+
+  // Generate the first 9 digits and accumulate sums
   for (let i: number = 0; i < 9; i++) {
-    cpfArray[i] = (Math.random() * 10) | 0;
+    const d: number = (Math.random() * 10) | 0; // fast integer 0–9
+    digits[i] = d;
+
+    const weight1: number = 10 - i;
+    sum1 += d * weight1;
+    sum2 += d * (weight1 + 1); // second checksum uses one higher weight
   }
 
-  // Calculates the first verifier digit
-  let sum: number = 0;
-  for (let i: number = 0; i < 9; i++) {
-    sum += cpfArray[i] * (10 - i);
-  }
-  cpfArray[9] = sum % 11 < 2 ? 0 : 11 - (sum % 11);
+  // Calculate the first check digit
+  const r1: number = sum1 % 11;
+  const dv1: number = r1 < 2 ? 0 : 11 - r1;
+  digits[9] = dv1;
 
-  // Calculates the second verifier digit
-  sum = 0;
-  for (let i: number = 0; i < 10; i++) {
-    sum += cpfArray[i] * (11 - i);
-  }
-  cpfArray[10] = sum % 11 < 2 ? 0 : 11 - (sum % 11);
+  // Add the contribution of the first check digit to the second sum
+  sum2 += dv1 * 2; // weight for the 10th digit is 2
 
-  // Returns the generated CPF as a string
-  return cpfArray.join("");
+  // Calculate the second check digit
+  const r2: number = sum2 % 11;
+  digits[10] = r2 < 2 ? 0 : 11 - r2;
+
+  // Build the final CPF string
+  let out: string = "";
+  for (let i: number = 0; i < 11; i++) {
+    out += String(digits[i]);
+  }
+
+  return out;
 }
-
-export default geraEValida;
