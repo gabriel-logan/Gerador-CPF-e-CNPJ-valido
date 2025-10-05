@@ -17,6 +17,7 @@ This library can validate data in the following programming languages:
 - [Python](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/python/README_EN.md) (stable)
 - [C](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/blob/main/packages/c/README_EN.md) (stable)
 - [Java](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/blob/main/packages/java/README_EN.md) (stable)
+- [Go](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/blob/main/packages/go/README_EN.md) (stable)
 
 ## Usage
 

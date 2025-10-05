@@ -17,6 +17,7 @@ Esta biblioteca pode validar dados nas seguintes linguagens de programação:
 - [Python](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/python/README.md) (estável)
 - [C](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/blob/main/packages/c/README.md) (estável)
 - [Java](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/blob/main/packages/java/README.md) (estável)
+- [Go](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/blob/main/packages/go/README.md) (estável)
 
 ## Uso
 
