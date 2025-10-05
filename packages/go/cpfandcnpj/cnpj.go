@@ -39,13 +39,10 @@ func calculateSecondVerifier(cnpjBase [14]uint8, firstVerifier uint8) uint8 {
 	return 11 - uint8(remainder)
 }
 
-/**
- * GenerateCNPJ generates a valid CNPJ number.
- * The CNPJ is a 14-digit number used to identify legal entities in Brazil.
- * This function creates a random CNPJ number and calculates its two verifier digits.
- *
- * @return A string representing a valid CNPJ number in the format "XX.XXX.XXX/0001-XX".
- */
+// GenerateCNPJ generates a valid CNPJ number.
+// The CNPJ is a 14-digit number used to identify legal entities in Brazil.
+// This function creates a random CNPJ number and calculates its two verifier digits.
+// It returns a string representing a valid CNPJ number in the format "XXXXXXXXXXXXXX".
 func GenerateCNPJ() string {
 	cnpjBase := [14]uint8{}
 
