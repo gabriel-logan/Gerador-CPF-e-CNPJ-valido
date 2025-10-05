@@ -37,7 +37,7 @@ func GenerateCPF() string {
 
 	out := [11]byte{}
 
-	for i := 0; i < 11; i++ {
+	for i := 0; i < len(out); i++ {
 		out[i] = digits[i] + '0'
 	}
 
