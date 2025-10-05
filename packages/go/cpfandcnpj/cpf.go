@@ -4,6 +4,13 @@ import (
 	"math/rand"
 )
 
+/**
+ * GenerateCPF generates a valid CPF number.
+ * The CPF is an 11-digit number used to identify individuals in Brazil.
+ * This function creates a random CPF number and calculates its two verifier digits.
+ *
+ * @return A string representing a valid CPF number in the format "XXX.XXX.XXX-XX".
+ */
 func GenerateCPF() string {
 	var digits [11]uint8
 	var sum1, sum2 uint16 // <- to avoid uint8 overflow
