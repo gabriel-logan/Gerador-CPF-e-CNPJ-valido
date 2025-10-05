@@ -1,8 +1,10 @@
 package main
 
-import "github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/packages/go/src/cpf"
+import "github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/packages/go/cpfandcnpj"
 
 func main() {
-	cpf := cpf.GenerateCPF()
+	cpf := cpfandcnpj.GenerateCPF()
+	cnpj := cpfandcnpj.GenerateCNPJ()
 	println("Generated CPF:", cpf)
+	println("Generated CNPJ:", cnpj)
 }
