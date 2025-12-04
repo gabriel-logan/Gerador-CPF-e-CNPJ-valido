@@ -10,7 +10,7 @@ export default function CodeDoc() {
 			<SyntaxHighlighter language="bash" style={a11yDark}>
 				npm install cpf_and_cnpj-generator
 			</SyntaxHighlighter>
-			<p className="mb-4">ou</p>
+			<p className="mb-4 text-gray-600 dark:text-gray-300">ou</p>
 			<SyntaxHighlighter language="bash" style={a11yDark}>
 				yarn add cpf_and_cnpj-generator
 			</SyntaxHighlighter>
@@ -19,7 +19,7 @@ export default function CodeDoc() {
 					href="https://www.npmjs.com/package/cpf_and_cnpj-generator"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="mr-4 text-blue-500 underline"
+					className="mr-4 text-blue-500 underline hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300"
 				>
 					Go to npm page
 				</Link>
@@ -27,13 +27,15 @@ export default function CodeDoc() {
 					href="https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="text-blue-500 underline"
+					className="text-blue-500 underline hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300"
 				>
 					Go to github page
 				</Link>
 			</div>
 
-			<h2 className="mb-4 text-2xl font-bold">Como Usar</h2>
+			<h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
+				Como Usar
+			</h2>
 			<div id="div_geradores" className="mb-4">
 				<div className="mx-4 mt-6 flex flex-col gap-2 sm:mx-0 sm:mt-2 sm:flex-row">
 					<GenerateCpf />
@@ -44,7 +46,7 @@ export default function CodeDoc() {
 					{/**<span className="cursor-pointer hover:text-blue-950">COPY</span> */}
 				</div>
 			</div>
-			<p className="mb-4">
+			<p className="mb-4 text-gray-600 dark:text-gray-300">
 				Após instalar o pacote, você pode utilizá-lo em seu projeto JavaScript:
 			</p>
 

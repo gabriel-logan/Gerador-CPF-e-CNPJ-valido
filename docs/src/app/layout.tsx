@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+import ThemeToggle from "@/components/ThemeToggle";
+import { ThemeProvider } from "@/context/ThemeContext";
 
 export const metadata: Metadata = {
 	title: "CPF and CNPJ Generator / Gerador de CPF e CNPJ",
@@ -44,8 +44,13 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="pt">
-			<body className={inter.className}>{children}</body>
+		<html lang="pt" className="dark" suppressHydrationWarning>
+			<body>
+				<ThemeProvider>
+					<ThemeToggle />
+					{children}
+				</ThemeProvider>
+			</body>
 		</html>
 	);
 }

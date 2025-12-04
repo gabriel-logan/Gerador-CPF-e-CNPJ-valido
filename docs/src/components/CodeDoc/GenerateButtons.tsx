@@ -21,15 +21,15 @@ export function GenerateCpf() {
 		<>
 			<button
 				id="gera-cpf"
-				className="rounded bg-blue-950 px-4 py-2 text-white"
+				className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
 				onClick={() => setCpf(generateCpf())}
 			>
 				Gerar CPF
 			</button>
-			<p className="mt-2">
+			<p className="mt-2 text-gray-600 dark:text-gray-300">
 				CPF: <span id="response-cpf">{isMasked}</span>
 			</p>
-			<div className="flex items-center gap-2">
+			<div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
 				<label htmlFor="cpf">Use mask ?</label>
 				<input
 					type="checkbox"
@@ -61,15 +61,15 @@ export function GenerateCnpj() {
 		<>
 			<button
 				id="gera-cnpj"
-				className="rounded bg-blue-950 px-4 py-2 text-white"
+				className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
 				onClick={() => setCnpj(generateCnpj())}
 			>
 				Gerar CNPJ
 			</button>
-			<p className="mt-2">
+			<p className="mt-2 text-gray-600 dark:text-gray-300">
 				CNPJ: <span id="response-cnpj">{isMasked}</span>
 			</p>
-			<div className="flex items-center gap-2">
+			<div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
 				<label htmlFor="cnpj">Use mask ?</label>
 				<input
 					type="checkbox"

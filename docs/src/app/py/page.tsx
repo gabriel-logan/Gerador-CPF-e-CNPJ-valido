@@ -4,12 +4,12 @@ import { a11yDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 export default function PythonPage() {
 	return (
-		<main className="mx-auto flex min-h-screen flex-col bg-gray-900 p-4 text-white sm:p-6 md:p-10 lg:p-12">
+		<main className="mx-auto flex min-h-screen flex-col bg-gray-50 p-4 text-gray-900 dark:bg-gray-900 dark:text-white sm:p-6 md:p-10 lg:p-12">
 			<h1 className="mb-4 text-4xl font-bold">
 				Python - cpf-and-cnpj-generator
 			</h1>
 
-			<p className="mb-6 text-gray-300">
+			<p className="mb-6 text-gray-600 dark:text-gray-300">
 				This Python package provides functions to generate valid CPF (Cadastro
 				de Pessoas Físicas) and CNPJ (Cadastro Nacional da Pessoa Jurídica)
 				numbers for Brazil.
@@ -20,7 +20,7 @@ export default function PythonPage() {
 					href="https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/python"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="text-blue-400 hover:text-blue-300 hover:underline"
+					className="text-blue-500 hover:text-blue-600 hover:underline dark:text-blue-400 dark:hover:text-blue-300"
 				>
 					View on GitHub →
 				</Link>
@@ -28,7 +28,7 @@ export default function PythonPage() {
 					href="https://pypi.org/project/cpf-and-cnpj-generator/"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="text-blue-400 hover:text-blue-300 hover:underline"
+					className="text-blue-500 hover:text-blue-600 hover:underline dark:text-blue-400 dark:hover:text-blue-300"
 				>
 					View on PyPI →
 				</Link>
@@ -43,7 +43,7 @@ export default function PythonPage() {
 
 			<section className="mb-8">
 				<h2 className="mb-3 text-2xl font-bold">Usage</h2>
-				<p className="mb-3 text-gray-300">
+				<p className="mb-3 text-gray-600 dark:text-gray-300">
 					Here is an example of how to use the functions in this package:
 				</p>
 				<SyntaxHighlighter language="python" style={a11yDark}>
@@ -63,7 +63,7 @@ print(cpf)`}
 			<div className="mt-auto flex justify-center pt-8">
 				<Link
 					href="/"
-					className="text-blue-400 hover:text-blue-300 hover:underline"
+					className="text-blue-500 hover:text-blue-600 hover:underline dark:text-blue-400 dark:hover:text-blue-300"
 				>
 					← Back to Home
 				</Link>
