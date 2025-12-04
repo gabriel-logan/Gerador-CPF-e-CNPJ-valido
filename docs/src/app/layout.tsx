@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+import ThemeToggle from "@/components/ThemeToggle";
+import { ThemeProvider } from "@/context/ThemeContext";
+
 export const metadata: Metadata = {
 	title: "CPF and CNPJ Generator / Gerador de CPF e CNPJ",
 	description:
@@ -41,8 +44,13 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="pt">
-			<body>{children}</body>
+		<html lang="pt" className="dark" suppressHydrationWarning>
+			<body>
+				<ThemeProvider>
+					<ThemeToggle />
+					{children}
+				</ThemeProvider>
+			</body>
 		</html>
 	);
 }

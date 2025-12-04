@@ -4,10 +4,10 @@ import { a11yDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 export default function GoPage() {
 	return (
-		<main className="mx-auto flex min-h-screen flex-col bg-gray-900 p-4 text-white sm:p-6 md:p-10 lg:p-12">
+		<main className="mx-auto flex min-h-screen flex-col bg-gray-50 p-4 text-gray-900 dark:bg-gray-900 dark:text-white sm:p-6 md:p-10 lg:p-12">
 			<h1 className="mb-4 text-4xl font-bold">Go - cpf-and-cnpj-generator</h1>
 
-			<p className="mb-6 text-gray-300">
+			<p className="mb-6 text-gray-600 dark:text-gray-300">
 				This Go package provides functions to generate valid CPF (Cadastro de
 				Pessoas Físicas) and CNPJ (Cadastro Nacional da Pessoa Jurídica) numbers
 				for Brazil.
@@ -18,7 +18,7 @@ export default function GoPage() {
 					href="https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/go"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="text-blue-400 hover:text-blue-300 hover:underline"
+					className="text-blue-500 hover:text-blue-600 hover:underline dark:text-blue-400 dark:hover:text-blue-300"
 				>
 					View on GitHub →
 				</Link>
@@ -26,7 +26,7 @@ export default function GoPage() {
 					href="https://pkg.go.dev/github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/packages/go"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="text-blue-400 hover:text-blue-300 hover:underline"
+					className="text-blue-500 hover:text-blue-600 hover:underline dark:text-blue-400 dark:hover:text-blue-300"
 				>
 					View on pkg.go.dev →
 				</Link>
@@ -41,7 +41,7 @@ export default function GoPage() {
 
 			<section className="mb-8">
 				<h2 className="mb-3 text-2xl font-bold">Usage</h2>
-				<p className="mb-3 text-gray-300">
+				<p className="mb-3 text-gray-600 dark:text-gray-300">
 					Here is an example of how to use the functions in this package:
 				</p>
 				<SyntaxHighlighter language="go" style={a11yDark}>
@@ -66,7 +66,7 @@ func main() {
 			<div className="mt-auto flex justify-center pt-8">
 				<Link
 					href="/"
-					className="text-blue-400 hover:text-blue-300 hover:underline"
+					className="text-blue-500 hover:text-blue-600 hover:underline dark:text-blue-400 dark:hover:text-blue-300"
 				>
 					← Back to Home
 				</Link>
