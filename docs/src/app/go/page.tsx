@@ -2,22 +2,20 @@ import Link from "next/link";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { a11yDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-export default function PythonPage() {
+export default function GoPage() {
 	return (
 		<main className="mx-auto flex min-h-screen flex-col bg-gray-900 p-4 text-white sm:p-6 md:p-10 lg:p-12">
-			<h1 className="mb-4 text-4xl font-bold">
-				Python - cpf-and-cnpj-generator
-			</h1>
+			<h1 className="mb-4 text-4xl font-bold">Go - cpf-and-cnpj-generator</h1>
 
 			<p className="mb-6 text-gray-300">
-				This Python package provides functions to generate valid CPF (Cadastro
-				de Pessoas Físicas) and CNPJ (Cadastro Nacional da Pessoa Jurídica)
-				numbers for Brazil.
+				This Go package provides functions to generate valid CPF (Cadastro de
+				Pessoas Físicas) and CNPJ (Cadastro Nacional da Pessoa Jurídica) numbers
+				for Brazil.
 			</p>
 
 			<div className="mb-6 flex flex-wrap gap-4">
 				<Link
-					href="https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/python"
+					href="https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/go"
 					target="_blank"
 					rel="noopener noreferrer"
 					className="text-blue-400 hover:text-blue-300 hover:underline"
@@ -25,19 +23,19 @@ export default function PythonPage() {
 					View on GitHub →
 				</Link>
 				<Link
-					href="https://pypi.org/project/cpf-and-cnpj-generator/"
+					href="https://pkg.go.dev/github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/packages/go"
 					target="_blank"
 					rel="noopener noreferrer"
 					className="text-blue-400 hover:text-blue-300 hover:underline"
 				>
-					View on PyPI →
+					View on pkg.go.dev →
 				</Link>
 			</div>
 
 			<section className="mb-8">
 				<h2 className="mb-3 text-2xl font-bold">Installation</h2>
 				<SyntaxHighlighter language="bash" style={a11yDark}>
-					pip install cpf-and-cnpj-generator
+					go get github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/packages/go
 				</SyntaxHighlighter>
 			</section>
 
@@ -46,17 +44,22 @@ export default function PythonPage() {
 				<p className="mb-3 text-gray-300">
 					Here is an example of how to use the functions in this package:
 				</p>
-				<SyntaxHighlighter language="python" style={a11yDark}>
-					from cpf_and_cnpj_generator import generate_cnpj, generate_cpf
-				</SyntaxHighlighter>
-				<SyntaxHighlighter language="python" style={a11yDark}>
-					{`# Generate a valid CNPJ
-cnpj = generate_cnpj()
-print(cnpj)
+				<SyntaxHighlighter language="go" style={a11yDark}>
+					{`package main
 
-# Generate a valid CPF
-cpf = generate_cpf()
-print(cpf)`}
+import (
+	"fmt"
+
+	"github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/packages/go/cpfandcnpj"
+)
+
+func main() {
+	cpf := cpfandcnpj.GenerateCPF()
+	cnpj := cpfandcnpj.GenerateCNPJ()
+
+	fmt.Println("Generated CPF:", cpf)
+	fmt.Println("Generated CNPJ:", cnpj)
+}`}
 				</SyntaxHighlighter>
 			</section>
 

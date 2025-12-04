@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
 	title: "CPF and CNPJ Generator / Gerador de CPF e CNPJ",
 	description:
-		"Este pacote npm fornece funções em JavaScript para gerar números válidos de CPF (Cadastro de Pessoas Físicas) e CNPJ (Cadastro Nacional da Pessoa Jurídica) para o Brasil.",
+		"Biblioteca para gerar números válidos de CPF e CNPJ para o Brasil. Disponível em JavaScript, TypeScript, Python, Go, Java e C.",
 	authors: {
 		name: "Gabriel Logan",
 		url: "https://github.com/gabriel-logan",
@@ -20,6 +20,11 @@ export const metadata: Metadata = {
 		"generator",
 		"gerador",
 		"javascript",
+		"typescript",
+		"python",
+		"go",
+		"java",
+		"c",
 		"brasil",
 		"cpfGenerator",
 		"cnpjGenerator",
@@ -28,8 +33,6 @@ export const metadata: Metadata = {
 		"gerador de cpf",
 		"gerador de cnpj",
 		"gerador de cpf e cnpj",
-		"gerador de cpf e cnpj em javascript",
-		"gerador de cpf e cnpj em js",
 		"generateCpf",
 		"generateCnpj",
 	],
