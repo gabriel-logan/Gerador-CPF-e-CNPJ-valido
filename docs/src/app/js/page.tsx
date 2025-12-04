@@ -4,22 +4,26 @@ import Script from "next/script";
 
 import CodeDoc from "@/components/CodeDoc";
 
-export default function Home() {
+export default function JavaScriptPage() {
 	return (
-		<main className="mx-auto flex flex-col p-2 sm:p-4 md:p-8 lg:p-10 ">
-			<h1 className="mb-4 text-3xl font-bold">Documentation</h1>
-			<p className="mb-4">
-				Este pacote npm fornece funções em JavaScript/Typescript para gerar
+		<main className="mx-auto flex min-h-screen flex-col bg-gray-50 p-4 sm:p-6 md:p-10 lg:p-12">
+			<h1 className="mb-4 text-4xl font-bold text-gray-900">
+				JavaScript / TypeScript - cpf_and_cnpj-generator
+			</h1>
+			<p className="mb-6 text-gray-600">
+				Este pacote npm fornece funções em JavaScript/TypeScript para gerar
 				números válidos de CPF (Cadastro de Pessoas Físicas) e CNPJ (Cadastro
 				Nacional da Pessoa Jurídica) para o Brasil.
 			</p>
 			<CodeDoc />
-			<p className="mb-4">
+			<p className="mb-4 text-gray-600">
 				Você também pode testar o cdn nesta página, digitando generateCnpj() ou
-				generateCpf() no console log do navegador
+				generateCpf() no console log do navegador.
 			</p>
-			<p className="mb-4">If you want to help me, you can buy me a coffee (:</p>
-			<div className="mb-4 h-16 w-52">
+			<p className="mb-4 text-gray-600">
+				If you want to help me, you can buy me a coffee (:
+			</p>
+			<div className="mb-6 h-16 w-52">
 				<Link href="https://www.buymeacoffee.com/gabriellogan" target="_blank">
 					<Image
 						src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
@@ -31,12 +35,20 @@ export default function Home() {
 					/>
 				</Link>
 			</div>
-			<p>
+			<p className="mb-6 text-gray-600">
 				Lembre-se de que o código de importação ou require depende do ambiente
 				JavaScript em que você está executando o pacote (por exemplo, Node.js
 				com suporte a módulos ES ou sem suporte). Portanto, escolha a opção de
 				importação ou require adequada ao seu ambiente.
 			</p>
+			<div className="mt-auto flex justify-center pt-8">
+				<Link
+					href="/"
+					className="text-blue-500 hover:text-blue-600 hover:underline"
+				>
+					← Back to Home
+				</Link>
+			</div>
 			<script
 				data-name="BMC-Widget"
 				data-cfasync="false"
