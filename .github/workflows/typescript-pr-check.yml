@@ -23,27 +23,32 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
       - uses: actions/setup-node@v3
         with:
           node-version: 20
-          cache: "yarn"
-          cache-dependency-path: ./packages/typescript/yarn.lock
+          cache: "pnpm"
 
       - name: Install dependencies
         working-directory: ./packages/typescript
-        run: yarn install
+        run: pnpm install
       - name: Run Prettier
         working-directory: ./packages/typescript
-        run: yarn format
+        run: pnpm format
       - name: Run lint
         working-directory: ./packages/typescript
-        run: yarn lint
+        run: pnpm lint
       - name: Run test
         working-directory: ./packages/typescript
-        run: yarn test
+        run: pnpm test
       - name: Run build
         working-directory: ./packages/typescript
-        run: yarn build
+        run: pnpm build
       - name: Check if dist and types are created
         run: |
           if [ ! -d "./packages/typescript/dist" ]; then

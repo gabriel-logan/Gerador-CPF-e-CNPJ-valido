@@ -19,6 +19,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
       - uses: actions/setup-node@v3
         with:
           node-version: 20
@@ -26,9 +32,9 @@ jobs:
       - name: Cd to directory to publish npm
         working-directory: ./packages/typescript
         run: |
-          yarn install
-          yarn test
-          yarn build
+          pnpm install
+          pnpm test
+          pnpm build
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NODE_AUTH_TOKEN}}

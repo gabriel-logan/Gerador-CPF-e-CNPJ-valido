@@ -30,9 +30,9 @@
     "test": "jest --coverage --verbose",
     "build:types": "tsc -p tsconfig.types.json",
     "build:dist": "webpack",
-    "build": "rm -rf dist/ && rm -rf types/ && yarn build:types && yarn build:dist",
+    "build": "rm -rf dist/ && rm -rf types/ && pnpm build:types && pnpm build:dist",
     "lint": "eslint src/**/*.ts tests/**/*.ts",
-    "lint:fix": "yarn lint --fix",
+    "lint:fix": "pnpm lint --fix",
     "format": "prettier --write ."
   },
   "repository": {
@@ -86,6 +86,5 @@
     "typescript-eslint": "^8.44.1",
     "webpack": "^5.101.3",
     "webpack-cli": "^6.0.1"
-  },
-  "packageManager": "yarn@4.10.3"
+  }
 }
