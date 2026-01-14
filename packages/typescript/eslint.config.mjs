@@ -52,6 +52,7 @@ export default tseslint.config(
       ],
       "@typescript-eslint/consistent-type-imports": "error",
       "@typescript-eslint/consistent-type-exports": "error",
+      "@typescript-eslint/no-unnecessary-type-arguments": "off",
     },
   },
 );
