@@ -4,17 +4,21 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![npm downloads](https://img.shields.io/npm/dm/cpf_and_cnpj-generator.svg?style=flat-square)](https://npm-stat.com/charts.html?package=cpf_and_cnpj-generator)
 
-Este pacote npm fornece funções em JavaScript para gerar números válidos de CPF (Cadastro de Pessoas Físicas) e CNPJ (Cadastro Nacional da Pessoa Jurídica) para o Brasil.
+Este pacote fornece funções em JavaScript/TypeScript para gerar **CPFs** e **CNPJs válidos**, incluindo suporte à **nova norma de CNPJ alfanumérico definida pela Receita Federal (SERPRO)**.
 
-## DOC
+---
+
+## 📘 Documentação
 
 https://gabriel-logan.github.io/Gerador-CPF-e-CNPJ-valido
 
-## CDN
+---
+
+## 🌐 CDN
 
 ### DEFAULT
 
-jsdelivr:
+**jsDelivr**
 
 ```bash
 https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.3.2/dist/index.min.js
@@ -24,7 +28,7 @@ https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.3.2/dist/index.min.js
 <script src="https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.3.2/dist/index.min.js"></script>
 ```
 
-unpkg:
+**unpkg**
 
 ```bash
 https://unpkg.com/cpf_and_cnpj-generator@1.3.2/dist/index.js
@@ -33,6 +37,8 @@ https://unpkg.com/cpf_and_cnpj-generator@1.3.2/dist/index.js
 ```html
 <script src="https://unpkg.com/cpf_and_cnpj-generator@1.3.2/dist/index.js"></script>
 ```
+
+---
 
 ### ESM
 
@@ -51,9 +57,9 @@ https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.3.2/+esm
 </script>
 ```
 
-## Instalação
+---
 
-Você pode instalar este pacote usando npm:
+## 📦 Instalação
 
 ```bash
 npm install cpf_and_cnpj-generator
@@ -67,48 +73,97 @@ yarn add cpf_and_cnpj-generator
 pnpm add cpf_and_cnpj-generator
 ```
 
-## Como Usar
+---
 
-Após instalar o pacote, você pode utilizá-lo em seu projeto JavaScript/TypeScript:
+## 🚀 Como Usar
 
 ### ES Modules
 
-```javascript
-import gerador from "cpf_and_cnpj-generator";
+```js
+import generator from "cpf_and_cnpj-generator";
 
-console.log(gerador.generateCnpj());
-console.log(gerador.generateCpf());
+generator.generateCpf();
+generator.generateCnpj();
 ```
 
-```javascript
-import { generateCnpj, generateCpf } from "cpf_and_cnpj-generator";
+```js
+import { generateCpf, generateCnpj } from "cpf_and_cnpj-generator";
 
-console.log(generateCnpj());
-console.log(generateCpf());
+generateCpf();
+generateCnpj();
 ```
 
 ### CommonJS
 
-```javascript
-const gerador = require("cpf_and_cnpj-generator");
+```js
+const generator = require("cpf_and_cnpj-generator");
 
-console.log("CPF Gerado:", gerador.generateCnpj());
-console.log("CNPJ Gerado:", gerador.generateCpf());
+generator.generateCpf();
+generator.generateCnpj();
 ```
 
-```javascript
+```js
 const { generateCpf, generateCnpj } = require("cpf_and_cnpj-generator");
 
-console.log("CPF Gerado:", generateCnpj());
-console.log("CNPJ Gerado:", generateCpf());
+generateCpf();
+generateCnpj();
 ```
 
-If you want to help me, you can buy me a coffee (:
+---
+
+## 🏢 Geração de CNPJ — Versões Suportadas
+
+O gerador de CNPJ suporta **duas normas oficiais**:
+
+### 🔹 `"v1"` — CNPJ Numérico (norma tradicional)
+
+- Formato: **14 dígitos numéricos**
+- Exemplo: `12.345.678/0001-95`
+- Norma amplamente utilizada
+- **Versão padrão do gerador**
+
+### 🔹 `"v2"` — CNPJ Alfanumérico (nova norma oficial)
+
+- Formato: **12 caracteres alfanuméricos + 2 dígitos verificadores**
+- Exemplo: `12.ABC.345/01DE-35`
+- Norma oficial da Receita Federal / SERPRO
+- Utiliza:
+  - Conversão ASCII (`ASCII - 48`)
+  - Módulo 11
+  - Pesos de 2 a 9
+
+---
+
+### 📌 Uso das versões de CNPJ
+
+```js
+import { generateCnpj, CNPJ_VERSIONS } from "cpf_and_cnpj-generator";
+
+// Padrão (v1)
+generateCnpj();
+
+// Explícito
+generateCnpj("v1");
+
+// Nova norma alfanumérica
+generateCnpj("v2");
+
+// Usando constantes
+generateCnpj(CNPJ_VERSIONS.V1);
+generateCnpj(CNPJ_VERSIONS.V2);
+```
+
+> Caso nenhuma versão seja informada, o gerador utiliza `"v1"` por padrão.
+
+---
+
+## ☕ Apoie o projeto
+
+Se este pacote te ajudou, considere pagar um café ☺️
 
 <p align="center">
-	<a href="https://www.buymeacoffee.com/gabriellogan" target="_blank">
-		<img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 35px !important;width: 180px !important;" >
-	</a>
+  <a href="https://www.buymeacoffee.com/gabriellogan" target="_blank">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
+         style="height:35px;width:180px">
+  </a>
 </p>
-
-Lembre-se de que a forma de importar ou requerer um pacote depende do ambiente JavaScript em que você está rodando (por exemplo, Node.js com ou sem suporte a módulos ES). Escolha o método que melhor se adapta ao seu ambiente.

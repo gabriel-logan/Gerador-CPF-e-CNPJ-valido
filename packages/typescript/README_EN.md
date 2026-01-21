@@ -4,17 +4,21 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![npm downloads](https://img.shields.io/npm/dm/cpf_and_cnpj-generator.svg?style=flat-square)](https://npm-stat.com/charts.html?package=cpf_and_cnpj-generator)
 
-This npm package provides JavaScript functions to generate valid Brazilian CPF (Cadastro de Pessoas Físicas) and CNPJ (Cadastro Nacional da Pessoa Jurídica) numbers.
+This package provides JavaScript/TypeScript utilities to generate **valid Brazilian CPF and CNPJ numbers**, including support for the **new official alphanumeric CNPJ standard defined by Receita Federal (SERPRO)**.
 
-## DOC
+---
+
+## 📘 Documentation
 
 https://gabriel-logan.github.io/Gerador-CPF-e-CNPJ-valido
 
-## CDN
+---
+
+## 🌐 CDN
 
 ### DEFAULT
 
-jsdelivr:
+**jsDelivr**
 
 ```bash
 https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.3.2/dist/index.min.js
@@ -24,7 +28,7 @@ https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.3.2/dist/index.min.js
 <script src="https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.3.2/dist/index.min.js"></script>
 ```
 
-unpkg:
+**unpkg**
 
 ```bash
 https://unpkg.com/cpf_and_cnpj-generator@1.3.2/dist/index.js
@@ -33,6 +37,8 @@ https://unpkg.com/cpf_and_cnpj-generator@1.3.2/dist/index.js
 ```html
 <script src="https://unpkg.com/cpf_and_cnpj-generator@1.3.2/dist/index.js"></script>
 ```
+
+---
 
 ### ESM
 
@@ -51,9 +57,9 @@ https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.3.2/+esm
 </script>
 ```
 
-### Installation
+---
 
-You can install this package using npm:
+## 📦 Installation
 
 ```bash
 npm install cpf_and_cnpj-generator
@@ -67,40 +73,72 @@ yarn add cpf_and_cnpj-generator
 pnpm add cpf_and_cnpj-generator
 ```
 
-## How to Use
+---
 
-After installing the package, you can use it in your JavaScript/TypeScript project:
+## 🚀 Usage
 
 ### ES Modules
 
-```javascript
-import generator from "cpf_and_cnpj-generator";
+```js
+import { generateCpf, generateCnpj } from "cpf_and_cnpj-generator";
 
-console.log(generator.generateCnpj());
-console.log(generator.generateCpf());
-```
-
-```javascript
-import { generateCnpj, generateCpf } from "cpf_and_cnpj-generator";
-
-console.log(generateCnpj());
-console.log(generateCpf());
+generateCpf();
+generateCnpj();
 ```
 
 ### CommonJS
 
-```javascript
-const generator = require("cpf_and_cnpj-generator");
-
-console.log("CPF generated:", generator.generateCnpj());
-console.log("CNPJ generated:", generator.generateCpf());
-```
-
-```javascript
+```js
 const { generateCpf, generateCnpj } = require("cpf_and_cnpj-generator");
 
-console.log("CPF generated:", generateCnpj());
-console.log("CNPJ generated:", generateCpf());
+generateCpf();
+generateCnpj();
 ```
 
-Keep in mind that the way you import or require a package depends on your JavaScript environment (e.g., Node.js with or without ES module support). Choose the method that best fits your setup.
+---
+
+## 🏢 CNPJ Generator — Supported Versions
+
+### 🔹 `"v1"` — Numeric CNPJ (legacy standard)
+
+- Format: **14 numeric digits**
+- Example: `12.345.678/0001-95`
+- Default generator version
+
+### 🔹 `"v2"` — Alphanumeric CNPJ (new official standard)
+
+- Format: **12 alphanumeric characters + 2 numeric check digits**
+- Example: `12.ABC.345/01DE-35`
+- Official standard by Receita Federal / SERPRO
+- Uses:
+  - ASCII-based conversion
+  - Modulo 11
+  - Weights from 2 to 9
+
+---
+
+### 📌 CNPJ version usage
+
+```js
+import { generateCnpj, CNPJ_VERSIONS } from "cpf_and_cnpj-generator";
+
+generateCnpj(); // default v1
+generateCnpj("v1"); // numeric
+generateCnpj("v2"); // alphanumeric
+
+generateCnpj(CNPJ_VERSIONS.V1);
+generateCnpj(CNPJ_VERSIONS.V2);
+```
+
+---
+
+## ☕ Support the project
+
+If this package helped you, consider buying me a coffee 🙂
+
+<p align="center">
+  <a href="https://www.buymeacoffee.com/gabriellogan" target="_blank">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
+         style="height:35px;width:180px">
+  </a>
+</p>
