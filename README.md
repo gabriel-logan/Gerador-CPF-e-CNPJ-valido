@@ -7,6 +7,8 @@
 
 Este repositório fornece funções em JavaScript, Python, Go, C e Java para gerar números válidos de CPF (Cadastro de Pessoas Físicas) e CNPJ (Cadastro Nacional da Pessoa Jurídica) para o Brasil.
 
+👉 Demo: [./demo.html](./demo.html)
+
 ## READMEs
 
 - [English](README_EN.md)

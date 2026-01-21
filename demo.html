@@ -168,7 +168,6 @@
         </header>
 
         <section class="grid">
-            <!-- CPF -->
             <div class="card">
                 <h2>📄 CPF</h2>
                 <div id="cpfResult" class="result">—</div>
@@ -188,7 +187,6 @@
                 </div>
             </div>
 
-            <!-- CNPJ V1 -->
             <div class="card">
                 <h2>🏢 CNPJ v1 (Numérico)</h2>
                 <div id="cnpjV1Result" class="result">—</div>
@@ -208,7 +206,6 @@
                 </div>
             </div>
 
-            <!-- CNPJ V2 -->
             <div class="card">
                 <h2>🆕 CNPJ v2 (Alfanumérico)</h2>
                 <div id="cnpjV2Result" class="result">—</div>
@@ -244,7 +241,6 @@
             CNPJ_VERSIONS,
         } from "https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.5.0/+esm";
 
-        /* ========= MÁSCARAS ========= */
 
         const maskCpf = (value) =>
             value.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, "$1.$2.$3-$4");
@@ -263,7 +259,6 @@
 
         const stripMask = (value) => value.replace(/[.\-\/]/g, "");
 
-        /* ========= COPY ========= */
 
         function copy(text, btn) {
             if (!text || text === "—") return;
@@ -289,7 +284,7 @@
 
         cnpjV1Generate.onclick = () => {
             let value = generateCnpj(CNPJ_VERSIONS.V1);
-            value = stripMask(value); 
+            value = stripMask(value);
             if (cnpjV1Mask.checked) value = maskCnpjV1(value);
             cnpjV1Result.textContent = value;
         };
