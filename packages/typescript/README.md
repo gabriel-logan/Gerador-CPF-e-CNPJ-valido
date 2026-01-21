@@ -19,18 +19,18 @@ https://gabriel-logan.github.io/Gerador-CPF-e-CNPJ-valido
 Atualmente, o pacote oferece **suporte oficial apenas via ESM**, utilizando **jsDelivr**.
 
 ```bash
-https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.5.0/+esm
+https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.5.2/+esm
 ```
 
 ### Uso via CDN (ESM)
 
 ```html
 <script type="module">
-  import generator from "https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.5.0/+esm";
+  import generator from "https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.5.2/+esm";
   import {
     generateCpf,
     generateCnpj,
-  } from "https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.5.0/+esm";
+  } from "https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.5.2/+esm";
 
   generator.generateCpf();
   generator.generateCnpj();
