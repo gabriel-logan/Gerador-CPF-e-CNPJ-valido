@@ -113,6 +113,9 @@ generateCnpj();
 
 ## 🏢 Geração de CNPJ — Versões Suportadas
 
+versão >= 1.5.0
+essa versão inclui suporte à nova norma oficial de CNPJ alfanumérico.
+
 O gerador de CNPJ suporta **duas normas oficiais**:
 
 ### 🔹 `"v1"` — CNPJ Numérico (norma tradicional)

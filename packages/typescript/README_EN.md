@@ -99,6 +99,9 @@ generateCnpj();
 
 ## 🏢 CNPJ Generator — Supported Versions
 
+version >= 1.5.0
+this version includes support for the new official alphanumeric CNPJ standard.
+
 ### 🔹 `"v1"` — Numeric CNPJ (legacy standard)
 
 - Format: **14 numeric digits**
