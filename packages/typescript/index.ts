@@ -1,6 +1,5 @@
-import generateCnpj from "./src/cnpjGenerator";
-import generateCpf from "./src/cpfGenerator";
-import generateCnpjNew from "./src/cnpjGeneratorNew";
+import generateCnpj from "./src/cnpjGeneratorBase";
+import generateCpf from "./src/cpfGeneratorBase";
 
-export { generateCnpj, generateCpf, generateCnpjNew };
-export default { generateCnpj, generateCpf, generateCnpjNew };
+export { generateCnpj, generateCpf };
+export default { generateCnpj, generateCpf };
