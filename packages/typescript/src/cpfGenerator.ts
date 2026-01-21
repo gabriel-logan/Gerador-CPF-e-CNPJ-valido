@@ -13,7 +13,7 @@ export default function geraEValida(): string {
 
   // Generate the first 9 digits and accumulate sums
   for (let i: number = 0; i < 9; i++) {
-    const d: number = (Math.random() * 10) | 0; // fast integer 0–9
+    const d: number = Math.trunc(Math.random() * 10); // fast integer 0–9
     digits[i] = d;
 
     const weight1: number = 10 - i;

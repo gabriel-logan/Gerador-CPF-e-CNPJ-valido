@@ -24,7 +24,7 @@ describe("randomDigit", () => {
   it("maps Math.random() outputs correctly to digit 0..9", () => {
     const originalRandom: () => number = Math.random;
     const cases: Array<[number, number]> = [
-      [0.0, 0],
+      [0, 0],
       [0.0999999, 0],
       [0.1, 1],
       [0.1999999, 1],
