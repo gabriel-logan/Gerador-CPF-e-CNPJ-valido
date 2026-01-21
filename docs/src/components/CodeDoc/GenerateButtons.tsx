@@ -99,7 +99,7 @@ export function GenerateCnpj2() {
 				Gerar CNPJ v2
 			</button>
 			<p className="mt-2 text-gray-600 dark:text-gray-300">
-				CNPJ v2: <span id="response-cnpj-v2">{setMask({ type: "cnpj", value: cnpj })}</span>
+				CNPJ v2:  <span id="response-cnpj-v2">{cnpj}</span>
 			</p>
 		</>
 	);
