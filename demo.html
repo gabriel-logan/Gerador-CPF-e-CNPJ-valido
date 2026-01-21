@@ -52,6 +52,7 @@
             font-size: 2rem;
             margin: 0;
             background: linear-gradient(90deg, #60a5fa, #22c55e);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -113,8 +114,7 @@
             padding: 10px;
             font-size: 0.95rem;
             cursor: pointer;
-            transition: transform 0.15s ease, box-shadow 0.15s ease,
-                opacity 0.15s ease;
+            transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
             color: white;
         }
 
@@ -147,7 +147,7 @@
         footer {
             margin-top: 28px;
             text-align: center;
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             color: var(--muted);
         }
 
@@ -162,9 +162,6 @@
     <div class="container">
         <header>
             <h1>Gerador de CPF & CNPJ</h1>
-            <button class="back-btn" onclick="window.location.href='/'">
-                ⬅ Voltar
-            </button>
         </header>
 
         <section class="grid">
@@ -257,8 +254,7 @@
                 "$1.$2.$3/$4$5-$6"
             );
 
-        const stripMask = (value) => value.replace(/[.\-\/]/g, "");
-
+        const stripMask = (value) => value.replaceAll(/[.\-\\/]/g, "");
 
         function copy(text, btn) {
             if (!text || text === "—") return;
@@ -271,8 +267,6 @@
             }, 1200);
         }
 
-        /* ========= CPF ========= */
-
         cpfGenerate.onclick = () => {
             let value = generateCpf();
             if (cpfMask.checked) value = maskCpf(value);
@@ -280,7 +274,6 @@
         };
 
         cpfCopy.onclick = () => copy(cpfResult.textContent, cpfCopy);
-
 
         cnpjV1Generate.onclick = () => {
             let value = generateCnpj(CNPJ_VERSIONS.V1);
@@ -303,7 +296,6 @@
         cnpjV2Copy.onclick = () =>
             copy(cnpjV2Result.textContent, cnpjV2Copy);
     </script>
-
 </body>
 
 </html>
