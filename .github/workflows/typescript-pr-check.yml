@@ -40,9 +40,9 @@ jobs:
       - name: Install dependencies
         working-directory: ./packages/typescript
         run: pnpm install
-      - name: Run Prettier
+      - name: Run Prettier check
         working-directory: ./packages/typescript
-        run: pnpm format
+        run: pnpm format:check
       - name: Run lint
         working-directory: ./packages/typescript
         run: pnpm lint

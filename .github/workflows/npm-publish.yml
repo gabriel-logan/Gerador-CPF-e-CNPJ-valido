@@ -36,6 +36,8 @@ jobs:
         run: |
           pnpm install
           pnpm test
+          pnpm format
+          pnpm lint
           pnpm build
           npm publish
         env:
