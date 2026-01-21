@@ -1,4 +1,5 @@
 import randomDigit from "../src/randomDigit";
+import { describe, it, expect, vi, Mock } from "vitest";
 
 describe("randomDigit", () => {
   it("returns an integer between 0 and 9 (inclusive) over many calls", () => {
@@ -39,7 +40,7 @@ describe("randomDigit", () => {
     ];
     try {
       for (const [mockVal, expected] of cases) {
-        (Math.random as unknown as jest.Mock) = jest.fn(() => mockVal);
+        (Math.random as unknown as Mock) = vi.fn(() => mockVal);
         expect(randomDigit()).toBe(expected);
       }
     } finally {
@@ -50,7 +51,7 @@ describe("randomDigit", () => {
   it("never returns 10 when Math.random() is extremely close to 1", () => {
     const originalRandom: () => number = Math.random;
     try {
-      (Math.random as unknown as jest.Mock) = jest.fn(
+      (Math.random as unknown as Mock) = vi.fn(
         () => Number.EPSILON + (1 - Number.EPSILON * 2),
       );
       const val: number = randomDigit();

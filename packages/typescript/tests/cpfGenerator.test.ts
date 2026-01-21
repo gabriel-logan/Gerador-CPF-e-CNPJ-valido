@@ -1,5 +1,6 @@
 import cpfGenerator from "../src/cpfGenerator";
 import { cpfIsValid } from "multiform-validator";
+import { describe, it, expect } from "vitest";
 
 describe("geraEValida", () => {
   it("should generate a valid CPF", () => {

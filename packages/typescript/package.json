@@ -19,9 +19,8 @@
     }
   ],
   "scripts": {
-    "test": "jest --verbose",
-    "test:cov": "jest --coverage",
-    "test:ver:cov": "jest --coverage --verbose",
+    "test": "vitest",
+    "test:cov": "vitest --coverage",
     "build:types": "tsc -p tsconfig.types.json",
     "build:dist": "tsc -p tsconfig.json",
     "build": "rm -rf dist/ && rm -rf types/ && pnpm build:types && pnpm build:dist",
@@ -66,7 +65,10 @@
   },
   "homepage": "https://gabriel-logan.github.io/Gerador-CPF-e-CNPJ-valido",
   "devDependencies": {
+    "@vitest/coverage-v8": "4.0.17",
     "multiform-validator": "^2.7.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1",
+    "vitest": "^4.0.17"
   }
 }
