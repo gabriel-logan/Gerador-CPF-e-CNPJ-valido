@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { a11yDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-import { GenerateCnpj, GenerateCpf } from "./GenerateButtons";
+import { GenerateCnpj1, GenerateCnpj2, GenerateCpf } from "./GenerateButtons";
 
 export default function CodeDoc() {
 	return (
@@ -42,7 +42,11 @@ export default function CodeDoc() {
 					{/**<span className="cursor-pointer hover:text-blue-950">COPY</span> */}
 				</div>
 				<div className="mx-4 mt-6 flex flex-col gap-2 sm:mx-0 sm:mt-2 sm:flex-row">
-					<GenerateCnpj />
+					<GenerateCnpj1 />
+					{/**<span className="cursor-pointer hover:text-blue-950">COPY</span> */}
+				</div>
+				<div className="mx-4 mt-6 flex flex-col gap-2 sm:mx-0 sm:mt-2 sm:flex-row">
+					<GenerateCnpj2 />
 					{/**<span className="cursor-pointer hover:text-blue-950">COPY</span> */}
 				</div>
 			</div>

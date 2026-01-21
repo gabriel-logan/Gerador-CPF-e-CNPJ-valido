@@ -43,7 +43,7 @@ export function GenerateCpf() {
 	);
 }
 
-export function GenerateCnpj() {
+export function GenerateCnpj1() {
 	const [cnpj, setCnpj] = useState("00000000000000");
 
 	const [isCnpjMasked, setIsCnpjMasked] = useState(true);
@@ -79,6 +79,28 @@ export function GenerateCnpj() {
 					onChange={handleCnpjMaskChange}
 				/>
 			</div>
+		</>
+	);
+}
+
+export function GenerateCnpj2() {
+	const [cnpj, setCnpj] = useState("00000000000000");
+
+	useEffect(() => {
+		setCnpj(generateCnpj("v2"));
+	}, []);
+	return (
+		<>
+			<button
+				id="gera-cnpj-v2"
+				className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
+				onClick={() => setCnpj(generateCnpj("v2"))}
+			>
+				Gerar CNPJ v2
+			</button>
+			<p className="mt-2 text-gray-600 dark:text-gray-300">
+				CNPJ v2: <span id="response-cnpj-v2">{setMask({ type: "cnpj", value: cnpj })}</span>
+			</p>
 		</>
 	);
 }
