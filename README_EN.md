@@ -1,4 +1,6 @@
 > [!NOTE]
+> This project now supports the **new alphanumeric CNPJ (official standard from Receita Federal / SERPRO)**.
+>
 > I accept help to make the version of the other programming languages.
 
 # cpf_and_cnpj-generator

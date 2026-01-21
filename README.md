@@ -1,4 +1,6 @@
 > [!NOTE]
+> Este projeto agora oferece suporte ao **novo CNPJ alfanumérico (norma oficial da Receita Federal / SERPRO)**.
+>  
 > Aceito ajuda para fazer a versão das demais linguagens de programação.
 
 # cpf_and_cnpj-generator
