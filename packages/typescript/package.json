@@ -5,13 +5,6 @@
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "types/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "types": "./types/index.d.ts"
-    }
-  },
   "files": [
     "dist",
     "types"
@@ -27,13 +20,16 @@
     }
   ],
   "scripts": {
-    "test": "jest --coverage --verbose",
+    "test": "jest --verbose",
+    "test:cov": "jest --coverage",
+    "test:ver:cov": "jest --coverage --verbose",
     "build:types": "tsc -p tsconfig.types.json",
-    "build:dist": "webpack",
+    "build:dist": "tsc -p tsconfig.json",
     "build": "rm -rf dist/ && rm -rf types/ && pnpm build:types && pnpm build:dist",
     "lint": "eslint src/**/*.ts tests/**/*.ts",
     "lint:fix": "eslint src/**/*.ts tests/**/*.ts --fix",
-    "format": "prettier --write ."
+    "format": "prettier --write **/*.{ts,js,json,md,yml}",
+    "format:check": "prettier --check **/*.{ts,js,json,md,yml}"
   },
   "repository": {
     "type": "git",
@@ -71,20 +67,7 @@
   },
   "homepage": "https://gabriel-logan.github.io/Gerador-CPF-e-CNPJ-valido",
   "devDependencies": {
-    "@eslint/js": "^9.39.2",
-    "@types/jest": "^30.0.0",
-    "eslint": "^9.39.2",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.5",
-    "jest": "^30.2.0",
     "multiform-validator": "^2.7.0",
-    "prettier": "^3.7.4",
-    "ts-jest": "^29.4.6",
-    "ts-loader": "^9.5.4",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.53.0",
-    "webpack": "^5.104.1",
-    "webpack-cli": "^6.0.1"
+    "typescript": "^5.9.3"
   }
 }
