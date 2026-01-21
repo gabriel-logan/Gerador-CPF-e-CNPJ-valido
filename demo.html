@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerador de CPF e CNPJ</title>
+
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #22c55e;
+            --bg: #0f172a;
+            --card: rgba(255, 255, 255, 0.08);
+            --text: #e5e7eb;
+            --muted: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+                sans-serif;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: radial-gradient(circle at top, #1e293b, var(--bg));
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        header h1 {
+            font-size: 2.4rem;
+            margin-bottom: 8px;
+            background: linear-gradient(90deg, #60a5fa, #22c55e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            color: var(--muted);
+            font-size: 1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .card h2 {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        .result {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            text-align: center;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #e5e7eb;
+        }
+
+        button {
+            border: none;
+            border-radius: 10px;
+            padding: 12px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.15s ease, box-shadow 0.15s ease,
+                opacity 0.15s ease;
+            color: white;
+        }
+
+        button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            opacity: 0.95;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+        }
+
+        footer {
+            margin-top: 32px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        footer a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Gerador de CPF e CNPJ</h1>
+            <p>
+                Demonstração do pacote
+                <strong>cpf_and_cnpj-generator</strong> via CDN (ESM)
+            </p>
+        </header>
+
+        <section class="grid">
+            <div class="card">
+                <h2>📄 CPF</h2>
+                <div id="cpfResult" class="result">—</div>
+                <button id="cpfBtn" class="btn-primary">
+                    Gerar CPF
+                </button>
+            </div>
+
+            <div class="card">
+                <h2>🏢 CNPJ (v1 — Numérico)</h2>
+                <div id="cnpjV1Result" class="result">—</div>
+                <button id="cnpjV1Btn" class="btn-primary">
+                    Gerar CNPJ v1
+                </button>
+            </div>
+
+            <div class="card">
+                <h2>🆕 CNPJ (v2 — Alfanumérico)</h2>
+                <div id="cnpjV2Result" class="result">—</div>
+                <button id="cnpjV2Btn" class="btn-secondary">
+                    Gerar CNPJ v2
+                </button>
+            </div>
+        </section>
+
+        <footer>
+            Documentação oficial:
+            <a href="https://gabriel-logan.github.io/Gerador-CPF-e-CNPJ-valido" target="_blank">
+                Gerador de CPF e CNPJ
+            </a>
+        </footer>
+    </div>
+
+    <!-- USO VIA CDN (ESM) -->
+    <script type="module">
+        import {
+            generateCpf,
+            generateCnpj,
+            CNPJ_VERSIONS,
+        } from "https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.5.0/+esm";
+
+        const cpfResult = document.getElementById("cpfResult");
+        const cnpjV1Result = document.getElementById("cnpjV1Result");
+        const cnpjV2Result = document.getElementById("cnpjV2Result");
+
+        document.getElementById("cpfBtn").addEventListener("click", () => {
+            cpfResult.textContent = generateCpf();
+        });
+
+        document.getElementById("cnpjV1Btn").addEventListener("click", () => {
+            cnpjV1Result.textContent = generateCnpj(CNPJ_VERSIONS.V1);
+        });
+
+        document.getElementById("cnpjV2Btn").addEventListener("click", () => {
+            cnpjV2Result.textContent = generateCnpj(CNPJ_VERSIONS.V2);
+        });
+    </script>
+</body>
+
+</html>
