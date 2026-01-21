@@ -14,6 +14,7 @@
             --card: rgba(255, 255, 255, 0.08);
             --text: #e5e7eb;
             --muted: #94a3b8;
+            --danger: #ef4444;
         }
 
         * {
@@ -36,30 +37,38 @@
 
         .container {
             width: 100%;
-            max-width: 900px;
+            max-width: 960px;
         }
 
         header {
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             margin-bottom: 32px;
+            gap: 16px;
         }
 
         header h1 {
-            font-size: 2.4rem;
-            margin-bottom: 8px;
+            font-size: 2rem;
+            margin: 0;
             background: linear-gradient(90deg, #60a5fa, #22c55e);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        header p {
-            color: var(--muted);
-            font-size: 1rem;
+        .back-btn {
+            background: transparent;
+            border: 1px solid var(--muted);
+            color: var(--text);
+            padding: 8px 14px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.9rem;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
         }
 
@@ -71,33 +80,38 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 14px;
         }
 
         .card h2 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin: 0;
         }
 
         .result {
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.35);
             padding: 12px;
             border-radius: 10px;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             letter-spacing: 1px;
             text-align: center;
             min-height: 44px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #e5e7eb;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
         }
 
         button {
+            flex: 1;
             border: none;
             border-radius: 10px;
-            padding: 12px;
-            font-size: 1rem;
+            padding: 10px;
+            font-size: 0.95rem;
             cursor: pointer;
             transition: transform 0.15s ease, box-shadow 0.15s ease,
                 opacity 0.15s ease;
@@ -110,18 +124,30 @@
             opacity: 0.95;
         }
 
-        .btn-primary {
+        .btn-generate {
             background: var(--primary);
         }
 
-        .btn-secondary {
+        .btn-copy {
             background: var(--secondary);
         }
 
-        footer {
-            margin-top: 32px;
-            text-align: center;
+        .btn-copy.copied {
+            background: #16a34a;
+        }
+
+        .options {
+            display: flex;
+            align-items: center;
+            gap: 8px;
             font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        footer {
+            margin-top: 28px;
+            text-align: center;
+            font-size: 0.85rem;
             color: var(--muted);
         }
 
@@ -135,36 +161,71 @@
 <body>
     <div class="container">
         <header>
-            <h1>Gerador de CPF e CNPJ</h1>
-            <p>
-                Demonstração do pacote
-                <strong>cpf_and_cnpj-generator</strong> via CDN (ESM)
-            </p>
+            <h1>Gerador de CPF & CNPJ</h1>
+            <button class="back-btn" onclick="window.location.href='/'">
+                ⬅ Voltar
+            </button>
         </header>
 
         <section class="grid">
+            <!-- CPF -->
             <div class="card">
                 <h2>📄 CPF</h2>
                 <div id="cpfResult" class="result">—</div>
-                <button id="cpfBtn" class="btn-primary">
-                    Gerar CPF
-                </button>
+
+                <div class="options">
+                    <input type="checkbox" id="cpfMask" checked />
+                    <label for="cpfMask">Usar máscara</label>
+                </div>
+
+                <div class="actions">
+                    <button class="btn-generate" id="cpfGenerate">
+                        Gerar
+                    </button>
+                    <button class="btn-copy" id="cpfCopy">
+                        Copiar
+                    </button>
+                </div>
             </div>
 
+            <!-- CNPJ V1 -->
             <div class="card">
-                <h2>🏢 CNPJ (v1 — Numérico)</h2>
+                <h2>🏢 CNPJ v1 (Numérico)</h2>
                 <div id="cnpjV1Result" class="result">—</div>
-                <button id="cnpjV1Btn" class="btn-primary">
-                    Gerar CNPJ v1
-                </button>
+
+                <div class="options">
+                    <input type="checkbox" id="cnpjV1Mask" checked />
+                    <label for="cnpjV1Mask">Usar máscara</label>
+                </div>
+
+                <div class="actions">
+                    <button class="btn-generate" id="cnpjV1Generate">
+                        Gerar
+                    </button>
+                    <button class="btn-copy" id="cnpjV1Copy">
+                        Copiar
+                    </button>
+                </div>
             </div>
 
+            <!-- CNPJ V2 -->
             <div class="card">
-                <h2>🆕 CNPJ (v2 — Alfanumérico)</h2>
+                <h2>🆕 CNPJ v2 (Alfanumérico)</h2>
                 <div id="cnpjV2Result" class="result">—</div>
-                <button id="cnpjV2Btn" class="btn-secondary">
-                    Gerar CNPJ v2
-                </button>
+
+                <div class="options">
+                    <input type="checkbox" id="cnpjV2Mask" checked />
+                    <label for="cnpjV2Mask">Usar máscara</label>
+                </div>
+
+                <div class="actions">
+                    <button class="btn-generate" id="cnpjV2Generate">
+                        Gerar
+                    </button>
+                    <button class="btn-copy" id="cnpjV2Copy">
+                        Copiar
+                    </button>
+                </div>
             </div>
         </section>
 
@@ -176,7 +237,6 @@
         </footer>
     </div>
 
-    <!-- USO VIA CDN (ESM) -->
     <script type="module">
         import {
             generateCpf,
@@ -184,22 +244,71 @@
             CNPJ_VERSIONS,
         } from "https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.5.0/+esm";
 
-        const cpfResult = document.getElementById("cpfResult");
-        const cnpjV1Result = document.getElementById("cnpjV1Result");
-        const cnpjV2Result = document.getElementById("cnpjV2Result");
+        /* ========= MÁSCARAS ========= */
 
-        document.getElementById("cpfBtn").addEventListener("click", () => {
-            cpfResult.textContent = generateCpf();
-        });
+        const maskCpf = (value) =>
+            value.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, "$1.$2.$3-$4");
 
-        document.getElementById("cnpjV1Btn").addEventListener("click", () => {
-            cnpjV1Result.textContent = generateCnpj(CNPJ_VERSIONS.V1);
-        });
+        const maskCnpjV1 = (value) =>
+            value.replace(
+                /^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/,
+                "$1.$2.$3/$4-$5"
+            );
 
-        document.getElementById("cnpjV2Btn").addEventListener("click", () => {
-            cnpjV2Result.textContent = generateCnpj(CNPJ_VERSIONS.V2);
-        });
+        const maskCnpjV2 = (value) =>
+            value.replace(
+                /^([A-Z0-9]{2})([A-Z0-9]{3})([A-Z0-9]{3})([A-Z0-9]{2})([A-Z0-9]{2})(\d{2})$/,
+                "$1.$2.$3/$4$5-$6"
+            );
+
+        const stripMask = (value) => value.replace(/[.\-\/]/g, "");
+
+        /* ========= COPY ========= */
+
+        function copy(text, btn) {
+            if (!text || text === "—") return;
+            navigator.clipboard.writeText(text);
+            btn.textContent = "Copiado!";
+            btn.classList.add("copied");
+            setTimeout(() => {
+                btn.textContent = "Copiar";
+                btn.classList.remove("copied");
+            }, 1200);
+        }
+
+        /* ========= CPF ========= */
+
+        cpfGenerate.onclick = () => {
+            let value = generateCpf();
+            if (cpfMask.checked) value = maskCpf(value);
+            cpfResult.textContent = value;
+        };
+
+        cpfCopy.onclick = () => copy(cpfResult.textContent, cpfCopy);
+
+
+        cnpjV1Generate.onclick = () => {
+            let value = generateCnpj(CNPJ_VERSIONS.V1);
+            value = stripMask(value); 
+            if (cnpjV1Mask.checked) value = maskCnpjV1(value);
+            cnpjV1Result.textContent = value;
+        };
+
+        cnpjV1Copy.onclick = () =>
+            copy(cnpjV1Result.textContent, cnpjV1Copy);
+
+
+        cnpjV2Generate.onclick = () => {
+            let value = generateCnpj(CNPJ_VERSIONS.V2);
+            value = stripMask(value);
+            if (cnpjV2Mask.checked) value = maskCnpjV2(value);
+            cnpjV2Result.textContent = value;
+        };
+
+        cnpjV2Copy.onclick = () =>
+            copy(cnpjV2Result.textContent, cnpjV2Copy);
     </script>
+
 </body>
 
 </html>
