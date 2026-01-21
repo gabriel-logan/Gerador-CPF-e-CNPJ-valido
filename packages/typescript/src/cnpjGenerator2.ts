@@ -8,7 +8,7 @@ function getRandomChar(): string {
   return ALPHANUMERIC_CHARS.charAt(index);
 }
 
-function charToValue(char: string): number {
+export function charToValue(char: string): number {
   const ascii: number | undefined = char.codePointAt(0);
 
   if (ascii === undefined) {

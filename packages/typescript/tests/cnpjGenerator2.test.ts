@@ -1,4 +1,4 @@
-import cnpjGenerator2 from "../src/cnpjGenerator2";
+import cnpjGenerator2, { charToValue } from "../src/cnpjGenerator2";
 import { cnpjIsValid } from "multiform-validator";
 import { describe, it, expect } from "vitest";
 
@@ -22,5 +22,26 @@ describe("geraEValida", () => {
     const cnpj2: string = cnpjGenerator2();
 
     expect(cnpj1).not.toBe(cnpj2);
+  });
+});
+
+describe("charToValue", () => {
+  it("should convert digit characters correctly", () => {
+    expect(charToValue("0")).toBe(0);
+    expect(charToValue("9")).toBe(9);
+  });
+
+  it("should convert uppercase letters correctly", () => {
+    expect(charToValue("A")).toBe(17);
+    expect(charToValue("Z")).toBe(42);
+  });
+
+  it("should throw for invalid characters", () => {
+    expect(() => charToValue("!")).toThrow("Character out of range");
+    expect(() => charToValue("a")).toThrow("Character out of range");
+  });
+
+  it("should throw for empty string", () => {
+    expect(() => charToValue("")).toThrow("Invalid character");
   });
 });
