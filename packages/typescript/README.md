@@ -16,44 +16,27 @@ https://gabriel-logan.github.io/Gerador-CPF-e-CNPJ-valido
 
 ## 🌐 CDN
 
-### DEFAULT
-
-**jsDelivr**
+Atualmente, o pacote oferece **suporte oficial apenas via ESM**, utilizando **jsDelivr**.
 
 ```bash
-https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.3.2/dist/index.min.js
+https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.5.0/+esm
 ```
 
-```html
-<script src="https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.3.2/dist/index.min.js"></script>
-```
-
-**unpkg**
-
-```bash
-https://unpkg.com/cpf_and_cnpj-generator@1.3.2/dist/index.js
-```
-
-```html
-<script src="https://unpkg.com/cpf_and_cnpj-generator@1.3.2/dist/index.js"></script>
-```
-
----
-
-### ESM
-
-jsdelivr:
-
-```bash
-https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.3.2/+esm
-```
+### Uso via CDN (ESM)
 
 ```html
 <script type="module">
+  import generator from "https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.5.0/+esm";
   import {
     generateCpf,
     generateCnpj,
-  } from "https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.3.2/+esm";
+  } from "https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.5.0/+esm";
+
+  generator.generateCpf();
+  generator.generateCnpj();
+
+  generateCpf();
+  generateCnpj();
 </script>
 ```
 
@@ -113,8 +96,8 @@ generateCnpj();
 
 ## 🏢 Geração de CNPJ — Versões Suportadas
 
-versão >= 1.5.0
-essa versão inclui suporte à nova norma oficial de CNPJ alfanumérico.
+> Disponível a partir da versão **`>= 1.5.0`**
+> Esta versão inclui suporte à **nova norma oficial de CNPJ alfanumérico**.
 
 O gerador de CNPJ suporta **duas normas oficiais**:
 
