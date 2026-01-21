@@ -16,7 +16,7 @@ describe("geraEValida", () => {
   });
 
   it("should generate version 2 (alphanumeric) CNPJ when specified", () => {
-    const cnpj: string = cnpjGeneratorBase(2);
+    const cnpj: string = cnpjGeneratorBase("v2");
     expect(cnpj).toMatch(/^[0-9A-Z]{12}\d{2}$/); // Check if it matches alphanumeric CNPJ format
   });
 });

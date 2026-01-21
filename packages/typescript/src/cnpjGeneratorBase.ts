@@ -3,6 +3,13 @@
 import generateCnpj1 from "./cnpjGenerator1";
 import generateCnpj2 from "./cnpjGenerator2";
 
+export type CnpjVersion = "v1" | "v2";
+
+export const CNPJ_VERSIONS: Record<string, CnpjVersion> = {
+  V1: "v1",
+  V2: "v2",
+};
+
 /**
  * Generates a valid CNPJ according to the selected official standard.
  *
@@ -23,19 +30,19 @@ import generateCnpj2 from "./cnpjGenerator2";
  *
  * @param cnpjVersion
  * Defines which CNPJ standard should be used:
- * - `1` → Numeric CNPJ (default / legacy standard)
- * - `2` → Alphanumeric CNPJ (new official standard)
- * - Default is `1`
+ * - `"v1"` → Numeric CNPJ (default / legacy standard)
+ * - `"v2"` → Alphanumeric CNPJ (new official standard)
+ * - Default is `"v1"`
  *
  * @returns A valid CNPJ string according to the selected version.
  *
  * @example
  * generateValidCNPJ();        // Generates numeric CNPJ (version 1)
- * generateValidCNPJ(1);       // Same as above
- * generateValidCNPJ(2);       // Generates alphanumeric CNPJ
+ * generateValidCNPJ("v1");       // Same as above
+ * generateValidCNPJ("v2");       // Generates alphanumeric CNPJ
  */
-function generateValidCNPJ(cnpjVersion: 1 | 2 = 1): string {
-  if (cnpjVersion === 2) {
+function generateValidCNPJ(cnpjVersion: CnpjVersion = "v1"): string {
+  if (cnpjVersion === "v2") {
     return generateCnpj2();
   }
 
