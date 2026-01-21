@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+
 import js from "@eslint/js";
 import globals from "globals";
 import tseslint from "typescript-eslint";
