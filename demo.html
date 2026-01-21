@@ -5,6 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gerador de CPF e CNPJ</title>
+    <meta name="description"
+        content="Este repositório reúne implementações em JavaScript, Python, Go, C e Java para gerar CPFs (Cadastro de Pessoas Físicas) e CNPJs (Cadastro Nacional da Pessoa Jurídica) válidos, compatíveis com as normas oficiais do Brasil, incluindo o novo padrão de CNPJ alfanumérico." />
+    <meta name="author" content="Gabriel Logan" />
 
     <style>
         :root {
@@ -295,6 +298,46 @@
 
         cnpjV2Copy.onclick = () =>
             copy(cnpjV2Result.textContent, cnpjV2Copy);
+
+        window.onload = () => {
+            cpfGenerate.click();
+            cnpjV1Generate.click();
+            cnpjV2Generate.click();
+        };
+
+        const cnpjV1Mask = document.getElementById("cnpjV1Mask");
+        const cnpjV2Mask = document.getElementById("cnpjV2Mask");
+        const cpfMask = document.getElementById("cpfMask");
+
+        cnpjV1Mask.onclick = () => {
+            if (cnpjV1Mask.checked) {
+                cnpjV1Result.textContent = maskCnpjV1(
+                    stripMask(cnpjV1Result.textContent)
+                );
+            } else {
+                cnpjV1Result.textContent = stripMask(cnpjV1Result.textContent);
+            }
+        };
+
+        cnpjV2Mask.onclick = () => {
+            if (cnpjV2Mask.checked) {
+                cnpjV2Result.textContent = maskCnpjV2(
+                    stripMask(cnpjV2Result.textContent)
+                );
+            } else {
+                cnpjV2Result.textContent = stripMask(cnpjV2Result.textContent);
+            }
+        };
+
+        cpfMask.onclick = () => {
+            if (cpfMask.checked) {
+                cpfResult.textContent = maskCpf(
+                    stripMask(cpfResult.textContent)
+                );
+            } else {
+                cpfResult.textContent = stripMask(cpfResult.textContent);
+            }
+        };
     </script>
 </body>
 
