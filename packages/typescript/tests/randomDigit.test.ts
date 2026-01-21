@@ -1,5 +1,6 @@
 import randomDigit from "../src/randomDigit";
-import { describe, it, expect, vi, Mock } from "vitest";
+import type { Mock } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 
 describe("randomDigit", () => {
   it("returns an integer between 0 and 9 (inclusive) over many calls", () => {

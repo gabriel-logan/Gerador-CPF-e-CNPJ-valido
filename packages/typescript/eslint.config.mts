@@ -1,24 +1,16 @@
-import eslint from "@eslint/js";
+import js from "@eslint/js";
+import globals from "globals";
 import tseslint from "typescript-eslint";
+import { defineConfig } from "eslint/config";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
-
-export default tseslint.config(
+export default defineConfig([
   {
-    ignores: [
-      "webpack.config.js",
-      "dist/",
-      "types/",
-      "internal/",
-      "node_modules/",
-      "coverage/",
-      "jest.config.js",
-    ],
-  },
-  eslint.configs.recommended,
-  ...tseslint.configs.strictTypeChecked,
-  eslintPluginPrettierRecommended,
-  {
+    ignores: ["dist", "node_modules", "types"],
+    files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
+    plugins: { js },
+    extends: ["js/recommended"],
     languageOptions: {
+      globals: { ...globals.browser, ...globals.node },
       parserOptions: {
         project: "tsconfig.eslint.json",
         tsconfigRootDir: import.meta.dirname,
@@ -55,4 +47,6 @@ export default tseslint.config(
       "@typescript-eslint/no-unnecessary-type-arguments": "off",
     },
   },
-);
+  tseslint.configs.strictTypeChecked,
+  eslintPluginPrettierRecommended,
+]);
