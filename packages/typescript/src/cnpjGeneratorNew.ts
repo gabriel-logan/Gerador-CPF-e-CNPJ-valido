@@ -16,11 +16,11 @@ function charToValue(char: string): number {
   }
 
   if (ascii >= 48 && ascii <= 57) {
-    return ascii - 48; // '0'-'9' -> 0-9
+    return ascii - 48;
   }
 
   if (ascii >= 65 && ascii <= 90) {
-    return ascii - 55; // 'A'-'Z' -> 10-35
+    return ascii - 48;
   }
 
   throw new Error("Character out of range");
