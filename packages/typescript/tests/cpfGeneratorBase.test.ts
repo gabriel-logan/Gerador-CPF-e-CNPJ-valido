@@ -4,7 +4,7 @@ import { describe, it, expect } from "vitest";
 
 describe("geraEValida", () => {
   it("should generate a valid CPF", () => {
-    for (let i: number = 0; i < 100; i++) {
+    for (let i: number = 0; i < 10000; i++) {
       expect(cpfIsValid(cpfGeneratorBase()).isValid).toBe(true); // Assert that the generated CPF is valid
     }
   });
