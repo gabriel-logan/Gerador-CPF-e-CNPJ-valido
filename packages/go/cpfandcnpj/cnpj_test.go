@@ -7,7 +7,7 @@ import (
 )
 
 func TestGenerateCNPJ(t *testing.T) {
-	cnpj := cpfandcnpj.GenerateCNPJ()
+	cnpj := cpfandcnpj.GenerateCNPJ("")
 
 	if len(cnpj) != 14 {
 		t.Errorf("Expected CNPJ length of 14, got %d", len(cnpj))
