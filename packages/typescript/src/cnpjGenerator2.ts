@@ -1,70 +1,60 @@
-// Feito por: Logan
-
 const ALPHANUMERIC_CHARS: string = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-function getRandomChar(): string {
-  const index: number = Math.floor(Math.random() * ALPHANUMERIC_CHARS.length);
+function generateValidCNPJ(): string {
+  const numericValues: Uint8Array = new Uint8Array(14);
 
-  return ALPHANUMERIC_CHARS.charAt(index);
-}
-
-export function charToValue(char: string): number {
-  const ascii: number | undefined = char.codePointAt(0);
-
-  if (ascii === undefined) {
-    throw new Error("Invalid character");
+  for (let index: number = 0; index < 12; index++) {
+    numericValues[index] = Math.trunc(Math.random() * 36);
   }
 
-  if (ascii >= 48 && ascii <= 57) {
-    return ascii - 48;
-  }
-
-  if (ascii >= 65 && ascii <= 90) {
-    return ascii - 48;
-  }
-
-  throw new Error("Character out of range");
-}
-
-function calculateDigitVerifier(cnpjChars: string[]): number {
-  let weight: number = 2;
   let sum: number = 0;
+  let weight: number = 2;
 
-  for (let i: number = cnpjChars.length - 1; i >= 0; i--) {
-    sum += charToValue(cnpjChars[i]) * weight;
+  for (let index: number = 11; index >= 0; index--) {
+    const value: number = numericValues[index];
+
+    const normalizedValue: number = value < 10 ? value : value + 7;
+
+    sum += normalizedValue * weight;
     weight = weight === 9 ? 2 : weight + 1;
   }
 
-  const remainder: number = sum % 11;
+  const firstRemainder: number = sum % 11;
 
-  return remainder === 0 || remainder === 1 ? 0 : 11 - remainder;
-}
+  numericValues[12] = firstRemainder < 2 ? 0 : 11 - firstRemainder;
 
-function generateBaseCNPJ(): string[] {
-  const base: string[] = [];
+  sum = 0;
+  weight = 2;
 
-  for (let i: number = 0; i < 12; i++) {
-    base.push(getRandomChar());
+  for (let index: number = 12; index >= 0; index--) {
+    const value: number = numericValues[index];
+
+    const normalizedValue: number = value < 10 ? value : value + 7;
+
+    sum += normalizedValue * weight;
+    weight = weight === 9 ? 2 : weight + 1;
   }
 
-  return base;
-}
+  const secondRemainder: number = sum % 11;
 
-/**
- * Generates a valid alphanumeric CNPJ according to official technical rules (SERPRO).
- * @returns A valid alphanumeric CNPJ (14 characters)
- * @description - Made by: Logan
- */
-function generateValidCNPJ(): string {
-  const cnpj: string[] = generateBaseCNPJ();
+  numericValues[13] = secondRemainder < 2 ? 0 : 11 - secondRemainder;
 
-  const firstDV: number = calculateDigitVerifier(cnpj);
-  cnpj.push(firstDV.toString());
-
-  const secondDV: number = calculateDigitVerifier(cnpj);
-  cnpj.push(secondDV.toString());
-
-  return cnpj.join("");
+  return (
+    ALPHANUMERIC_CHARS[numericValues[0]] +
+    ALPHANUMERIC_CHARS[numericValues[1]] +
+    ALPHANUMERIC_CHARS[numericValues[2]] +
+    ALPHANUMERIC_CHARS[numericValues[3]] +
+    ALPHANUMERIC_CHARS[numericValues[4]] +
+    ALPHANUMERIC_CHARS[numericValues[5]] +
+    ALPHANUMERIC_CHARS[numericValues[6]] +
+    ALPHANUMERIC_CHARS[numericValues[7]] +
+    ALPHANUMERIC_CHARS[numericValues[8]] +
+    ALPHANUMERIC_CHARS[numericValues[9]] +
+    ALPHANUMERIC_CHARS[numericValues[10]] +
+    ALPHANUMERIC_CHARS[numericValues[11]] +
+    ALPHANUMERIC_CHARS[numericValues[12]] +
+    ALPHANUMERIC_CHARS[numericValues[13]]
+  );
 }
 
 export default generateValidCNPJ;

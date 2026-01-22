@@ -1,8 +1,5 @@
-// Feito por: Logan
-
 import randomDigit from "./randomDigit";
 
-// Função para calcular o primeiro dígito verificador
 function calculateFirstVerifier(cnpjBase: number[]): number {
   const weight: number[] = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2] as const;
 
@@ -17,7 +14,6 @@ function calculateFirstVerifier(cnpjBase: number[]): number {
   return remainder < 2 ? 0 : 11 - remainder;
 }
 
-// Função para calcular o segundo dígito verificador
 function calculateSecondVerifier(
   cnpjBase: number[],
   firstVerifier: number,
@@ -37,11 +33,6 @@ function calculateSecondVerifier(
   return remainder < 2 ? 0 : 11 - remainder;
 }
 
-/**
- * Generates a valid CNPJ (Brazilian company identification number).
- * @returns Returns a valid CNPJ
- * @description - Made by: Logan
- */
 function generateValidCNPJ(): string {
   const cnpjBase: number[] = new Array<number>(14);
 
