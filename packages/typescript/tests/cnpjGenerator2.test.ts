@@ -4,8 +4,8 @@ import { describe, it, expect } from "vitest";
 
 describe("geraEValida", () => {
   it("should generate a valid CNPJ", () => {
-    for (let i: number = 0; i < 100; i++) {
-      expect(cnpjIsValid(cnpjGenerator2(), null, "v2").isValid).toBe(true);
+    for (let i: number = 0; i < 10000; i++) {
+      expect(cnpjIsValid(cnpjGenerator2()).isValid).toBe(true);
     }
   });
 
