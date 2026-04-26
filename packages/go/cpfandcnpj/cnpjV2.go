@@ -6,6 +6,7 @@ import (
 	"math/rand"
 )
 
+// AlphanumericChars contains the allowed characters for the CNPJ v2 base.
 const AlphanumericChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 func getRandomChar() byte {
@@ -71,7 +72,7 @@ func generateBaseCNPJ() []byte {
 //
 // Returns:
 //
-//   - A valid alphanumeric CNPJ byte slice with 14 characters.
+//   - A valid alphanumeric CNPJ Bytes value with 14 characters.
 //
 // Example:
 //

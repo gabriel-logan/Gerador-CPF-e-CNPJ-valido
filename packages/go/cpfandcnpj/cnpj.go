@@ -1,9 +1,14 @@
 package cpfandcnpj
 
+// CNPJVersion defines which CNPJ standard should be generated.
 type CNPJVersion string
 
 const (
+	// CNPJV1 generates the numeric CNPJ standard with 14 digits.
 	CNPJV1 CNPJVersion = "v1"
+
+	// CNPJV2 generates the alphanumeric CNPJ standard with 12 base characters
+	// and 2 numeric check digits.
 	CNPJV2 CNPJVersion = "v2"
 )
 
@@ -44,7 +49,7 @@ func (cnpjVersion CNPJVersion) isValid() bool {
 //
 // Returns:
 //
-//   - A valid CNPJ byte slice according to the selected version.
+//   - A valid CNPJ Bytes value according to the selected version.
 //
 // Examples:
 //

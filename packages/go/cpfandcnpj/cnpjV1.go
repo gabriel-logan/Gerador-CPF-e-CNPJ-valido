@@ -46,7 +46,7 @@ func calculateSecondVerifier(cnpjBase [14]uint8, firstVerifier uint8) uint8 {
 //
 // Returns:
 //
-//   - A valid numeric CNPJ byte slice with 14 digits.
+//   - A valid numeric CNPJ Bytes value with 14 digits.
 //
 // Example:
 //

@@ -42,6 +42,7 @@ func main() {
 ```
 
 > ℹ️ Por padrão, `GenerateCNPJ` gera um **CNPJ numérico (v1)**.
+> As funções de geração retornam `Bytes` (`[]byte`). Use `.ToString()` somente quando precisar de `string`.
 
 ---
 
@@ -146,4 +147,12 @@ func main() {
 	fmt.Println("CNPJ v1:", cpfandcnpj.GenerateCNPJ(cpfandcnpj.CNPJV1).ToString())
 	fmt.Println("CNPJ v2:", cpfandcnpj.GenerateCNPJ(cpfandcnpj.CNPJV2).ToString())
 }
+```
+
+---
+
+## ⚡ Benchmarks
+
+```bash
+go test ./cpfandcnpj -bench=. -benchmem
 ```
