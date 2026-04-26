@@ -23,7 +23,7 @@ func TestGenerateCPF(t *testing.T) {
 	for i := 0; i < 10000; i++ {
 		cpf := cpfandcnpj.GenerateCPF()
 
-		err := mv.IsCPF(cpf)
+		err := mv.IsCPF(cpf.ToString())
 
 		if err != nil {
 			t.Errorf("Generated CPF is not valid: %s", err)

@@ -6,8 +6,8 @@ import (
 
 // GenerateCPF generates a valid CPF number.
 // The CPF is an 11-digit number used to identify individuals in Brazil.
-// It returns a string representing a valid CPF number.
-func GenerateCPF() string {
+// It returns bytes representing a valid CPF number.
+func GenerateCPF() Bytes {
 	var digits [11]uint8
 	var sum1, sum2 uint16 // <- to avoid uint8 overflow
 
@@ -44,5 +44,5 @@ func GenerateCPF() string {
 		out[i] = digits[i] + '0'
 	}
 
-	return string(out[:])
+	return Bytes(out[:])
 }

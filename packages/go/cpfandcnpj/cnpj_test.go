@@ -23,7 +23,7 @@ func TestGenerateCNPJ(t *testing.T) {
 	for i := 0; i < 10000; i++ {
 		cnpjv1 := cpfandcnpj.GenerateCNPJ(cpfandcnpj.CNPJV1)
 
-		err := mv.IsCNPJ(cnpjv1)
+		err := mv.IsCNPJ(cnpjv1.ToString())
 
 		if err != nil {
 			t.Errorf("Generated CNPJv1 is not valid: %s", err)
@@ -31,7 +31,7 @@ func TestGenerateCNPJ(t *testing.T) {
 
 		cnpjv2 := cpfandcnpj.GenerateCNPJ(cpfandcnpj.CNPJV2)
 
-		err = mv.IsCNPJ(cnpjv2)
+		err = mv.IsCNPJ(cnpjv2.ToString())
 
 		if err != nil {
 			t.Errorf("Generated CNPJv2 is not valid: %s", err)

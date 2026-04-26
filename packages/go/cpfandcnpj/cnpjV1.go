@@ -46,12 +46,12 @@ func calculateSecondVerifier(cnpjBase [14]uint8, firstVerifier uint8) uint8 {
 //
 // Returns:
 //
-//   - A valid numeric CNPJ string with 14 digits.
+//   - A valid numeric CNPJ byte slice with 14 digits.
 //
 // Example:
 //
 //	GenerateCNPJV1() // e.g., "12.345.678/0001-95"
-func GenerateCNPJV1() string {
+func GenerateCNPJV1() Bytes {
 	cnpjBase := [14]uint8{}
 
 	for i := 0; i < 12; i++ {
@@ -67,5 +67,5 @@ func GenerateCNPJV1() string {
 		out[i] = byte(cnpjBase[i] + '0')
 	}
 
-	return string(out[:])
+	return Bytes(out[:])
 }

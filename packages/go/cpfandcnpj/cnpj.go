@@ -44,14 +44,14 @@ func (cnpjVersion CNPJVersion) isValid() bool {
 //
 // Returns:
 //
-//   - A valid CNPJ string according to the selected version.
+//   - A valid CNPJ byte slice according to the selected version.
 //
 // Examples:
 //
 //	GenerateCNPJ("")          // Generates numeric CNPJ (version 1)
 //	GenerateCNPJ(CNPJV1)      // Same as above (version 1)
 //	GenerateCNPJ(CNPJV2)      // Generates alphanumeric CNPJ (version 2)
-func GenerateCNPJ(cnpjVersion CNPJVersion) string {
+func GenerateCNPJ(cnpjVersion CNPJVersion) Bytes {
 	if cnpjVersion == "" || !cnpjVersion.isValid() {
 		cnpjVersion = CNPJV1
 	}

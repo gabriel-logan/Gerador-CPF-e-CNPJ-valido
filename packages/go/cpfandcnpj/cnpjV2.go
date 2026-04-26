@@ -8,13 +8,13 @@ import (
 
 const AlphanumericChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-func getRandomChar() rune {
+func getRandomChar() byte {
 	index := rand.Intn(len(AlphanumericChars))
 
-	return rune(AlphanumericChars[index])
+	return AlphanumericChars[index]
 }
 
-func charToValue(char rune) int {
+func charToValue(char byte) int {
 	ascii := int(char)
 
 	if ascii >= 48 && ascii <= 57 {
@@ -28,7 +28,7 @@ func charToValue(char rune) int {
 	return 0
 }
 
-func calculateDigitVerifier(cnpjChars []rune) int {
+func calculateDigitVerifier(cnpjChars []byte) int {
 	weight := 2
 	sum := 0
 
@@ -53,8 +53,8 @@ func calculateDigitVerifier(cnpjChars []rune) int {
 	return 11 - remainder
 }
 
-func generateBaseCNPJ() []rune {
-	base := make([]rune, 0, 12)
+func generateBaseCNPJ() []byte {
+	base := make([]byte, 0, 12)
 
 	for i := 0; i < 12; i++ {
 		base = append(base, getRandomChar())
@@ -71,19 +71,19 @@ func generateBaseCNPJ() []rune {
 //
 // Returns:
 //
-//   - A valid alphanumeric CNPJ string with 14 characters.
+//   - A valid alphanumeric CNPJ byte slice with 14 characters.
 //
 // Example:
 //
 //	GenerateCNPJV2() // e.g., "12.ABC.345/01DE-35"
-func GenerateCNPJV2() string {
+func GenerateCNPJV2() Bytes {
 	cnpj := generateBaseCNPJ()
 
 	firstDV := calculateDigitVerifier(cnpj)
-	cnpj = append(cnpj, rune('0'+firstDV))
+	cnpj = append(cnpj, byte('0'+firstDV))
 
 	secondDV := calculateDigitVerifier(cnpj)
-	cnpj = append(cnpj, rune('0'+secondDV))
+	cnpj = append(cnpj, byte('0'+secondDV))
 
-	return string(cnpj)
+	return Bytes(cnpj)
 }

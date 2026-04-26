@@ -36,8 +36,8 @@ func main() {
 	// OU cnpj := cpfandcnpj.GenerateCNPJV1()
 	// OU cnpj := cpfandcnpj.GenerateCNPJV2()
 
-	fmt.Println("Generated CPF:", cpf)
-	fmt.Println("Generated CNPJ:", cnpj)
+	fmt.Println("Generated CPF:", cpf.ToString())
+	fmt.Println("Generated CNPJ:", cnpj.ToString())
 }
 ```
 
@@ -85,13 +85,13 @@ Exemplo:
 
 ## 📚 API
 
-### `GenerateCPF() string`
+### `GenerateCPF() Bytes`
 
 Gera um CPF numérico válido (11 dígitos).
 
 ---
 
-### `GenerateCNPJ(version CNPJVersion) string`
+### `GenerateCNPJ(version CNPJVersion) Bytes`
 
 Gera um CNPJ válido de acordo com a versão selecionada.
 
@@ -103,9 +103,23 @@ Gera um CNPJ válido de acordo com a versão selecionada.
 
 ---
 
+### `Bytes.ToString() string`
+
+Converte a saída em bytes para string quando isso for necessário.
+
+---
+
+### `ToString(value []byte) string`
+
+Converte a saída em bytes para string quando isso for necessário.
+
+---
+
 ## 🧠 Tipos disponíveis
 
 ```go
+type Bytes []byte
+
 type CNPJVersion string
 
 const (
@@ -128,8 +142,8 @@ import (
 )
 
 func main() {
-	fmt.Println("CPF:", cpfandcnpj.GenerateCPF())
-	fmt.Println("CNPJ v1:", cpfandcnpj.GenerateCNPJ(cpfandcnpj.CNPJV1))
-	fmt.Println("CNPJ v2:", cpfandcnpj.GenerateCNPJ(cpfandcnpj.CNPJV2))
+	fmt.Println("CPF:", cpfandcnpj.GenerateCPF().ToString())
+	fmt.Println("CNPJ v1:", cpfandcnpj.GenerateCNPJ(cpfandcnpj.CNPJV1).ToString())
+	fmt.Println("CNPJ v2:", cpfandcnpj.GenerateCNPJ(cpfandcnpj.CNPJV2).ToString())
 }
 ```
