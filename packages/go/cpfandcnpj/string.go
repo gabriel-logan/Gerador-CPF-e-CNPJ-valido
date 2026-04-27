@@ -6,10 +6,6 @@ type Bytes []byte
 
 // ToString converts generated CPF/CNPJ bytes into a string.
 func (value Bytes) ToString() string {
-	return value.toString()
-}
-
-func (value Bytes) toString() string {
 	return string(value)
 }
 

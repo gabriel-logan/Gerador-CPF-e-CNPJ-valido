@@ -8,12 +8,14 @@ import (
 // The CPF is an 11-digit number used to identify individuals in Brazil.
 // It returns bytes representing a valid CPF number.
 func GenerateCPF() Bytes {
-	var digits [11]uint8
 	var sum1, sum2 uint16 // <- to avoid uint8 overflow
+	out := make(Bytes, 11)
+	random := rand.Uint64()
 
 	for i := 0; i < 9; i++ {
-		d := uint8(rand.Intn(10))
-		digits[i] = d
+		d := uint8(random % 10)
+		random /= 10
+		out[i] = d + '0'
 
 		weights := uint8(10 - i)
 		sum1 += uint16(d * weights)
@@ -26,7 +28,7 @@ func GenerateCPF() Bytes {
 	if r1 >= 2 {
 		dv1 = 11 - r1
 	}
-	digits[9] = dv1
+	out[9] = dv1 + '0'
 
 	sum2 += uint16(dv1 * 2)
 
@@ -36,13 +38,7 @@ func GenerateCPF() Bytes {
 	if r2 >= 2 {
 		dv2 = 11 - r2
 	}
-	digits[10] = dv2
+	out[10] = dv2 + '0'
 
-	out := [11]byte{}
-
-	for i := 0; i < len(out); i++ {
-		out[i] = digits[i] + '0'
-	}
-
-	return Bytes(out[:])
+	return out
 }

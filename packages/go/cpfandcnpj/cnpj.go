@@ -12,15 +12,6 @@ const (
 	CNPJV2 CNPJVersion = "v2"
 )
 
-func (cnpjVersion CNPJVersion) isValid() bool {
-	switch cnpjVersion {
-	case CNPJV1, CNPJV2:
-		return true
-	default:
-		return false
-	}
-}
-
 // GenerateCNPJ generates a valid CNPJ according to the selected
 // official standard.
 //
@@ -57,13 +48,10 @@ func (cnpjVersion CNPJVersion) isValid() bool {
 //	GenerateCNPJ(CNPJV1)      // Same as above (version 1)
 //	GenerateCNPJ(CNPJV2)      // Generates alphanumeric CNPJ (version 2)
 func GenerateCNPJ(cnpjVersion CNPJVersion) Bytes {
-	if cnpjVersion == "" || !cnpjVersion.isValid() {
-		cnpjVersion = CNPJV1
-	}
-
-	if cnpjVersion == CNPJV2 {
+	switch cnpjVersion {
+	case CNPJV2:
 		return GenerateCNPJV2()
+	default:
+		return GenerateCNPJV1()
 	}
-
-	return GenerateCNPJV1()
 }

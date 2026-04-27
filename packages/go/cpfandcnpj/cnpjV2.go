@@ -9,59 +9,16 @@ import (
 // AlphanumericChars contains the allowed characters for the CNPJ v2 base.
 const AlphanumericChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-func getRandomChar() byte {
-	index := rand.Intn(len(AlphanumericChars))
-
-	return AlphanumericChars[index]
-}
-
 func charToValue(char byte) int {
-	ascii := int(char)
-
-	if ascii >= 48 && ascii <= 57 {
-		return ascii - 48
+	if char >= '0' && char <= '9' {
+		return int(char - '0')
 	}
 
-	if ascii >= 65 && ascii <= 90 {
-		return ascii - 48
+	if char >= 'A' && char <= 'Z' {
+		return int(char - '0')
 	}
 
 	return 0
-}
-
-func calculateDigitVerifier(cnpjChars []byte) int {
-	weight := 2
-	sum := 0
-
-	for i := len(cnpjChars) - 1; i >= 0; i-- {
-		value := charToValue(cnpjChars[i])
-
-		sum += value * weight
-
-		if weight == 9 {
-			weight = 2
-		} else {
-			weight = weight + 1
-		}
-	}
-
-	remainder := sum % 11
-
-	if remainder == 0 || remainder == 1 {
-		return 0
-	}
-
-	return 11 - remainder
-}
-
-func generateBaseCNPJ() []byte {
-	base := make([]byte, 0, 12)
-
-	for i := 0; i < 12; i++ {
-		base = append(base, getRandomChar())
-	}
-
-	return base
 }
 
 // GenerateCNPJV2 generates a valid alphanumeric CNPJ (version 2).
@@ -78,13 +35,38 @@ func generateBaseCNPJ() []byte {
 //
 //	GenerateCNPJV2() // e.g., "12.ABC.345/01DE-35"
 func GenerateCNPJV2() Bytes {
-	cnpj := generateBaseCNPJ()
+	cnpj := make(Bytes, 14)
+	random := rand.Uint64()
+	sum1 := 0
+	sum2 := 0
 
-	firstDV := calculateDigitVerifier(cnpj)
-	cnpj = append(cnpj, byte('0'+firstDV))
+	weights1 := [12]int{5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2}
+	weights2 := [12]int{6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3}
 
-	secondDV := calculateDigitVerifier(cnpj)
-	cnpj = append(cnpj, byte('0'+secondDV))
+	for i := 0; i < 12; i++ {
+		index := random % uint64(len(AlphanumericChars))
+		random /= uint64(len(AlphanumericChars))
+		cnpj[i] = AlphanumericChars[index]
 
-	return Bytes(cnpj)
+		value := charToValue(cnpj[i])
+		sum1 += value * weights1[i]
+		sum2 += value * weights2[i]
+	}
+
+	remainder := sum1 % 11
+	firstDV := 0
+	if remainder > 1 {
+		firstDV = 11 - remainder
+	}
+	cnpj[12] = byte('0' + firstDV)
+
+	sum2 += firstDV * 2
+	remainder = sum2 % 11
+	secondDV := 0
+	if remainder > 1 {
+		secondDV = 11 - remainder
+	}
+	cnpj[13] = byte('0' + secondDV)
+
+	return cnpj
 }

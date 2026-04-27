@@ -2,43 +2,6 @@ package cpfandcnpj
 
 import "math/rand"
 
-func calculateFirstVerifier(cnpjBase [14]uint8) uint8 {
-	weights := [12]uint8{5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2}
-
-	sum := uint16(0)
-	for i := 0; i < 12; i++ {
-		sum += uint16(cnpjBase[i]) * uint16(weights[i])
-	}
-
-	remainder := sum % 11
-
-	if remainder < 2 {
-		return 0
-	}
-
-	return 11 - uint8(remainder)
-}
-
-func calculateSecondVerifier(cnpjBase [14]uint8, firstVerifier uint8) uint8 {
-	weights := [13]uint8{6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2}
-
-	sum := uint16(0)
-
-	for i := 0; i < 12; i++ {
-		sum += uint16(cnpjBase[i]) * uint16(weights[i])
-	}
-
-	sum += uint16(firstVerifier) * uint16(weights[12])
-
-	remainder := sum % 11
-
-	if remainder < 2 {
-		return 0
-	}
-
-	return 11 - uint8(remainder)
-}
-
 // GenerateCNPJV1 generates a valid numeric CNPJ (version 1).
 //
 // The generated CNPJ consists of 14 numeric digits and follows the legacy
@@ -52,20 +15,35 @@ func calculateSecondVerifier(cnpjBase [14]uint8, firstVerifier uint8) uint8 {
 //
 //	GenerateCNPJV1() // e.g., "12.345.678/0001-95"
 func GenerateCNPJV1() Bytes {
-	cnpjBase := [14]uint8{}
+	out := make(Bytes, 14)
+	var sum1, sum2 uint16
+	random := rand.Uint64()
+
+	weights1 := [12]uint8{5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2}
+	weights2 := [12]uint8{6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3}
 
 	for i := 0; i < 12; i++ {
-		cnpjBase[i] = uint8(rand.Intn(10))
+		d := uint8(random % 10)
+		random /= 10
+		out[i] = d + '0'
+		sum1 += uint16(d * weights1[i])
+		sum2 += uint16(d * weights2[i])
 	}
 
-	cnpjBase[12] = calculateFirstVerifier(cnpjBase)
-	cnpjBase[13] = calculateSecondVerifier(cnpjBase, cnpjBase[12])
-
-	out := [14]byte{}
-
-	for i := 0; i < 14; i++ {
-		out[i] = byte(cnpjBase[i] + '0')
+	remainder := sum1 % 11
+	dv1 := uint8(0)
+	if remainder >= 2 {
+		dv1 = 11 - uint8(remainder)
 	}
+	out[12] = dv1 + '0'
 
-	return Bytes(out[:])
+	sum2 += uint16(dv1 * 2)
+	remainder = sum2 % 11
+	dv2 := uint8(0)
+	if remainder >= 2 {
+		dv2 = 11 - uint8(remainder)
+	}
+	out[13] = dv2 + '0'
+
+	return out
 }
