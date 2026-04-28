@@ -8,44 +8,64 @@ on:
     branches: [main]
     paths:
       - "packages/go/**"
+      - ".github/workflows/go-pr-check.yml"
 
   pull_request:
     branches: [main]
     paths:
       - "packages/go/**"
+      - ".github/workflows/go-pr-check.yml"
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+
+concurrency:
+  group: go-pr-check-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   checking-pr:
+    name: Go checks
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Set up Go
-        uses: actions/setup-go@v4
+        uses: actions/setup-go@v5
         with:
-          go-version: 1.22
+          go-version-file: ./packages/go/go.mod
           cache: true
-      - name: Install dependencies
+          cache-dependency-path: ./packages/go/go.sum
+
+      - name: Download dependencies
         working-directory: ./packages/go
-        run: go mod tidy
-      - name: Run lint
+        run: go mod download
+
+      - name: Verify go.mod and go.sum are tidy
         working-directory: ./packages/go
         run: |
-          go install golang.org/x/lint/golint@latest
-          golint ./...
-      - name: Run test
-        working-directory: ./packages/go
-        run: go test ./...
-      - name: Run build
-        working-directory: ./packages/go
-        run: go build -o main .
-      - name: Check if binary is created
+          go mod tidy
+          git diff --exit-code -- go.mod go.sum
+
+      - name: Check formatting
         run: |
-          if [ ! -f "./packages/go/main" ]; then
-            echo "binary file is not created"
+          unformatted="$(gofmt -l ./packages/go)"
+          if [ -n "$unformatted" ]; then
+            echo "The following Go files need gofmt:"
+            echo "$unformatted"
             exit 1
           fi
-          echo "binary file is created"
+
+      - name: Run go vet
+        working-directory: ./packages/go
+        run: go vet ./...
+
+      - name: Run tests
+        working-directory: ./packages/go
+        run: go test -race -covermode=atomic -coverprofile=coverage.out ./...
+
+      - name: Build packages
+        working-directory: ./packages/go
+        run: go build ./...
