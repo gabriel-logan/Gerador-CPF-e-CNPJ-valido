@@ -1,33 +1,42 @@
-# Object files
+# Object/library files
 *.o
+*.obj
+*.a
+*.lib
+*.so
+*.dylib
+*.dll
 
-# Executable files
+# Executables and debug symbols
 *.exe
 *.out
-
-# Compiler generated files
+*.app
 *.dSYM/
+
+# Compiler/dependency/coverage artifacts
+*.d
 *.gcda
 *.gcno
+*.gcov
 
-# Dependency files
-*.d
+# Build/output directories
+build/
+cmake-build-*/
+output/
 
-# IDE configuration files
-/.vscode/
-/.idea/
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
 
-# Build files
-/build/
+# Editor/OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
 
-# Log files
+# Logs and temporary files
 *.log
-
-# Temporary files
 *.tmp
-
-# Backup files
 *~
-
-# Output directory
-/output/

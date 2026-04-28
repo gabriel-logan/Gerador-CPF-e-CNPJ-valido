@@ -11,6 +11,10 @@ public class Utils {
         return (byte) ThreadLocalRandom.current().nextInt(10);
     }
 
+    protected static byte generateRandomNumber(int bound) {
+        return (byte) ThreadLocalRandom.current().nextInt(bound);
+    }
+
     protected static String numberToString(byte[] number) {
         StringBuilder result = new StringBuilder(number.length);
 

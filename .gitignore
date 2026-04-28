@@ -1,0 +1,17 @@
+# Local Codex/session files
+.codex
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor/workspace files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs and temporary files
+*.log
+*.tmp

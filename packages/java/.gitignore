@@ -2,29 +2,41 @@
 *.class
 
 # Package files
+*.jar
 *.war
 *.ear
+!dist/*.jar
 
-# Maven specific files
+# Maven files
 target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
 
-# Gradle specific files
+# Gradle files
 build/
+.gradle/
 
-# IntelliJ IDEA specific files
+# IntelliJ IDEA files
 .idea/
 *.iml
 *.iws
 *.ipr
 
-# Eclipse specific files
+# Eclipse files
 .classpath
 .project
 .settings/
 
+# VS Code files
+.vscode/
+
 # Logs
 *.log
 
-# OS specific files
+# OS files
 .DS_Store
 Thumbs.db

@@ -1,5 +1,30 @@
+# Dependencies
 node_modules/
+
+# Build outputs
 dist/
 types/
+*.tsbuildinfo
+
+# Test/coverage artifacts
 coverage/
+.vitest/
+
+# Package manager/debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Local package metadata/artifacts
+*.tgz
+
+# Local/internal scratch files
 internal/
+
+# Env/editor/OS files
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db

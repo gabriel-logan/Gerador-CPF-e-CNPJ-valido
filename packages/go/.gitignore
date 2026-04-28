@@ -1,3 +1,32 @@
+# Local Codex/session files
 .codex
+
+# Go build/test artifacts
+bin/
 *.out
+*.test
+coverage.out
+coverage.html
+*.coverprofile
+
+# Go workspace/vendor files generated locally
+go.work
+go.work.sum
+vendor/
+
+# Profiling artifacts
+*.prof
+*.pprof
+
+# Local demo/output files
 *.html
+
+# Editor/OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
