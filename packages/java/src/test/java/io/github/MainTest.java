@@ -38,6 +38,10 @@ class MainTest {
                 && cnpj.charAt(13) == (char) ('0' + secondVerifier);
     }
 
+    private static boolean cnpjV1IsValid(String cnpj) {
+        return cnpj.matches("^\\d{14}$") && cnpjV2IsValid(cnpj);
+    }
+
     @Test
     void testGenerateCpf() {
         for (byte i = 0; i < 100; i++) {
@@ -52,21 +56,46 @@ class MainTest {
 
     @Test
     void testGenerateCnpj() {
-        for (byte i = 0; i < 100; i++) {
+        for (int i = 0; i < 10000; i++) {
             String cnpj = Cnpj.generateCnpj();
-            out.println(cnpj);
 
             assertEquals(14, cnpj.length()); // CNPJ should have 14 digits
+            assertTrue(cnpjV1IsValid(cnpj));
             assertTrue(CnpjValidator.cnpjIsValid(cnpj)); // CNPJ should be valid
             assertFalse(CnpjValidator.cnpjIsValid("00000000000000")); // CNPJ should not be valid
         }
     }
 
     @Test
+    void testGenerateCnpjV1() {
+        for (int i = 0; i < 10000; i++) {
+            String cnpjByConstant = Cnpj.generateCnpj(Cnpj.CNPJ_V1);
+            String cnpjDirect = Cnpj.generateCnpjV1();
+
+            assertEquals(14, cnpjByConstant.length());
+            assertEquals(14, cnpjDirect.length());
+            assertTrue(cnpjV1IsValid(cnpjByConstant));
+            assertTrue(cnpjV1IsValid(cnpjDirect));
+            assertTrue(CnpjValidator.cnpjIsValid(cnpjByConstant));
+            assertTrue(CnpjValidator.cnpjIsValid(cnpjDirect));
+        }
+    }
+
+    @Test
     void testGenerateCnpjV2() {
-        for (byte i = 0; i < 100; i++) {
+        for (int i = 0; i < 10000; i++) {
             String cnpj = Cnpj.generateCnpj(Cnpj.CNPJ_V2);
-            out.println(cnpj);
+
+            assertEquals(14, cnpj.length());
+            assertTrue(cnpj.matches("^[0-9A-Z]{12}[0-9]{2}$"));
+            assertTrue(cnpjV2IsValid(cnpj));
+        }
+    }
+
+    @Test
+    void testGenerateCnpjV2Directly() {
+        for (int i = 0; i < 10000; i++) {
+            String cnpj = Cnpj.generateCnpjV2();
 
             assertEquals(14, cnpj.length());
             assertTrue(cnpj.matches("^[0-9A-Z]{12}[0-9]{2}$"));
