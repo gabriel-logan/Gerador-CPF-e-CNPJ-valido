@@ -18,7 +18,9 @@ pip install cpf-and-cnpj-generator
 
 # Funções Disponíveis
 
-- **generate_cnpj**: Geração de CNPJ.
+- **generate_cnpj**: Geração de CNPJ por versão.
+- **generate_cnpj_v1**: Geração de CNPJ numérico (v1).
+- **generate_cnpj_v2**: Geração de CNPJ alfanumérico (v2).
 - **generate_cpf**: Geração de CPF.
 
 ## Uso
@@ -26,18 +28,35 @@ pip install cpf-and-cnpj-generator
 Aqui está um exemplo de como usar as funções neste pacote:
 
 ```python
-from cpf_and_cnpj_generator import generate_cnpj, generate_cpf
+from cpf_and_cnpj_generator import CNPJ_V1, CNPJ_V2, generate_cnpj, generate_cpf
 ```
 
 ```python
-# Gerar um CNPJ válido
+# Gerar um CNPJ v1 válido (numérico, padrão)
 cnpj = generate_cnpj()
 print(cnpj)
+
+# Gerar um CNPJ v1 explicitamente
+cnpj_v1 = generate_cnpj(CNPJ_V1)
+print(cnpj_v1)
+
+# Gerar um CNPJ v2 válido (alfanumérico)
+cnpj_v2 = generate_cnpj(CNPJ_V2)
+print(cnpj_v2)
 
 # Gerar um CPF válido
 cpf = generate_cpf()
 print(cpf)
 ```
+
+## CNPJ — Versões suportadas
+
+O gerador suporta os dois padrões oficiais de CNPJ:
+
+- **`v1`**: CNPJ numérico tradicional, com 14 dígitos.
+- **`v2`**: CNPJ alfanumérico, com 12 caracteres alfanuméricos + 2 dígitos verificadores.
+
+Quando nenhuma versão é informada, `generate_cnpj()` usa **`v1`** por padrão.
 
 Sinta-se à vontade para explorar as várias funções e experimentar diferentes entradas para entender seu comportamento. Se você encontrar algum problema ou tiver sugestões, não hesite em entrar em contato comigo. Seu feedback é valioso e ajuda a melhorar o pacote. Boa codificação!
 

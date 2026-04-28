@@ -1,11 +1,20 @@
 > [!NOTE]
 > This project now supports the **new alphanumeric CNPJ (official standard from Receita Federal / SERPRO)**.
 >
-> I accept help to make the version of the other programming languages.
+> All repository languages now support **numeric CNPJ v1** and **alphanumeric CNPJ v2**.
 
 # cpf_and_cnpj-generator
 
-This repository provides functions in JavaScript, Python, C and Java to generate valid CPF (Cadastro de Pessoas Físicas) and CNPJ (Cadastro Nacional da Pessoa Jurídica) numbers for Brazil.
+This repository provides functions in TypeScript/JavaScript, Python, Go, C and Java to generate valid CPF (Cadastro de Pessoas Físicas) and CNPJ (Cadastro Nacional da Pessoa Jurídica) numbers for Brazil.
+
+## CNPJ — Supported Versions
+
+All packages support both official CNPJ standards:
+
+- **Numeric CNPJ v1**: traditional standard, with 14 numeric digits.
+- **Alphanumeric CNPJ v2**: new official standard, with 12 alphanumeric characters + 2 check digits.
+
+When no version is provided, generators use **CNPJ v1** by default.
 
 👉 Demo: [./demo.html](./demo.html)
 
@@ -15,7 +24,7 @@ This repository provides functions in JavaScript, Python, C and Java to generate
 
 ## Supported Languages
 
-This library can validate data in the following programming languages:
+This library can generate valid CPF and CNPJ values in the following programming languages:
 
 - [TypeScript (TS/JS/NPM)](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/typescript/README_EN.md) (stable)
 - [Python](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/python/README_EN.md) (stable)
