@@ -18,34 +18,40 @@ go test ./cpfandcnpj -bench=. -benchmem -run=^$ -count=3
 
 ## Resultados
 
-| Benchmark                          | Iterações | ns/op | B/op | allocs/op |
-| ---------------------------------- | --------: | ----: | ---: | --------: |
-| BenchmarkGenerateCPF-8             |  23673750 | 45.05 |    0 |         0 |
-| BenchmarkGenerateCPF-8             |  22673230 | 44.50 |    0 |         0 |
-| BenchmarkGenerateCPF-8             |  26822426 | 43.01 |    0 |         0 |
-| BenchmarkGenerateCNPJDefault-8     |  17747131 | 58.86 |    0 |         0 |
-| BenchmarkGenerateCNPJDefault-8     |  18645051 | 58.73 |    0 |         0 |
-| BenchmarkGenerateCNPJDefault-8     |  20321916 | 61.00 |    0 |         0 |
-| BenchmarkGenerateCNPJV1ByVersion-8 |  19912101 | 59.31 |    0 |         0 |
-| BenchmarkGenerateCNPJV1ByVersion-8 |  20390506 | 59.89 |    0 |         0 |
-| BenchmarkGenerateCNPJV1ByVersion-8 |  19124516 | 59.46 |    0 |         0 |
-| BenchmarkGenerateCNPJV2ByVersion-8 |  11082817 | 109.0 |    0 |         0 |
-| BenchmarkGenerateCNPJV2ByVersion-8 |  11091562 | 108.4 |    0 |         0 |
-| BenchmarkGenerateCNPJV2ByVersion-8 |  11043366 | 107.6 |    0 |         0 |
-| BenchmarkGenerateCNPJV1-8          |  24004982 | 49.60 |    0 |         0 |
-| BenchmarkGenerateCNPJV1-8          |  24259936 | 84.07 |    0 |         0 |
-| BenchmarkGenerateCNPJV1-8          |  23400258 | 48.25 |    0 |         0 |
-| BenchmarkGenerateCNPJV2-8          |  11720666 | 99.79 |    0 |         0 |
-| BenchmarkGenerateCNPJV2-8          |  12002466 | 102.2 |    0 |         0 |
-| BenchmarkGenerateCNPJV2-8          |  11942307 | 98.91 |    0 |         0 |
-| BenchmarkCPFBytesToString-8        |  41478504 | 27.21 |   16 |         1 |
-| BenchmarkCPFBytesToString-8        |  49416784 | 26.20 |   16 |         1 |
-| BenchmarkCPFBytesToString-8        |  41092554 | 26.76 |   16 |         1 |
-| BenchmarkCNPJBytesToString-8       |  48425772 | 24.96 |   16 |         1 |
-| BenchmarkCNPJBytesToString-8       |  48462888 | 26.47 |   16 |         1 |
-| BenchmarkCNPJBytesToString-8       |  45225687 | 27.10 |   16 |         1 |
+| Benchmark                          | Iterações  |  ns/op | B/op | allocs/op |
+| ---------------------------------- | ---------: | -----: | ---: | --------: |
+| BenchmarkGenerateCPF-8             |   25573958 |  42.26 |    0 |         0 |
+| BenchmarkGenerateCPF-8             |   27712837 |  42.21 |    0 |         0 |
+| BenchmarkGenerateCPF-8             |   28127764 |  41.98 |    0 |         0 |
+| BenchmarkGenerateCNPJDefault-8     |   20446154 |  57.12 |    0 |         0 |
+| BenchmarkGenerateCNPJDefault-8     |   20325696 |  57.89 |    0 |         0 |
+| BenchmarkGenerateCNPJDefault-8     |   20975469 |  57.35 |    0 |         0 |
+| BenchmarkGenerateCNPJV1ByVersion-8 |   19888783 |  58.68 |    0 |         0 |
+| BenchmarkGenerateCNPJV1ByVersion-8 |   20924528 |  58.09 |    0 |         0 |
+| BenchmarkGenerateCNPJV1ByVersion-8 |   20742216 |  57.60 |    0 |         0 |
+| BenchmarkGenerateCNPJV2ByVersion-8 |   11286368 |  106.2 |    0 |         0 |
+| BenchmarkGenerateCNPJV2ByVersion-8 |   11705794 |  105.7 |    0 |         0 |
+| BenchmarkGenerateCNPJV2ByVersion-8 |   11656526 |  102.5 |    0 |         0 |
+| BenchmarkGenerateCNPJV1-8          |   24554635 |  46.79 |    0 |         0 |
+| BenchmarkGenerateCNPJV1-8          |   25501915 |  47.55 |    0 |         0 |
+| BenchmarkGenerateCNPJV1-8          |   25443499 |  47.51 |    0 |         0 |
+| BenchmarkGenerateCNPJV2-8          |   12202300 |  165.9 |    0 |         0 |
+| BenchmarkGenerateCNPJV2-8          |   12483753 |  96.50 |    0 |         0 |
+| BenchmarkGenerateCNPJV2-8          |   12226678 |  96.99 |    0 |         0 |
+| BenchmarkCPFBytesToString-8        |   45134610 |  41.27 |   16 |         1 |
+| BenchmarkCPFBytesToString-8        |   50436961 |  24.01 |   16 |         1 |
+| BenchmarkCPFBytesToString-8        |   42512457 |  23.66 |   16 |         1 |
+| BenchmarkCNPJBytesToString-8       |   52650078 |  23.49 |   16 |         1 |
+| BenchmarkCNPJBytesToString-8       |   43453747 |  24.74 |   16 |         1 |
+| BenchmarkCNPJBytesToString-8       |   40678838 |  25.26 |   16 |         1 |
+| BenchmarkCPFBytesToUnsafeString-8  | 1000000000 |  1.008 |    0 |         0 |
+| BenchmarkCPFBytesToUnsafeString-8  | 1000000000 | 0.9690 |    0 |         0 |
+| BenchmarkCPFBytesToUnsafeString-8  | 1000000000 | 0.9775 |    0 |         0 |
+| BenchmarkCNPJBytesToUnsafeString-8 | 1000000000 | 0.9002 |    0 |         0 |
+| BenchmarkCNPJBytesToUnsafeString-8 | 1000000000 | 0.9082 |    0 |         0 |
+| BenchmarkCNPJBytesToUnsafeString-8 | 1000000000 | 0.8969 |    0 |         0 |
 
 ```bash
 PASS
-ok  	github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/packages/go/cpfandcnpj	33.275s
+ok  	github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/packages/go/cpfandcnpj	39.746s
 ```
