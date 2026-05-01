@@ -1,10 +1,17 @@
 package cpfandcnpj
 
-// Bytes represents a generated CPF/CNPJ as bytes.
-// Use ToString when a string is required by another API.
-type Bytes []byte
+// CPFBytes represents a generated CPF as a fixed-size byte array.
+type CPFBytes [11]byte
 
-// ToString converts generated CPF/CNPJ bytes into a string.
-func (value Bytes) ToString() string {
-	return string(value)
+// CNPJBytes represents a generated CNPJ as a fixed-size byte array.
+type CNPJBytes [14]byte
+
+// ToString converts generated CPF bytes into a string.
+func (v CPFBytes) ToString() string {
+	return string(v[:])
+}
+
+// ToString converts generated CNPJ bytes into a string.
+func (v CNPJBytes) ToString() string {
+	return string(v[:])
 }

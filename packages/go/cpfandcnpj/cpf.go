@@ -7,9 +7,9 @@ import (
 // GenerateCPF generates a valid CPF number.
 // The CPF is an 11-digit number used to identify individuals in Brazil.
 // It returns bytes representing a valid CPF number.
-func GenerateCPF() Bytes {
+func GenerateCPF() CPFBytes {
 	var sum1, sum2 uint16 // <- to avoid uint8 overflow
-	out := make(Bytes, 11)
+	var out CPFBytes
 	random := rand.Uint64()
 
 	for i := 0; i < 9; i++ {

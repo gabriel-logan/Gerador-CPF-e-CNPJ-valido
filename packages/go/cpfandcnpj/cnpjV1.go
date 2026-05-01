@@ -9,13 +9,13 @@ import "math/rand"
 //
 // Returns:
 //
-//   - A valid numeric CNPJ Bytes value with 14 digits.
+//   - A valid numeric CNPJBytes value with 14 digits.
 //
 // Example:
 //
 //	GenerateCNPJV1() // e.g., "12.345.678/0001-95"
-func GenerateCNPJV1() Bytes {
-	out := make(Bytes, 14)
+func GenerateCNPJV1() CNPJBytes {
+	var out CNPJBytes
 	var sum1, sum2 uint16
 	random := rand.Uint64()
 

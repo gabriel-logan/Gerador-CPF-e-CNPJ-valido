@@ -40,14 +40,14 @@ const (
 //
 // Returns:
 //
-//   - A valid CNPJ Bytes value according to the selected version.
+//   - A valid CNPJBytes value according to the selected version.
 //
 // Examples:
 //
 //	GenerateCNPJ("")          // Generates numeric CNPJ (version 1)
 //	GenerateCNPJ(CNPJV1)      // Same as above (version 1)
 //	GenerateCNPJ(CNPJV2)      // Generates alphanumeric CNPJ (version 2)
-func GenerateCNPJ(cnpjVersion CNPJVersion) Bytes {
+func GenerateCNPJ(cnpjVersion CNPJVersion) CNPJBytes {
 	switch cnpjVersion {
 	case CNPJV2:
 		return GenerateCNPJV2()

@@ -29,13 +29,13 @@ func charToValue(char byte) uint8 {
 //
 // Returns:
 //
-//   - A valid alphanumeric CNPJ Bytes value with 14 characters.
+//   - A valid alphanumeric CNPJBytes value with 14 characters.
 //
 // Example:
 //
 //	GenerateCNPJV2() // e.g., "12.ABC.345/01DE-35"
-func GenerateCNPJV2() Bytes {
-	cnpj := make(Bytes, 14)
+func GenerateCNPJV2() CNPJBytes {
+	var cnpj CNPJBytes
 	random := rand.Uint64()
 	var sum1, sum2 uint16
 

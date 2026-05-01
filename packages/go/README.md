@@ -42,7 +42,7 @@ func main() {
 ```
 
 > ℹ️ Por padrão, `GenerateCNPJ` gera um **CNPJ numérico (v1)**.
-> As funções de geração retornam `Bytes` (`[]byte`). Use `.ToString()` somente quando precisar de `string`.
+> As funções de geração retornam `CPFBytes` e `CNPJBytes` (arrays fixos). Use `.ToString()` somente quando precisar de `string`.
 
 ---
 
@@ -86,13 +86,13 @@ Exemplo:
 
 ## 📚 API
 
-### `GenerateCPF() Bytes`
+### `GenerateCPF() CPFBytes`
 
 Gera um CPF numérico válido (11 dígitos).
 
 ---
 
-### `GenerateCNPJ(version CNPJVersion) Bytes`
+### `GenerateCNPJ(version CNPJVersion) CNPJBytes`
 
 Gera um CNPJ válido de acordo com a versão selecionada.
 
@@ -104,22 +104,24 @@ Gera um CNPJ válido de acordo com a versão selecionada.
 
 ---
 
-### `Bytes.ToString() string`
+### `CPFBytes.ToString() string`
 
-Converte a saída em bytes para string quando isso for necessário.
+Converte a saída do CPF para `string` quando isso for necessário.
 
 ---
 
-### `ToString(value []byte) string`
+### `CNPJBytes.ToString() string`
 
-Converte a saída em bytes para string quando isso for necessário.
+Converte a saída do CNPJ para `string` quando isso for necessário.
 
 ---
 
 ## 🧠 Tipos disponíveis
 
 ```go
-type Bytes []byte
+type CPFBytes [11]byte
+
+type CNPJBytes [14]byte
 
 type CNPJVersion string
 

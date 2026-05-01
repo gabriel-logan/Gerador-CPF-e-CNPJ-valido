@@ -7,7 +7,8 @@ import (
 )
 
 var (
-	benchmarkBytes  cpfandcnpj.Bytes
+	benchmarkCPF    cpfandcnpj.CPFBytes
+	benchmarkCNPJ   cpfandcnpj.CNPJBytes
 	benchmarkString string
 )
 
@@ -15,7 +16,7 @@ func BenchmarkGenerateCPF(b *testing.B) {
 	b.ReportAllocs()
 
 	for i := 0; i < b.N; i++ {
-		benchmarkBytes = cpfandcnpj.GenerateCPF()
+		benchmarkCPF = cpfandcnpj.GenerateCPF()
 	}
 }
 
@@ -23,7 +24,7 @@ func BenchmarkGenerateCNPJDefault(b *testing.B) {
 	b.ReportAllocs()
 
 	for i := 0; i < b.N; i++ {
-		benchmarkBytes = cpfandcnpj.GenerateCNPJ("")
+		benchmarkCNPJ = cpfandcnpj.GenerateCNPJ("")
 	}
 }
 
@@ -31,7 +32,7 @@ func BenchmarkGenerateCNPJV1ByVersion(b *testing.B) {
 	b.ReportAllocs()
 
 	for i := 0; i < b.N; i++ {
-		benchmarkBytes = cpfandcnpj.GenerateCNPJ(cpfandcnpj.CNPJV1)
+		benchmarkCNPJ = cpfandcnpj.GenerateCNPJ(cpfandcnpj.CNPJV1)
 	}
 }
 
@@ -39,7 +40,7 @@ func BenchmarkGenerateCNPJV2ByVersion(b *testing.B) {
 	b.ReportAllocs()
 
 	for i := 0; i < b.N; i++ {
-		benchmarkBytes = cpfandcnpj.GenerateCNPJ(cpfandcnpj.CNPJV2)
+		benchmarkCNPJ = cpfandcnpj.GenerateCNPJ(cpfandcnpj.CNPJV2)
 	}
 }
 
@@ -47,7 +48,7 @@ func BenchmarkGenerateCNPJV1(b *testing.B) {
 	b.ReportAllocs()
 
 	for i := 0; i < b.N; i++ {
-		benchmarkBytes = cpfandcnpj.GenerateCNPJV1()
+		benchmarkCNPJ = cpfandcnpj.GenerateCNPJV1()
 	}
 }
 
@@ -55,12 +56,23 @@ func BenchmarkGenerateCNPJV2(b *testing.B) {
 	b.ReportAllocs()
 
 	for i := 0; i < b.N; i++ {
-		benchmarkBytes = cpfandcnpj.GenerateCNPJV2()
+		benchmarkCNPJ = cpfandcnpj.GenerateCNPJV2()
 	}
 }
 
-func BenchmarkBytesToString(b *testing.B) {
-	value := cpfandcnpj.Bytes("12345678901")
+func BenchmarkCPFBytesToString(b *testing.B) {
+	value := cpfandcnpj.CPFBytes{'1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '1'}
+
+	b.ReportAllocs()
+	b.ResetTimer()
+
+	for i := 0; i < b.N; i++ {
+		benchmarkString = value.ToString()
+	}
+}
+
+func BenchmarkCNPJBytesToString(b *testing.B) {
+	value := cpfandcnpj.CNPJBytes{'1', '2', '3', '4', '5', '6', '7', '8', '0', '0', '0', '1', '9', '5'}
 
 	b.ReportAllocs()
 	b.ResetTimer()
