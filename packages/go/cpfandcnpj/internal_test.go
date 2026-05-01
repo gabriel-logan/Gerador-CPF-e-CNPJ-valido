@@ -23,11 +23,3 @@ func TestCharToValueWithInvalidChar(t *testing.T) {
 		t.Errorf("Expected invalid char value to be 0, got %d", value)
 	}
 }
-
-func TestPackageToString(t *testing.T) {
-	value := ToString([]byte("12345678901"))
-
-	if value != "12345678901" {
-		t.Errorf("Expected string conversion to match, got %s", value)
-	}
-}

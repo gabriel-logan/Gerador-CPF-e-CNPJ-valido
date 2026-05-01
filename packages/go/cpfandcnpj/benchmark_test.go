@@ -69,14 +69,3 @@ func BenchmarkBytesToString(b *testing.B) {
 		benchmarkString = value.ToString()
 	}
 }
-
-func BenchmarkToString(b *testing.B) {
-	value := []byte("12345678901")
-
-	b.ReportAllocs()
-	b.ResetTimer()
-
-	for i := 0; i < b.N; i++ {
-		benchmarkString = cpfandcnpj.ToString(value)
-	}
-}
