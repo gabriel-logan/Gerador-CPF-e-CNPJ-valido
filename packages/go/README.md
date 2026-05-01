@@ -43,6 +43,7 @@ func main() {
 
 > ℹ️ Por padrão, `GenerateCNPJ` gera um **CNPJ numérico (v1)**.
 > As funções de geração retornam `CPFBytes` e `CNPJBytes` (arrays fixos). Use `.ToString()` somente quando precisar de `string`.
+> Se precisar evitar alocação na conversão, guarde o valor em uma variável e use `.ToUnsafeString()`.
 
 ---
 
@@ -110,9 +111,23 @@ Converte a saída do CPF para `string` quando isso for necessário.
 
 ---
 
+### `(*CPFBytes).ToUnsafeString() string`
+
+Converte para `string` sem cópia nem alocação.
+O retorno compartilha a memória do array original, então o valor não deve ser alterado enquanto essa `string` estiver em uso.
+
+---
+
 ### `CNPJBytes.ToString() string`
 
 Converte a saída do CNPJ para `string` quando isso for necessário.
+
+---
+
+### `(*CNPJBytes).ToUnsafeString() string`
+
+Converte para `string` sem cópia nem alocação.
+O retorno compartilha a memória do array original, então o valor não deve ser alterado enquanto essa `string` estiver em uso.
 
 ---
 
@@ -145,9 +160,14 @@ import (
 )
 
 func main() {
-	fmt.Println("CPF:", cpfandcnpj.GenerateCPF().ToString())
-	fmt.Println("CNPJ v1:", cpfandcnpj.GenerateCNPJ(cpfandcnpj.CNPJV1).ToString())
-	fmt.Println("CNPJ v2:", cpfandcnpj.GenerateCNPJ(cpfandcnpj.CNPJV2).ToString())
+	cpf := cpfandcnpj.GenerateCPF()
+	cnpjv1 := cpfandcnpj.GenerateCNPJ(cpfandcnpj.CNPJV1)
+	cnpjv2 := cpfandcnpj.GenerateCNPJ(cpfandcnpj.CNPJV2)
+
+	fmt.Println("CPF:", cpf.ToString())
+	fmt.Println("CNPJ v1:", cnpjv1.ToString())
+	fmt.Println("CNPJ v2:", cnpjv2.ToString())
+	fmt.Println("CPF sem alloc:", cpf.ToUnsafeString())
 }
 ```
 
