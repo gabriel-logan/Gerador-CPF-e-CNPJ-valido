@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <time.h>
 
+#include "cpfGenerator.h"
+
 static uint64_t randomUint64(void) {
     uint64_t value = 0;
 

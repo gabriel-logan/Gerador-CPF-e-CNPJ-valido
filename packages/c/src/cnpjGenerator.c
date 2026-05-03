@@ -4,8 +4,7 @@
 #include <string.h>
 #include <time.h>
 
-#define CNPJV1 "v1"
-#define CNPJV2 "v2"
+#include "cnpjGenerator.h"
 
 const char ALPHANUMERIC_CHARS[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 

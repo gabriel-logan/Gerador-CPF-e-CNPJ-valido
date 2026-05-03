@@ -22,6 +22,8 @@ gcc cnpjGenerator.c -o cnpjGenerator
 ## Gerando CPF
 
 ```c
+#include "src/cpfGenerator.h"
+
 char cpf[12];
 
 GenerateCPF(cpf);
@@ -30,6 +32,8 @@ GenerateCPF(cpf);
 ## Gerando CNPJ por versão
 
 ```c
+#include "src/cnpjGenerator.h"
+
 char cnpj[15];
 
 // Aleatório entre CNPJ v1 e v2
