@@ -33,10 +33,10 @@ const (
 // Parameters:
 //
 //   - cnpjVersion:
-//     Defines which CNPJ standard should be used:
+//     Optional parameter that defines which CNPJ standard should be used:
 //   - "v1" → Numeric CNPJ (default / legacy standard)
 //   - "v2" → Alphanumeric CNPJ (new official standard)
-//   - Default is "v1"
+//   - Omitted or empty → Assumes "v1"
 //
 // Returns:
 //
@@ -44,11 +44,16 @@ const (
 //
 // Examples:
 //
-//	GenerateCNPJ("")          // Generates numeric CNPJ (version 1)
+//	GenerateCNPJ()            // Generates numeric CNPJ (version 1)
 //	GenerateCNPJ(CNPJV1)      // Same as above (version 1)
 //	GenerateCNPJ(CNPJV2)      // Generates alphanumeric CNPJ (version 2)
-func GenerateCNPJ(cnpjVersion CNPJVersion) CNPJBytes {
-	switch cnpjVersion {
+func GenerateCNPJ(cnpjVersion ...CNPJVersion) CNPJBytes {
+	version := CNPJV1
+	if len(cnpjVersion) > 0 {
+		version = cnpjVersion[0]
+	}
+
+	switch version {
 	case CNPJV2:
 		return GenerateCNPJV2()
 	default:

@@ -4,7 +4,7 @@ import "github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/packages/go/cpfandcnp
 
 func main() {
 	cpf := cpfandcnpj.GenerateCPF()
-	cnpj := cpfandcnpj.GenerateCNPJ(cpfandcnpj.CNPJV1)
+	cnpj := cpfandcnpj.GenerateCNPJ()
 	println("Generated CPF:", cpf.ToString())
 	println("Generated CNPJ:", cnpj.ToString())
 }

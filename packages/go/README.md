@@ -31,7 +31,8 @@ import (
 func main() {
 	cpf := cpfandcnpj.GenerateCPF()
 
-	cnpj := cpfandcnpj.GenerateCNPJ(cpfandcnpj.CNPJV1)
+	cnpj := cpfandcnpj.GenerateCNPJ()
+	// OU cnpj := cpfandcnpj.GenerateCNPJ(cpfandcnpj.CNPJV1)
 	// OU cnpj := cpfandcnpj.GenerateCNPJ(cpfandcnpj.CNPJV2)
 	// OU cnpj := cpfandcnpj.GenerateCNPJV1()
 	// OU cnpj := cpfandcnpj.GenerateCNPJV2()
@@ -56,7 +57,7 @@ func main() {
 * Padrão legado / atual
 
 ```go
-cnpj := cpfandcnpj.GenerateCNPJ(cpfandcnpj.CNPJV1)
+cnpj := cpfandcnpj.GenerateCNPJ()
 ```
 
 Exemplo:
@@ -93,13 +94,14 @@ Gera um CPF numérico válido (11 dígitos).
 
 ---
 
-### `GenerateCNPJ(version CNPJVersion) CNPJBytes`
+### `GenerateCNPJ(version ...CNPJVersion) CNPJBytes`
 
 Gera um CNPJ válido de acordo com a versão selecionada.
 
 **Parâmetros:**
 
-* `CNPJV1` → CNPJ numérico (default)
+* sem argumento → CNPJ numérico (default)
+* `CNPJV1` → CNPJ numérico
 * `CNPJV2` → CNPJ alfanumérico
 * `""` → Assume automaticamente `CNPJV1`
 
