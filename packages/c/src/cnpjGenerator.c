@@ -1,3 +1,4 @@
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -8,13 +9,14 @@
 
 const char ALPHANUMERIC_CHARS[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-// Function to generate a random number between 0 and 9
-int randomDigit() {
-    return rand() % 10;
-}
+static uint64_t randomUint64(void) {
+    uint64_t value = 0;
 
-char randomAlphanumericChar() {
-    return ALPHANUMERIC_CHARS[rand() % 36];
+    for (int i = 0; i < 5; i++) {
+        value = (value << 15) | (uint64_t)(rand() & 0x7FFFu);
+    }
+
+    return value;
 }
 
 int charToValue(char character) {
@@ -29,73 +31,77 @@ int charToValue(char character) {
     return 0;
 }
 
-// Function to calculate the first verifier digit
-int calculateFirstVerifier(int cnpjBase[]) {
-    int weight[12] = {5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2};
+void generateValidCNPJV1(char cnpj[15]) {
+    static const uint8_t weights1[12] = {5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2};
+    static const uint8_t weights2[12] = {6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3};
 
-    int sum = 0;
-
-    for (int i = 0; i < 12; i++) {
-        sum += cnpjBase[i] * weight[i];
-    }
-
-    int remainder = sum % 11;
-
-    return remainder < 2 ? 0 : 11 - remainder;
-}
-
-// Function to calculate the second verifier digit
-int calculateSecondVerifier(int cnpjBase[], int firstVerifier) {
-    int weight[13] = {6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2};
-    
-    int sum = 0;
+    uint16_t sum1 = 0;
+    uint16_t sum2 = 0;
+    uint64_t random = randomUint64();
 
     for (int i = 0; i < 12; i++) {
-        sum += cnpjBase[i] * weight[i];
+        uint8_t digit = (uint8_t)(random % 10u);
+        random /= 10u;
+
+        cnpj[i] = (char)('0' + digit);
+        sum1 += (uint16_t)(digit * weights1[i]);
+        sum2 += (uint16_t)(digit * weights2[i]);
     }
 
-    sum += firstVerifier * weight[12];
-
-    int remainder = sum % 11;
-
-    return remainder < 2 ? 0 : 11 - remainder;
-}
-
-void generateValidCNPJV1(char* cnpj) {
-    int cnpjBase[14];
-
-    for (int i = 0; i < 12; i++) {
-        cnpjBase[i] = randomDigit();
+    uint16_t remainder = (uint16_t)(sum1 % 11u);
+    uint8_t dv1 = 0;
+    if (remainder >= 2u) {
+        dv1 = (uint8_t)(11u - remainder);
     }
+    cnpj[12] = (char)('0' + dv1);
 
-    cnpjBase[12] = calculateFirstVerifier(cnpjBase);
-
-    cnpjBase[13] = calculateSecondVerifier(cnpjBase, cnpjBase[12]);
-
-    for (int i = 0; i < 14; i++) {
-        cnpj[i] = cnpjBase[i] + '0';
+    sum2 += (uint16_t)(dv1 * 2u);
+    remainder = (uint16_t)(sum2 % 11u);
+    uint8_t dv2 = 0;
+    if (remainder >= 2u) {
+        dv2 = (uint8_t)(11u - remainder);
     }
-
+    cnpj[13] = (char)('0' + dv2);
     cnpj[14] = '\0';
 }
 
-void generateValidCNPJV2(char* cnpj) {
-    int cnpjBase[14];
+void generateValidCNPJV2(char cnpj[15]) {
+    static const uint8_t weights1[12] = {5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2};
+    static const uint8_t weights2[12] = {6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3};
+
+    uint16_t sum1 = 0;
+    uint16_t sum2 = 0;
+    uint64_t random = randomUint64();
 
     for (int i = 0; i < 12; i++) {
-        cnpj[i] = randomAlphanumericChar();
-        cnpjBase[i] = charToValue(cnpj[i]);
+        uint8_t index = (uint8_t)(random % (sizeof(ALPHANUMERIC_CHARS) - 1u));
+        random /= (sizeof(ALPHANUMERIC_CHARS) - 1u);
+
+        cnpj[i] = ALPHANUMERIC_CHARS[index];
+
+        uint8_t value = (uint8_t)charToValue(cnpj[i]);
+        sum1 += (uint16_t)(value * weights1[i]);
+        sum2 += (uint16_t)(value * weights2[i]);
     }
 
-    cnpjBase[12] = calculateFirstVerifier(cnpjBase);
-    cnpjBase[13] = calculateSecondVerifier(cnpjBase, cnpjBase[12]);
+    uint16_t remainder = (uint16_t)(sum1 % 11u);
+    uint8_t dv1 = 0;
+    if (remainder >= 2u) {
+        dv1 = (uint8_t)(11u - remainder);
+    }
+    cnpj[12] = (char)('0' + dv1);
 
-    cnpj[12] = cnpjBase[12] + '0';
-    cnpj[13] = cnpjBase[13] + '0';
+    sum2 += (uint16_t)(dv1 * 2u);
+    remainder = (uint16_t)(sum2 % 11u);
+    uint8_t dv2 = 0;
+    if (remainder >= 2u) {
+        dv2 = (uint8_t)(11u - remainder);
+    }
+    cnpj[13] = (char)('0' + dv2);
     cnpj[14] = '\0';
 }
 
-void generateValidCNPJVersion(char* cnpj, const char* cnpjVersion) {
+void generateValidCNPJVersion(char cnpj[15], const char *cnpjVersion) {
     if (cnpjVersion != NULL && strcmp(cnpjVersion, CNPJ_V2) == 0) {
         generateValidCNPJV2(cnpj);
         return;
@@ -104,14 +110,19 @@ void generateValidCNPJVersion(char* cnpj, const char* cnpjVersion) {
     generateValidCNPJV1(cnpj);
 }
 
-void generateValidCNPJ(char* cnpj) {
-    generateValidCNPJVersion(cnpj, CNPJ_V1);
+void generateValidCNPJ(char cnpj[15]) {
+    if ((randomUint64() & 1u) == 0u) {
+        generateValidCNPJV1(cnpj);
+        return;
+    }
+
+    generateValidCNPJV2(cnpj);
 }
 
-int main() {
-    srand(time(NULL));
+int main(void) {
+    srand((unsigned int)time(NULL));
     char cnpj[15];
-    generateValidCNPJVersion(cnpj, CNPJ_V2);
-    printf("CNPJ válido gerado: %s\n", cnpj);
+    generateValidCNPJ(cnpj);
+    printf("Generated CNPJ: %s\n", cnpj);
     return 0;
 }

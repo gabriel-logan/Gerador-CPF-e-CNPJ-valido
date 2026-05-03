@@ -24,7 +24,7 @@ gcc cnpjGenerator.c -o cnpjGenerator
 ```c
 char cnpj[15];
 
-// Default: numeric CNPJ v1
+// Randomly chooses between CNPJ v1 and v2
 generateValidCNPJ(cnpj);
 
 // Explicit CNPJ v1
@@ -36,4 +36,4 @@ generateValidCNPJV2(cnpj);
 generateValidCNPJVersion(cnpj, CNPJ_V2);
 ```
 
-When no version is provided, `generateValidCNPJ` uses **CNPJ v1** by default.
+When no version is provided, `generateValidCNPJ` randomly chooses between **CNPJ v1** and **CNPJ v2**.

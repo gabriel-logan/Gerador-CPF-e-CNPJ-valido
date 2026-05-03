@@ -1,57 +1,56 @@
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
-// Function to generate a random number between 0 and 9
-int randomNum() {
-    // generates a random number of 9 digits
-    return rand() % 10;
-}
+static uint64_t randomUint64(void) {
+    uint64_t value = 0;
 
-// Function to calculate the verifier digits
-int calculateDigit(int cpfArray[], int lenght, int factor) {
-    // The sum is calculated by multiplying each digit by a factor and summing the results
-    int sum = 0;
-
-    for (int i = 0; i < lenght; i++) {
-        sum += cpfArray[i] * (factor - i);
+    for (int i = 0; i < 5; i++) {
+        value = (value << 15) | (uint64_t)(rand() & 0x7FFFu);
     }
 
-    int remainder = sum % 11;
-
-    // If the sum is less than 2, the verifier digit is 0, otherwise it is 11 minus the remainder of the sum divided by 11
-    return remainder < 2 ? 0 : 11 - remainder;
+    return value;
 }
 
-// Function to generate and validate a CPF
-void genAndValidate(char *cpf) {
-    int cpfArray[11];
+void generateValidCPF(char cpf[12]) {
+    uint16_t sum1 = 0;
+    uint16_t sum2 = 0;
+    uint64_t random = randomUint64();
 
-    // Generates an array of 9 random numbers
     for (int i = 0; i < 9; i++) {
-        cpfArray[i] = randomNum();
+        uint8_t digit = (uint8_t)(random % 10u);
+        uint8_t weight = (uint8_t)(10 - i);
+        random /= 10u;
+
+        cpf[i] = (char)('0' + digit);
+        sum1 += (uint16_t)(digit * weight);
+        sum2 += (uint16_t)(digit * (weight + 1u));
     }
 
-    // Calculates the first verifier digit
-    cpfArray[9] = calculateDigit(cpfArray, 9, 10);
-
-    // Calculates the second verifier digit
-    cpfArray[10] = calculateDigit(cpfArray, 10, 11);
-
-    // Converts the generated CPF numbers into a string
-    for (int i = 0; i < 11; i++) {
-        cpf[i] = '0' + cpfArray[i];
+    uint8_t remainder1 = (uint8_t)(sum1 % 11u);
+    uint8_t dv1 = 0;
+    if (remainder1 >= 2u) {
+        dv1 = (uint8_t)(11u - remainder1);
     }
+    cpf[9] = (char)('0' + dv1);
 
-    cpf[11] = '\0'; // Null-terminate the string
+    sum2 += (uint16_t)(dv1 * 2u);
+
+    uint8_t remainder2 = (uint8_t)(sum2 % 11u);
+    uint8_t dv2 = 0;
+    if (remainder2 >= 2u) {
+        dv2 = (uint8_t)(11u - remainder2);
+    }
+    cpf[10] = (char)('0' + dv2);
+    cpf[11] = '\0';
 }
 
-int main() {
-    // Seed the random number generator
-    srand(time(NULL));
+int main(void) {
+    srand((unsigned int)time(NULL));
 
     char cpf[12];
-    genAndValidate(cpf);
+    generateValidCPF(cpf);
     printf("Generated CPF: %s\n", cpf);
 
     return 0;
