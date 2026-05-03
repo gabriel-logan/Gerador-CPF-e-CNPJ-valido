@@ -15,7 +15,7 @@ O gerador de CNPJ suporta os dois padrões oficiais:
 
 ## Download
 
-- Baixe o arquivo JAR do projeto [aqui](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/raw/refs/heads/main/packages/java/dist/cpf_and_cnpj-generator-0.0.1.jar)
+- Baixe o arquivo JAR do projeto [cpf_and_cnpj-generator-1.0.0.jar](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/raw/refs/heads/main/packages/java/dist/cpf_and_cnpj-generator-1.0.0.jar)
 
 Você também pode simplesmente copiar o código fonte do projeto e utiliza-lo em seu projeto.
 

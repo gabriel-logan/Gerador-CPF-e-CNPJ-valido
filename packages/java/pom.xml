@@ -6,7 +6,7 @@
 
     <groupId>io.github</groupId>
     <artifactId>cpf_and_cnpj-generator</artifactId>
-    <version>0.0.1</version>
+    <version>1.0.0</version>
 
     <repositories>
         <repository>

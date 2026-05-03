@@ -15,7 +15,7 @@ The CNPJ generator supports both official standards:
 
 ## Download
 
-- Download the project JAR file [here](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/raw/refs/heads/main/packages/java/dist/cpf_and_cnpj-generator-0.0.1.jar)
+- Download the project JAR file [cpf_and_cnpj-generator-1.0.0.jar](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/raw/refs/heads/main/packages/java/dist/cpf_and_cnpj-generator-1.0.0.jar)
 
 You can also simply copy the project source code and use it in your project.
 
