@@ -4,8 +4,8 @@
 #include <string.h>
 #include <time.h>
 
-#define CNPJ_V1 "v1"
-#define CNPJ_V2 "v2"
+#define CNPJV1 "v1"
+#define CNPJV2 "v2"
 
 const char ALPHANUMERIC_CHARS[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
@@ -31,7 +31,7 @@ int charToValue(char character) {
     return 0;
 }
 
-void generateValidCNPJV1(char cnpj[15]) {
+void GenerateCNPJV1(char cnpj[15]) {
     static const uint8_t weights1[12] = {5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2};
     static const uint8_t weights2[12] = {6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3};
 
@@ -65,7 +65,7 @@ void generateValidCNPJV1(char cnpj[15]) {
     cnpj[14] = '\0';
 }
 
-void generateValidCNPJV2(char cnpj[15]) {
+void GenerateCNPJV2(char cnpj[15]) {
     static const uint8_t weights1[12] = {5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2};
     static const uint8_t weights2[12] = {6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3};
 
@@ -101,28 +101,29 @@ void generateValidCNPJV2(char cnpj[15]) {
     cnpj[14] = '\0';
 }
 
-void generateValidCNPJVersion(char cnpj[15], const char *cnpjVersion) {
-    if (cnpjVersion != NULL && strcmp(cnpjVersion, CNPJ_V2) == 0) {
-        generateValidCNPJV2(cnpj);
+void GenerateCNPJ(char cnpj[15], const char *cnpjVersion) {
+    if (cnpjVersion == NULL) {
+        if ((randomUint64() & 1u) == 0u) {
+            GenerateCNPJV1(cnpj);
+            return;
+        }
+
+        GenerateCNPJV2(cnpj);
         return;
     }
 
-    generateValidCNPJV1(cnpj);
-}
-
-void generateValidCNPJ(char cnpj[15]) {
-    if ((randomUint64() & 1u) == 0u) {
-        generateValidCNPJV1(cnpj);
+    if (strcmp(cnpjVersion, CNPJV2) == 0) {
+        GenerateCNPJV2(cnpj);
         return;
     }
 
-    generateValidCNPJV2(cnpj);
+    GenerateCNPJV1(cnpj);
 }
 
 int main(void) {
     srand((unsigned int)time(NULL));
     char cnpj[15];
-    generateValidCNPJ(cnpj);
+    GenerateCNPJ(cnpj, NULL);
     printf("Generated CNPJ: %s\n", cnpj);
     return 0;
 }

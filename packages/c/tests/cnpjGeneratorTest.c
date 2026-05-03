@@ -68,7 +68,7 @@ static void testGenerateCNPJWithoutVersionCoversBothFormats(void) {
 
     for (unsigned int seed = 1; seed <= 256; seed++) {
         srand(seed);
-        generateValidCNPJ(cnpj);
+        GenerateCNPJ(cnpj, NULL);
 
         assert(strlen(cnpj) == 14);
 
@@ -101,7 +101,7 @@ static void testGenerateCNPJV1(void) {
     char cnpj[15];
 
     for (int i = 0; i < 10000; i++) {
-        generateValidCNPJV1(cnpj);
+        GenerateCNPJV1(cnpj);
 
         assert(strlen(cnpj) == 14);
         assert(cnpjV1IsValid(cnpj));
@@ -112,7 +112,7 @@ static void testGenerateCNPJWithInvalidVersionFallsBackToV1(void) {
     char cnpj[15];
 
     for (int i = 0; i < 10000; i++) {
-        generateValidCNPJVersion(cnpj, "invalid");
+        GenerateCNPJ(cnpj, "invalid");
 
         assert(strlen(cnpj) == 14);
         assert(cnpjV1IsValid(cnpj));
@@ -123,7 +123,7 @@ static void testGenerateCNPJV2(void) {
     char cnpj[15];
 
     for (int i = 0; i < 10000; i++) {
-        generateValidCNPJV2(cnpj);
+        GenerateCNPJV2(cnpj);
 
         assert(strlen(cnpj) == 14);
         assert(cnpjV2IsValid(cnpj));
@@ -134,7 +134,7 @@ static void testGenerateCNPJV2ByVersion(void) {
     char cnpj[15];
 
     for (int i = 0; i < 10000; i++) {
-        generateValidCNPJVersion(cnpj, CNPJ_V2);
+        GenerateCNPJ(cnpj, CNPJV2);
 
         assert(strlen(cnpj) == 14);
         assert(cnpjV2IsValid(cnpj));

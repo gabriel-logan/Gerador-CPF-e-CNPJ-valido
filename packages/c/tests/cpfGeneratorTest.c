@@ -42,7 +42,7 @@ int main(void) {
     char cpf[12];
 
     for (int i = 0; i < 10000; i++) {
-        generateValidCPF(cpf);
+        GenerateCPF(cpf);
 
         assert(strlen(cpf) == 11);
         assert(cpfIsValid(cpf));

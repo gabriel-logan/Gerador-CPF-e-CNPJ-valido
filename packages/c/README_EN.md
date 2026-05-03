@@ -19,21 +19,29 @@ gcc cnpjGenerator.c -o cnpjGenerator
 ./cnpjGenerator
 ```
 
+## Generating CPF
+
+```c
+char cpf[12];
+
+GenerateCPF(cpf);
+```
+
 ## Generating CNPJ by Version
 
 ```c
 char cnpj[15];
 
 // Randomly chooses between CNPJ v1 and v2
-generateValidCNPJ(cnpj);
+GenerateCNPJ(cnpj, NULL);
 
 // Explicit CNPJ v1
-generateValidCNPJV1(cnpj);
-generateValidCNPJVersion(cnpj, CNPJ_V1);
+GenerateCNPJV1(cnpj);
+GenerateCNPJ(cnpj, CNPJV1);
 
 // Alphanumeric CNPJ v2
-generateValidCNPJV2(cnpj);
-generateValidCNPJVersion(cnpj, CNPJ_V2);
+GenerateCNPJV2(cnpj);
+GenerateCNPJ(cnpj, CNPJV2);
 ```
 
-When no version is provided, `generateValidCNPJ` randomly chooses between **CNPJ v1** and **CNPJ v2**.
+When no version is provided, `GenerateCNPJ(cnpj, NULL)` randomly chooses between **CNPJ v1** and **CNPJ v2**.

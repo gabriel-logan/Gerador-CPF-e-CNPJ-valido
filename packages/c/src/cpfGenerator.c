@@ -13,7 +13,7 @@ static uint64_t randomUint64(void) {
     return value;
 }
 
-void generateValidCPF(char cpf[12]) {
+void GenerateCPF(char cpf[12]) {
     uint16_t sum1 = 0;
     uint16_t sum2 = 0;
     uint64_t random = randomUint64();
@@ -50,7 +50,7 @@ int main(void) {
     srand((unsigned int)time(NULL));
 
     char cpf[12];
-    generateValidCPF(cpf);
+    GenerateCPF(cpf);
     printf("Generated CPF: %s\n", cpf);
 
     return 0;
