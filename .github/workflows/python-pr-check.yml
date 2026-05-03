@@ -1,0 +1,60 @@
+name: Python Pull Request Check
+
+permissions:
+  contents: read
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "packages/python/**"
+      - ".github/workflows/python-pr-check.yml"
+
+  pull_request:
+    branches: [main]
+    paths:
+      - "packages/python/**"
+      - ".github/workflows/python-pr-check.yml"
+
+  workflow_dispatch:
+
+concurrency:
+  group: python-pr-check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checking-pr:
+    name: Python checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+          cache-dependency-path: ./packages/python/pyproject.toml
+
+      - name: Install package
+        working-directory: ./packages/python
+        run: python -m pip install --upgrade pip && python -m pip install -e .
+
+      - name: Run tests
+        working-directory: ./packages/python
+        run: python -m unittest discover -s tests -v
+
+      - name: Build distribution
+        working-directory: ./packages/python
+        run: python -m pip install build && python -m build
+
+      - name: Check if dist directory is created
+        run: |
+          if [ ! -d "./packages/python/dist" ]; then
+            echo "dist directory is not created"
+            exit 1
+          fi
+          echo "Build successful, dist directory exists."

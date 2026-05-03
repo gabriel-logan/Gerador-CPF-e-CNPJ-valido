@@ -1,0 +1,64 @@
+name: C Pull Request Check
+
+permissions:
+  contents: read
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "packages/c/**"
+      - ".github/workflows/c-pr-check.yml"
+
+  pull_request:
+    branches: [main]
+    paths:
+      - "packages/c/**"
+      - ".github/workflows/c-pr-check.yml"
+
+  workflow_dispatch:
+
+concurrency:
+  group: c-pr-check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checking-pr:
+    name: C checks (${{ matrix.arch }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - arch: 64-bit
+            cflags: "-std=c11 -O2"
+          - arch: 32-bit
+            cflags: "-m32 -std=c11 -O2"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install 32-bit toolchain
+        if: matrix.arch == '32-bit'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-multilib
+
+      - name: Build CPF test
+        run: gcc ${{ matrix.cflags }} ./packages/c/tests/cpfGeneratorTest.c -o /tmp/cpfGeneratorTest
+
+      - name: Run CPF test
+        run: /tmp/cpfGeneratorTest
+
+      - name: Build CNPJ test
+        run: gcc ${{ matrix.cflags }} ./packages/c/tests/cnpjGeneratorTest.c -o /tmp/cnpjGeneratorTest
+
+      - name: Run CNPJ test
+        run: /tmp/cnpjGeneratorTest
+
+      - name: Build C examples
+        run: |
+          gcc ${{ matrix.cflags }} ./packages/c/src/cpfGenerator.c -o /tmp/cpfGenerator
+          gcc ${{ matrix.cflags }} ./packages/c/src/cnpjGenerator.c -o /tmp/cnpjGenerator
