@@ -42,7 +42,7 @@ func main() {
 }
 ```
 
-> ℹ️ Por padrão, `GenerateCNPJ` gera um **CNPJ numérico (v1)**.
+> ℹ️ Sem argumento, `GenerateCNPJ` gera aleatoriamente um **CNPJ v1** ou **CNPJ v2**.
 > As funções de geração retornam `CPFBytes` e `CNPJBytes` (arrays fixos). Use `.ToString()` somente quando precisar de `string`.
 > Se precisar evitar alocação na conversão, guarde o valor em uma variável e use `.ToUnsafeString()`.
 
@@ -50,14 +50,14 @@ func main() {
 
 ## 🧾 Gerando CNPJ por versão
 
-### 🔹 CNPJ v1 — Numérico (padrão)
+### 🔹 CNPJ v1 — Numérico
 
 * 14 dígitos numéricos
 * Ainda amplamente utilizado
 * Padrão legado / atual
 
 ```go
-cnpj := cpfandcnpj.GenerateCNPJ()
+cnpj := cpfandcnpj.GenerateCNPJ(cpfandcnpj.CNPJV1)
 ```
 
 Exemplo:
@@ -100,7 +100,7 @@ Gera um CNPJ válido de acordo com a versão selecionada.
 
 **Parâmetros:**
 
-* sem argumento → CNPJ numérico (default)
+* sem argumento → escolhe aleatoriamente entre `CNPJV1` e `CNPJV2`
 * `CNPJV1` → CNPJ numérico
 * `CNPJV2` → CNPJ alfanumérico
 * `""` → Assume automaticamente `CNPJV1`

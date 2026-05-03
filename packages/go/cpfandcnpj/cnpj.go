@@ -1,5 +1,7 @@
 package cpfandcnpj
 
+import "math/rand"
+
 // CNPJVersion defines which CNPJ standard should be generated.
 type CNPJVersion string
 
@@ -34,9 +36,10 @@ const (
 //
 //   - cnpjVersion:
 //     Optional parameter that defines which CNPJ standard should be used:
-//   - "v1" → Numeric CNPJ (default / legacy standard)
+//   - "v1" → Numeric CNPJ (legacy / current standard)
 //   - "v2" → Alphanumeric CNPJ (new official standard)
-//   - Omitted or empty → Assumes "v1"
+//   - Omitted → Randomly generates either "v1" or "v2"
+//   - Empty or invalid → Assumes "v1"
 //
 // Returns:
 //
@@ -44,10 +47,18 @@ const (
 //
 // Examples:
 //
-//	GenerateCNPJ()            // Generates numeric CNPJ (version 1)
-//	GenerateCNPJ(CNPJV1)      // Same as above (version 1)
+//	GenerateCNPJ()            // Randomly generates version 1 or version 2
+//	GenerateCNPJ(CNPJV1)      // Generates numeric CNPJ (version 1)
 //	GenerateCNPJ(CNPJV2)      // Generates alphanumeric CNPJ (version 2)
 func GenerateCNPJ(cnpjVersion ...CNPJVersion) CNPJBytes {
+	if len(cnpjVersion) == 0 {
+		if rand.Uint64()%2 == 0 {
+			return GenerateCNPJV1()
+		}
+
+		return GenerateCNPJV2()
+	}
+
 	version := CNPJV1
 	if len(cnpjVersion) > 0 {
 		version = cnpjVersion[0]
