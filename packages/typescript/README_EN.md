@@ -21,18 +21,18 @@ https://gabriel-logan.github.io/Gerador-CPF-e-CNPJ-valido
 Currently, the package offers **official support only via ESM**, using **jsDelivr**.
 
 ```bash
-https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.6.1/+esm
+https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.6.2/+esm
 ```
 
 ### Usage via CDN (ESM)
 
 ```html
 <script type="module">
-  import generator from "https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.6.1/+esm";
+  import generator from "https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.6.2/+esm";
   import {
     generateCpf,
     generateCnpj,
-  } from "https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.6.1/+esm";
+  } from "https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.6.2/+esm";
 
   generator.generateCpf();
   generator.generateCnpj();
@@ -65,19 +65,23 @@ pnpm add cpf_and_cnpj-generator
 ### ES Modules
 
 ```js
-import { generateCpf, generateCnpj } from "cpf_and_cnpj-generator";
+import { generateCpf, generateCnpj, generateCnpjV1, generateCnpjV2 } from "cpf_and_cnpj-generator";
 
 generateCpf();
 generateCnpj();
+generateCnpjV1();
+generateCnpjV2();
 ```
 
 ### CommonJS
 
 ```js
-const { generateCpf, generateCnpj } = require("cpf_and_cnpj-generator");
+const { generateCpf, generateCnpj, generateCnpjV1, generateCnpjV2 } = require("cpf_and_cnpj-generator");
 
 generateCpf();
 generateCnpj();
+generateCnpjV1();
+generateCnpjV2();
 ```
 
 ---
@@ -91,7 +95,6 @@ generateCnpj();
 
 - Format: **14 numeric digits**
 - Example: `12.345.678/0001-95`
-- Default generator version
 
 ### 🔹 `"v2"` — Alphanumeric CNPJ (new official standard)
 
@@ -119,6 +122,15 @@ generateCnpj(CNPJ_VERSIONS.V2);
 ```
 
 > Without arguments, `generateCnpj()` randomly chooses between `"v1"` and `"v2"`.
+
+You can also use the direct generators:
+
+```js
+import { generateCnpjV1, generateCnpjV2 } from "cpf_and_cnpj-generator";
+
+generateCnpjV1();
+generateCnpjV2();
+```
 
 ---
 

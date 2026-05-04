@@ -21,18 +21,18 @@ https://gabriel-logan.github.io/Gerador-CPF-e-CNPJ-valido
 Atualmente, o pacote oferece **suporte oficial apenas via ESM**, utilizando **jsDelivr**.
 
 ```bash
-https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.6.1/+esm
+https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.6.2/+esm
 ```
 
 ### Uso via CDN (ESM)
 
 ```html
 <script type="module">
-  import generator from "https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.6.1/+esm";
+  import generator from "https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.6.2/+esm";
   import {
     generateCpf,
     generateCnpj,
-  } from "https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.6.1/+esm";
+  } from "https://cdn.jsdelivr.net/npm/cpf_and_cnpj-generator@1.6.2/+esm";
 
   generator.generateCpf();
   generator.generateCnpj();
@@ -69,13 +69,17 @@ import generator from "cpf_and_cnpj-generator";
 
 generator.generateCpf();
 generator.generateCnpj();
+generator.generateCnpjV1();
+generator.generateCnpjV2();
 ```
 
 ```js
-import { generateCpf, generateCnpj } from "cpf_and_cnpj-generator";
+import { generateCpf, generateCnpj, generateCnpjV1, generateCnpjV2 } from "cpf_and_cnpj-generator";
 
 generateCpf();
 generateCnpj();
+generateCnpjV1();
+generateCnpjV2();
 ```
 
 ### CommonJS
@@ -85,13 +89,17 @@ const generator = require("cpf_and_cnpj-generator");
 
 generator.generateCpf();
 generator.generateCnpj();
+generator.generateCnpjV1();
+generator.generateCnpjV2();
 ```
 
 ```js
-const { generateCpf, generateCnpj } = require("cpf_and_cnpj-generator");
+const { generateCpf, generateCnpj, generateCnpjV1, generateCnpjV2 } = require("cpf_and_cnpj-generator");
 
 generateCpf();
 generateCnpj();
+generateCnpjV1();
+generateCnpjV2();
 ```
 
 ---
@@ -108,7 +116,6 @@ O gerador de CNPJ suporta **duas normas oficiais**:
 - Formato: **14 dígitos numéricos**
 - Exemplo: `12.345.678/0001-95`
 - Norma amplamente utilizada
-- **Versão padrão do gerador**
 
 ### 🔹 `"v2"` — CNPJ Alfanumérico (nova norma oficial)
 
@@ -142,6 +149,15 @@ generateCnpj(CNPJ_VERSIONS.V2);
 ```
 
 > Sem argumento, `generateCnpj()` escolhe aleatoriamente entre `"v1"` e `"v2"`.
+
+Também é possível usar os geradores diretos:
+
+```js
+import { generateCnpjV1, generateCnpjV2 } from "cpf_and_cnpj-generator";
+
+generateCnpjV1();
+generateCnpjV2();
+```
 
 ---
 
