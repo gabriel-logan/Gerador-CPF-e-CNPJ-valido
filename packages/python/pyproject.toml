@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cpf-and-cnpj-generator"
-version = "1.2.1"
+version = "1.2.2"
 authors = [
   { name="Gabriel Logan" },
 ]
@@ -16,7 +16,7 @@ maintainers = [
 description = "Python package for generating valid Brazilian CPF and CNPJ values, with support for numeric CNPJ v1 and the new official alphanumeric CNPJ v2."
 readme = {file = "README.md", content-type = "text/markdown"}
 license = {file = "LICENSE"}
-keywords = ["cpf", "cnpj", "generator", "python", "brazil", "document", "validator", "alphanumeric cnpj"]
+keywords = ["cpf", "cnpj", "generator", "python", "brazil", "document", "validator", "alphanumeric cnpj", "cnpj v2", "cpf generator", "cnpj generator", "brazilian documents", "mock data", "test data"]
 requires-python = ">=3.1"
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -30,8 +30,8 @@ classifiers = [
 
 [project.urls]
 "Homepage" = "https://gabriel-logan.github.io/Gerador-CPF-e-CNPJ-valido"
-"Documentation" = "https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/packages/python"
-"Repository" = "https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/packages/python"
+"Documentation" = "https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/python"
+"Repository" = "https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido"
 "Issues" = "https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/issues"
 "Source" = "https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/python"
 
