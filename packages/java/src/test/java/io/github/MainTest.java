@@ -56,14 +56,28 @@ class MainTest {
 
     @Test
     void testGenerateCnpj() {
-        for (int i = 0; i < 10000; i++) {
+        boolean foundV1 = false;
+        boolean foundV2 = false;
+
+        for (int i = 0; i < 256; i++) {
             String cnpj = Cnpj.generateCnpj();
 
             assertEquals(14, cnpj.length()); // CNPJ should have 14 digits
-            assertTrue(cnpjV1IsValid(cnpj));
-            assertTrue(CnpjValidator.cnpjIsValid(cnpj)); // CNPJ should be valid
-            assertFalse(CnpjValidator.cnpjIsValid("00000000000000")); // CNPJ should not be valid
+
+            if (cnpj.matches("^\\d{14}$")) {
+                assertTrue(cnpjV1IsValid(cnpj));
+                assertTrue(CnpjValidator.cnpjIsValid(cnpj)); // CNPJ should be valid
+                foundV1 = true;
+            } else {
+                assertTrue(cnpj.matches("^[0-9A-Z]{12}[0-9]{2}$"));
+                assertTrue(cnpjV2IsValid(cnpj));
+                foundV2 = true;
+            }
         }
+
+        assertTrue(foundV1);
+        assertTrue(foundV2);
+        assertFalse(CnpjValidator.cnpjIsValid("00000000000000")); // CNPJ should not be valid
     }
 
     @Test

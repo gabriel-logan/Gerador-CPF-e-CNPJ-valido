@@ -96,6 +96,6 @@ public class Cnpj {
     }
 
     public static String generateCnpj() {
-        return generateCnpj(CNPJ_V1);
+        return Utils.generateRandomNumber(2) == 0 ? generateCnpjV1() : generateCnpjV2();
     }
 }

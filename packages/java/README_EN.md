@@ -26,7 +26,7 @@ You can also simply copy the project source code and use it in your project.
 ```java
 String cpf = Cpf.generateCpf();
 
-// Default: numeric CNPJ v1
+// Randomly chooses between CNPJ v1 and v2
 String cnpj = Cnpj.generateCnpj();
 
 // Explicit CNPJ v1
@@ -38,4 +38,4 @@ String cnpjV2 = Cnpj.generateCnpj(Cnpj.CNPJ_V2);
 String cnpjV2Direct = Cnpj.generateCnpjV2();
 ```
 
-When no version is provided, `Cnpj.generateCnpj()` uses **CNPJ v1** by default.
+When no version is provided, `Cnpj.generateCnpj()` randomly chooses between **CNPJ v1** and **CNPJ v2**.

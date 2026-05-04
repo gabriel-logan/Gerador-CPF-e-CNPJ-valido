@@ -26,7 +26,7 @@ Você também pode simplesmente copiar o código fonte do projeto e utiliza-lo e
 ```java
 String cpf = Cpf.generateCpf();
 
-// Padrão: CNPJ v1 numérico
+// Aleatório entre CNPJ v1 e v2
 String cnpj = Cnpj.generateCnpj();
 
 // CNPJ v1 explícito
@@ -38,4 +38,4 @@ String cnpjV2 = Cnpj.generateCnpj(Cnpj.CNPJ_V2);
 String cnpjV2Direct = Cnpj.generateCnpjV2();
 ```
 
-Quando nenhuma versão é informada, `Cnpj.generateCnpj()` usa **CNPJ v1** por padrão.
+Quando nenhuma versão é informada, `Cnpj.generateCnpj()` escolhe aleatoriamente entre **CNPJ v1** e **CNPJ v2**.
