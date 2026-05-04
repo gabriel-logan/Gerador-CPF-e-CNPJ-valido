@@ -4,6 +4,13 @@
 #include <string.h>
 #include <time.h>
 
+static unsigned int makeSeed(void) {
+    struct timespec ts;
+    timespec_get(&ts, TIME_UTC);
+
+    return (unsigned int)(ts.tv_sec ^ ts.tv_nsec ^ (long)clock());
+}
+
 #include "cnpjGenerator.h"
 
 const char ALPHANUMERIC_CHARS[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -120,7 +127,7 @@ void GenerateCNPJ(char cnpj[15], const char *cnpjVersion) {
 }
 
 int main(void) {
-    srand((unsigned int)time(NULL));
+    srand(makeSeed());
     char cnpj[15];
     GenerateCNPJ(cnpj, NULL);
     printf("Generated CNPJ: %s\n", cnpj);

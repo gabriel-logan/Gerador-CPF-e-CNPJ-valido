@@ -3,6 +3,13 @@
 #include <stdlib.h>
 #include <time.h>
 
+static unsigned int makeSeed(void) {
+    struct timespec ts;
+    timespec_get(&ts, TIME_UTC);
+
+    return (unsigned int)(ts.tv_sec ^ ts.tv_nsec ^ (long)clock());
+}
+
 #include "cpfGenerator.h"
 
 static uint64_t randomUint64(void) {
@@ -49,7 +56,7 @@ void GenerateCPF(char cpf[12]) {
 }
 
 int main(void) {
-    srand((unsigned int)time(NULL));
+    srand(makeSeed());
 
     char cpf[12];
     GenerateCPF(cpf);
