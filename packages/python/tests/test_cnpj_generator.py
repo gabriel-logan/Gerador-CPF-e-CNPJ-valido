@@ -1,4 +1,5 @@
 import unittest
+from unittest.mock import patch
 
 from cpf_and_cnpj_generator import CNPJ_V1, CNPJ_V2, generate_cnpj, generate_cnpj_v1, generate_cnpj_v2
 
@@ -33,12 +34,21 @@ def cnpj_v2_is_valid(cnpj):
 
 
 class CnpjGeneratorTest(unittest.TestCase):
-    def test_generates_valid_cnpj_v1_by_default(self):
-        for _ in range(10000):
-            cnpj = generate_cnpj()
+    def test_generates_valid_cnpj_v1_when_chosen_by_default_path(self):
+        with patch("cpf_and_cnpj_generator.cnpj_generator.random.getrandbits", return_value=0):
+            for _ in range(10000):
+                cnpj = generate_cnpj()
 
-            self.assertRegex(cnpj, r"^\d{14}$")
-            self.assertTrue(cnpj_v1_is_valid(cnpj))
+                self.assertRegex(cnpj, r"^\d{14}$")
+                self.assertTrue(cnpj_v1_is_valid(cnpj))
+
+    def test_generates_valid_cnpj_v2_when_chosen_by_default_path(self):
+        with patch("cpf_and_cnpj_generator.cnpj_generator.random.getrandbits", return_value=1):
+            for _ in range(10000):
+                cnpj = generate_cnpj()
+
+                self.assertRegex(cnpj, r"^[0-9A-Z]{12}\d{2}$")
+                self.assertTrue(cnpj_v2_is_valid(cnpj))
 
     def test_generates_valid_cnpj_v1_by_version(self):
         for _ in range(10000):

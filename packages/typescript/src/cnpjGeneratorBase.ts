@@ -30,18 +30,22 @@ export const CNPJ_VERSIONS: Record<string, CnpjVersion> = {
  *
  * @param cnpjVersion
  * Defines which CNPJ standard should be used:
- * - `"v1"` → Numeric CNPJ (default / legacy standard)
+ * - `"v1"` → Numeric CNPJ (legacy / current standard)
  * - `"v2"` → Alphanumeric CNPJ (new official standard)
- * - Default is `"v1"`
+ * - Omitted → Randomly generates either `"v1"` or `"v2"`
  *
  * @returns A valid CNPJ string according to the selected version.
  *
  * @example
- * generateValidCNPJ();        // Generates numeric CNPJ (version 1)
- * generateValidCNPJ("v1");       // Same as above
+ * generateValidCNPJ();           // Randomly generates version 1 or version 2
+ * generateValidCNPJ("v1");       // Generates numeric CNPJ
  * generateValidCNPJ("v2");       // Generates alphanumeric CNPJ
  */
-function generateValidCNPJ(cnpjVersion: CnpjVersion = "v1"): string {
+function generateValidCNPJ(cnpjVersion?: CnpjVersion): string {
+  if (cnpjVersion === undefined) {
+    return Math.random() < 0.5 ? generateCnpj1() : generateCnpj2();
+  }
+
   if (cnpjVersion === "v2") {
     return generateCnpj2();
   }

@@ -110,13 +110,15 @@ generateCnpj();
 ```js
 import { generateCnpj, CNPJ_VERSIONS } from "cpf_and_cnpj-generator";
 
-generateCnpj(); // default v1
+generateCnpj(); // random between v1 and v2
 generateCnpj("v1"); // numeric
 generateCnpj("v2"); // alphanumeric
 
 generateCnpj(CNPJ_VERSIONS.V1);
 generateCnpj(CNPJ_VERSIONS.V2);
 ```
+
+> Without arguments, `generateCnpj()` randomly chooses between `"v1"` and `"v2"`.
 
 ---
 

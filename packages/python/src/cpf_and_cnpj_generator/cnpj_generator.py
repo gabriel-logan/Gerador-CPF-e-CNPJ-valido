@@ -67,7 +67,10 @@ def generate_cnpj_v2():
 
     return ''.join(cnpj_base)
 
-def generate_cnpj(cnpj_version=CNPJ_V1):
+def generate_cnpj(cnpj_version=None):
+    if cnpj_version is None:
+        cnpj_version = CNPJ_V1 if random.getrandbits(1) == 0 else CNPJ_V2
+
     if cnpj_version == CNPJ_V2:
         return generate_cnpj_v2()
 

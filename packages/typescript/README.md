@@ -127,7 +127,7 @@ O gerador de CNPJ suporta **duas normas oficiais**:
 ```js
 import { generateCnpj, CNPJ_VERSIONS } from "cpf_and_cnpj-generator";
 
-// Padrão (v1)
+// Aleatório entre v1 e v2
 generateCnpj();
 
 // Explícito
@@ -141,7 +141,7 @@ generateCnpj(CNPJ_VERSIONS.V1);
 generateCnpj(CNPJ_VERSIONS.V2);
 ```
 
-> Caso nenhuma versão seja informada, o gerador utiliza `"v1"` por padrão.
+> Sem argumento, `generateCnpj()` escolhe aleatoriamente entre `"v1"` e `"v2"`.
 
 ---
 

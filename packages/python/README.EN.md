@@ -34,7 +34,7 @@ from cpf_and_cnpj_generator import CNPJ_V1, CNPJ_V2, generate_cnpj, generate_cpf
 ```
 
 ```python
-# Generate a valid CNPJ v1 (numeric, default)
+# Generate a valid CNPJ (randomly v1 or v2)
 cnpj = generate_cnpj()
 print(cnpj)
 
@@ -58,7 +58,7 @@ The generator supports both official CNPJ standards:
 - **`v1`**: traditional numeric CNPJ, with 14 digits.
 - **`v2`**: alphanumeric CNPJ, with 12 alphanumeric characters + 2 check digits.
 
-When no version is provided, `generate_cnpj()` uses **`v1`** by default.
+When no version is provided, `generate_cnpj()` randomly chooses between **`v1`** and **`v2`**.
 
 Feel free to explore the various functions and experiment with different inputs to understand their behavior. If you encounter any issues or have suggestions, don't hesitate to reach out to me. Your feedback is valuable and helps improve the package. Happy coding!
 
