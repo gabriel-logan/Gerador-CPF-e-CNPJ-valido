@@ -6,6 +6,8 @@
 
 Este pacote fornece funções em JavaScript/TypeScript para gerar **CPFs** e **CNPJs válidos**, incluindo suporte à **nova norma de CNPJ alfanumérico definida pela Receita Federal (SERPRO)**.
 
+O objetivo é oferecer uma API simples, com suporte ao padrão novo e uma implementação mais cuidadosa do que a normalmente encontrada em bibliotecas desse tipo.
+
 ---
 
 ## 📘 Documentação

@@ -2,6 +2,8 @@
 
 Este pacote gera **CPF** e **CNPJ** válidos em C.
 
+Ele foi pensado para quem precisa de uma opção simples, portátil e direta em C, com suporte ao **novo CNPJ alfanumérico**, além do formato numérico legado.
+
 O gerador de CNPJ suporta os dois padrões oficiais:
 
 - **CNPJ v1 numérico**: padrão tradicional, com 14 dígitos.

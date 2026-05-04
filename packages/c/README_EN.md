@@ -2,6 +2,8 @@
 
 This package generates valid **CPF** and **CNPJ** values in C.
 
+It is designed for developers who want a simple, portable and direct C implementation with support for the **new alphanumeric CNPJ**, not only the legacy numeric format.
+
 The CNPJ generator supports both official standards:
 
 - **Numeric CNPJ v1**: traditional standard, with 14 digits.

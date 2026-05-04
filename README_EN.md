@@ -1,11 +1,15 @@
-> [!NOTE]
-> This project now supports the **new alphanumeric CNPJ (official standard from Receita Federal / SERPRO)**.
->
-> All repository languages now support **numeric CNPJ v1** and **alphanumeric CNPJ v2**.
-
 # cpf_and_cnpj-generator
 
-This repository provides functions in TypeScript/JavaScript, Python, Go, C and Java to generate valid CPF (Cadastro de Pessoas Físicas) and CNPJ (Cadastro Nacional da Pessoa Jurídica) numbers for Brazil.
+Library for generating valid **CPF** and **CNPJ** values in **TypeScript/JavaScript, Python, Go, C and Java**.
+
+The project covers both official CNPJ standards, including the **new alphanumeric CNPJ**, and keeps an explicit focus on implementation quality, cross-language consistency and performance.
+
+## Highlights
+
+- **Support for CNPJ v1 and CNPJ v2** across every language in the repository.
+- **Coverage of the new official alphanumeric CNPJ**, which is still uncommon in libraries in this space.
+- **Efficiency-oriented implementations**, with stronger performance emphasis in the Go package.
+- **Simple and consistent APIs** across the project packages.
 
 ## CNPJ — Supported Versions
 
@@ -13,8 +17,6 @@ All packages support both official CNPJ standards:
 
 - **Numeric CNPJ v1**: traditional standard, with 14 numeric digits.
 - **Alphanumeric CNPJ v2**: new official standard, with 12 alphanumeric characters + 2 check digits.
-
-When no version is provided, generators use **CNPJ v1** by default.
 
 👉 Demo: [./demo.html](./demo.html)
 
@@ -24,7 +26,7 @@ When no version is provided, generators use **CNPJ v1** by default.
 
 ## Supported Languages
 
-This library can generate valid CPF and CNPJ values in the following programming languages:
+You can use the project in the following languages:
 
 - [TypeScript (TS/JS/NPM)](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/typescript/README_EN.md) (stable)
 - [Python](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/python/README_EN.md) (stable)
@@ -34,8 +36,9 @@ This library can generate valid CPF and CNPJ values in the following programming
 
 ## Usage
 
-To use this library, please refer to the specific README file in the directory of the programming language you are using. 
-For example, if you are using TypeScript, you can find the usage instructions in the [TypeScript README](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/typescript/README_EN.md).
+Each language has its own README with installation steps, examples and API details.
+
+If you are using TypeScript, for example, start with the [TypeScript README](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/typescript/README_EN.md).
 
 ## Installation
 

@@ -6,6 +6,8 @@
 
 Sinta-se à vontade para encontrar bugs e relatá-los para mim. Seu feedback é muito apreciado. Abraços do Gabriel Logan!
 
+Este pacote oferece geração de CPF/CNPJ com suporte ao **novo CNPJ alfanumérico** e uma implementação mais cuidadosa do que a média das bibliotecas utilitárias desse nicho.
+
 ## Documentação
 
 https://gabriel-logan.github.io/Gerador-CPF-e-CNPJ-valido/py

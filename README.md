@@ -1,11 +1,15 @@
-> [!NOTE]
-> Este projeto agora oferece suporte ao **novo CNPJ alfanumérico (norma oficial da Receita Federal / SERPRO)**.
->
-> Todas as linguagens do repositório agora suportam **CNPJ v1 numérico** e **CNPJ v2 alfanumérico**.
-
 # cpf_and_cnpj-generator
 
-Este repositório fornece funções em TypeScript/JavaScript, Python, Go, C e Java para gerar números válidos de CPF (Cadastro de Pessoas Físicas) e CNPJ (Cadastro Nacional da Pessoa Jurídica) para o Brasil.
+Biblioteca para geração de **CPF** e **CNPJ** válidos em **TypeScript/JavaScript, Python, Go, C e Java**.
+
+O projeto cobre os dois padrões oficiais de CNPJ, incluindo o **novo CNPJ alfanumérico**, e mantém uma preocupação explícita com qualidade de implementação, consistência entre linguagens e performance.
+
+## Diferenciais
+
+- **Suporte a CNPJ v1 e CNPJ v2** em todas as linguagens do repositório.
+- **Cobertura do novo CNPJ alfanumérico oficial**, ainda pouco comum em bibliotecas desse tipo.
+- **Implementações com foco em eficiência**, com atenção maior a performance na versão Go.
+- **APIs simples e consistentes** entre os pacotes do projeto.
 
 ## CNPJ — Versões suportadas
 
@@ -13,8 +17,6 @@ Todos os pacotes suportam os dois padrões oficiais de CNPJ:
 
 - **CNPJ v1 numérico**: padrão tradicional, com 14 dígitos numéricos.
 - **CNPJ v2 alfanumérico**: novo padrão oficial, com 12 caracteres alfanuméricos + 2 dígitos verificadores.
-
-Quando nenhuma versão é informada, os geradores usam **CNPJ v1** por padrão.
 
 👉 Demo: [./demo.html](./demo.html)
 
@@ -24,7 +26,7 @@ Quando nenhuma versão é informada, os geradores usam **CNPJ v1** por padrão.
 
 ## Linguagens de programação suportadas
 
-Esta biblioteca pode gerar CPF e CNPJ válidos nas seguintes linguagens de programação:
+Você pode usar o projeto nas seguintes linguagens:
 
 - [TypeScript (TS/JS/NPM)](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/typescript/README.md) (estável)
 - [Python](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/python/README.md) (estável)
@@ -34,8 +36,9 @@ Esta biblioteca pode gerar CPF e CNPJ válidos nas seguintes linguagens de progr
 
 ## Uso
 
-Para usar esta biblioteca, consulte o arquivo README específico no diretório da linguagem de programação que você está usando.
-Por exemplo, se você estiver usando TypeScript, você pode encontrar as instruções de uso no [TypeScript README](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/typescript/README.md).
+Cada linguagem tem seu próprio README com instruções, exemplos e detalhes de API.
+
+Se você estiver usando TypeScript, por exemplo, comece pelo [TypeScript README](https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/typescript/README.md).
 
 ## Instalação
 

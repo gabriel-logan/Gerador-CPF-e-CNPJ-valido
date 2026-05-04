@@ -3,6 +3,16 @@
 Gerador de **CPF** e **CNPJ** válidos em Go, seguindo as regras oficiais da  
 Receita Federal / SERPRO.
 
+Esta implementação foi pensada para ser **rápida, enxuta e previsível**, com atenção real a custo por chamada, alocação e ergonomia de API. Enquanto muitas libs desse nicho param no básico, esta também cobre o **novo CNPJ alfanumérico oficial**.
+Esta implementação foi pensada para ser **rápida, enxuta e previsível**, com atenção a custo por chamada, alocação e ergonomia de API. Ela também cobre o **novo CNPJ alfanumérico oficial**.
+
+## Por que usar esta versão
+
+- **Suporte a CNPJ v1 e CNPJ v2**.
+- **Foco forte em performance**, inclusive com benchmarks no repositório.
+- **API simples no caso comum**, sem esconder o controle de versão quando você precisa dele.
+- **Saídas em arrays fixos**, úteis para reduzir overhead e dar mais controle sobre conversão para `string`.
+
 O projeto suporta **dois padrões oficiais de CNPJ**:
 - **CNPJ Numérico (v1)** — padrão atual / legado
 - **CNPJ Alfanumérico (v2)** — novo padrão oficial

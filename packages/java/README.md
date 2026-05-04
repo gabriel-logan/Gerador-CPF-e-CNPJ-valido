@@ -4,6 +4,8 @@
 
 Esse pacote fornece um código legível e eficiente para gerar CPF e CNPJ válidos.
 
+Ele oferece uma opção Java com suporte ao **novo CNPJ alfanumérico oficial**, API direta e uma implementação mais cuidadosa do que a normalmente vista em geradores desse tipo.
+
 O gerador de CNPJ suporta os dois padrões oficiais:
 
 - **CNPJ v1 numérico**: padrão tradicional, com 14 dígitos.

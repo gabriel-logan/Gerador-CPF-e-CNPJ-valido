@@ -4,6 +4,8 @@
 
 This package provides readable and efficient code to generate valid CPF and CNPJ.
 
+It provides a Java option with support for the **new official alphanumeric CNPJ**, a straightforward API, and a more careful implementation than what is commonly found in this category.
+
 The CNPJ generator supports both official standards:
 
 - **Numeric CNPJ v1**: traditional standard, with 14 digits.

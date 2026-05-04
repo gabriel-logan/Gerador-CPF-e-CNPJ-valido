@@ -6,6 +6,8 @@
 
 This package provides JavaScript/TypeScript utilities to generate **valid Brazilian CPF and CNPJ numbers**, including support for the **new official alphanumeric CNPJ standard defined by Receita Federal (SERPRO)**.
 
+The goal is to offer a simple API, support for the new standard, and a more careful implementation than what is commonly found in libraries in this category.
+
 ---
 
 ## 📘 Documentation
