@@ -1,6 +1,6 @@
 {
   "name": "cpf_and_cnpj-generator",
-  "version": "1.5.5",
+  "version": "1.5.6",
   "description": "Este repositório contém um código JavaScript que gera um CPF (Cadastro de Pessoas Físicas) e CNPJ (Cadastro Nacional da Pessoa Jurídica) brasileiro válido. CPF é um número de identificação exclusivo atribuído a indivíduos no Brasil. O código garante que os números de CPF e CNPJ gerados sigam as regras e algoritmos de validação necessários.",
   "main": "dist/index.js",
   "types": "types/index.d.ts",
@@ -70,7 +70,7 @@
     "eslint": "^9.39.4",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
-    "globals": "^17.5.0",
+    "globals": "^17.6.0",
     "jiti": "^2.6.1",
     "multiform-validator": "2.8.0-beta3",
     "prettier": "^3.8.3",
