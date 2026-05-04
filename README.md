@@ -18,6 +18,8 @@ Todos os pacotes suportam os dois padrões oficiais de CNPJ:
 - **CNPJ v1 numérico**: padrão tradicional, com 14 dígitos numéricos.
 - **CNPJ v2 alfanumérico**: novo padrão oficial, com 12 caracteres alfanuméricos + 2 dígitos verificadores.
 
+Quando nenhuma versão é informada, os geradores escolhem aleatoriamente entre **CNPJ v1** e **CNPJ v2**.
+
 👉 Demo: [./demo.html](./demo.html)
 
 ## READMEs

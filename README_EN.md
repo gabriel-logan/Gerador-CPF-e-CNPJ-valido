@@ -18,6 +18,8 @@ All packages support both official CNPJ standards:
 - **Numeric CNPJ v1**: traditional standard, with 14 numeric digits.
 - **Alphanumeric CNPJ v2**: new official standard, with 12 alphanumeric characters + 2 check digits.
 
+When no version is provided, generators randomly choose between **CNPJ v1** and **CNPJ v2**.
+
 👉 Demo: [./demo.html](./demo.html)
 
 ## READMEs
