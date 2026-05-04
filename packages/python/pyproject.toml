@@ -6,21 +6,37 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cpf-and-cnpj-generator"
-version = "1.2.0"
+version = "1.2.1"
 authors = [
   { name="Gabriel Logan" },
 ]
-description = "This pypi package provides Python functions to generate valid Brazilian CPF (Cadastro de Pessoas Físicas) and CNPJ (Cadastro Nacional da Pessoa Jurídica) numbers."
+maintainers = [
+  { name="Gabriel Logan" },
+]
+description = "Python package for generating valid Brazilian CPF and CNPJ values, with support for numeric CNPJ v1 and the new official alphanumeric CNPJ v2."
 readme = {file = "README.md", content-type = "text/markdown"}
 license = {file = "LICENSE"}
-keywords = ["CPF","CNPJ","GENERATOR","GERADOR","VALIDADOR","DOCUMENTO","Python","Dados pessoais","npm","cpf","cnpj","gerador de cpf","gerador de cnpj","validador de cpf","validador de cnpj","gerador de cpf e cnpj","validador de cpf e cnpj","front-end","back-end"]
+keywords = ["cpf", "cnpj", "generator", "python", "brazil", "document", "validator", "alphanumeric cnpj"]
 requires-python = ">=3.1"
 classifiers = [
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
 ]
 
 [project.urls]
 "Homepage" = "https://gabriel-logan.github.io/Gerador-CPF-e-CNPJ-valido"
-"Bug Tracker" = "https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/python"
+"Documentation" = "https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/packages/python"
+"Repository" = "https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/packages/python"
+"Issues" = "https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/issues"
+"Source" = "https://github.com/gabriel-logan/Gerador-CPF-e-CNPJ-valido/tree/main/packages/python"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

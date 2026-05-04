@@ -8,10 +8,6 @@ Feel free to find bugs and report them to me. Your feedback is highly appreciate
 
 This package provides CPF/CNPJ generation with support for the **new alphanumeric CNPJ standard** and a more careful implementation than the average utility library in this space.
 
-## Documentation
-
-https://gabriel-logan.github.io/Gerador-CPF-e-CNPJ-valido/py
-
 ### Installation
 
 ```bash
