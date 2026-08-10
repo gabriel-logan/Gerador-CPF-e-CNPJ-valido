@@ -74,7 +74,12 @@ generator.generateCnpjV2();
 ```
 
 ```js
-import { generateCpf, generateCnpj, generateCnpjV1, generateCnpjV2 } from "cpf_and_cnpj-generator";
+import {
+  generateCpf,
+  generateCnpj,
+  generateCnpjV1,
+  generateCnpjV2,
+} from "cpf_and_cnpj-generator";
 
 generateCpf();
 generateCnpj();
@@ -94,7 +99,12 @@ generator.generateCnpjV2();
 ```
 
 ```js
-const { generateCpf, generateCnpj, generateCnpjV1, generateCnpjV2 } = require("cpf_and_cnpj-generator");
+const {
+  generateCpf,
+  generateCnpj,
+  generateCnpjV1,
+  generateCnpjV2,
+} = require("cpf_and_cnpj-generator");
 
 generateCpf();
 generateCnpj();
